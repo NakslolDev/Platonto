@@ -1,0 +1,20 @@
+# Godot 4+ specific ignores
+.godot/
+.import/
+.export/
+.godot/mono/
+*.import
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Export templates and builds
+*.exe
+*.pck
+*.apk
+*.zip
