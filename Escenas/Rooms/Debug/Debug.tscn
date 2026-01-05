@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://d1y45ilycwciq"]
+[gd_scene load_steps=9 format=4 uid="uid://d1y45ilycwciq"]
 
-[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_5lyy6"]
+[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_5lyy6"]
 [ext_resource type="Texture2D" uid="uid://bn5a6m7g4xscx" path="res://icon.svg" id="3_7dxi0"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="3_c0fs1"]
+[ext_resource type="PackedScene" uid="uid://n0d3287r3s5k" path="res://Escenas/RoomAsets/interact_colider/interact_colider.tscn" id="4_ydjxa"]
+[ext_resource type="Script" uid="uid://dyy6wjgl3kpu" path="res://GlobalScripts/interactcallable.gd" id="5_c0fs1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5lyy6"]
 texture = ExtResource("1_5lyy6")
@@ -12,6 +14,12 @@ texture = ExtResource("1_5lyy6")
 [sub_resource type="TileSet" id="TileSet_7dxi0"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_5lyy6")
+
+[sub_resource type="Resource" id="Resource_c0fs1"]
+script = ExtResource("5_c0fs1")
+method = &"text_freeze_player_ff"
+method = &"text_freeze_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
 [node name="Debug" type="Node2D"]
 
@@ -31,6 +39,19 @@ texture = ExtResource("3_7dxi0")
 position = Vector2(-2.670288e-05, -5.2452087e-06)
 scale = Vector2(3.657143, 5.3333335)
 to_scene = "TestHall"
+interactable = true
+
+[node name="Icon2" type="Sprite2D" parent="YSort"]
+position = Vector2(-20.000008, 79)
+scale = Vector2(0.2734375, 0.1875)
+texture = ExtResource("3_7dxi0")
+
+[node name="InteractColider" parent="YSort/Icon2" instance=ExtResource("4_ydjxa")]
+position = Vector2(2.861023e-05, 0)
+scale = Vector2(5.534855, 6.3333335)
+actions = Array[ExtResource("5_c0fs1")]([SubResource("Resource_c0fs1")])
+text_id = "hola"
+auto = true
 
 [node name="SpawnPoints" type="Node" parent="."]
 

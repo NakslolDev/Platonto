@@ -3,7 +3,7 @@ extends Sprite2D
 const FADE_DURATION := 0.5
 
 func _ready():
-	modulate.a = 0.0
+	modulate.a = 1.0
 	visible = true
 
 func fade_in():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ueoi3s0r0l47"]
+[gd_scene load_steps=5 format=3 uid="uid://ueoi3s0r0l47"]
 
 [ext_resource type="Script" uid="uid://bkqgugaqouqgh" path="res://Escenas/TextBox/text_box.gd" id="1_kjw2d"]
 [ext_resource type="Theme" uid="uid://hnjog2hko8rb" path="res://resources/encripted.tres" id="1_q4qu7"]
+[ext_resource type="Script" uid="uid://dc2e5hn4wjtdw" path="res://Escenas/TextBox/rich_text_label.gd" id="3_62g67"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjw2d"]
 bg_color = Color(0, 0, 0, 1)
@@ -11,7 +12,7 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
 
-[node name="TextBox" type="Control"]
+[node name="TextBox" type="Control" node_paths=PackedStringArray("label")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -20,6 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kjw2d")
+label = NodePath("Panel/RichTextLabel")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -42,3 +44,4 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_q4qu7")
 scroll_active = false
+script = ExtResource("3_62g67")

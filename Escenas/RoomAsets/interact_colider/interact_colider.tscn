@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://n0d3287r3s5k"]
+
+[ext_resource type="Script" uid="uid://bfneoxgrp0lsc" path="res://Escenas/RoomAsets/interact_colider/interact_colider.gd" id="1_58661"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thrl1"]
+
+[node name="InteractColider" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_58661")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_thrl1")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
