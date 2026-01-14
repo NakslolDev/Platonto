@@ -7,13 +7,15 @@ var active := false
 
 func print_text(dialog: String):
 	
+	text = dialog
+	
+	var text_lenght := calc_text_lenght()
+	
 	done = false
 	
 	visible_characters = 0
 	
-	text = dialog
-	
-	while visible_characters < text.length():
+	while visible_characters < text_lenght:
 		
 		var text_shown = text.substr(0, visible_characters)
 		var last_char = text_shown[-1] if text_shown.length() > 0 else ""
@@ -34,6 +36,13 @@ func calculate_time(character: String) -> float:
 	if character == "." or character == "!" or character == "?":
 		return 0.5
 	return 0.08
+
+func calc_text_lenght() -> int:
+	var regex := RegEx.new()
+	regex.compile("\\[[^\\]]*\\]") # “Un [ seguido de cualquier cantidad de caracteres que no sean ], seguido de un ]”
+	
+	var clean_text := regex.sub(text, "", true) # quita las coincidencias
+	return clean_text.length()
 
 func _input(event: InputEvent) -> void:
 	if not active:

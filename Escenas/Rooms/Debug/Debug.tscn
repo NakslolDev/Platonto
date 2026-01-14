@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://d1y45ilycwciq"]
+[gd_scene load_steps=14 format=4 uid="uid://d1y45ilycwciq"]
 
-[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_5lyy6"]
+[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_5lyy6"]
 [ext_resource type="Texture2D" uid="uid://bn5a6m7g4xscx" path="res://icon.svg" id="3_7dxi0"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="3_c0fs1"]
 [ext_resource type="PackedScene" uid="uid://n0d3287r3s5k" path="res://Escenas/RoomAsets/interact_colider/interact_colider.tscn" id="4_ydjxa"]
@@ -15,10 +15,40 @@ texture = ExtResource("1_5lyy6")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_5lyy6")
 
+[sub_resource type="Resource" id="Resource_rx2t5"]
+script = ExtResource("5_c0fs1")
+method = &"npc_test_ff"
+method = &"npc_test_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_4tido"]
+script = ExtResource("5_c0fs1")
+method = &"spawn_waifu_ff"
+method = &"spawn_waifu_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_7vtsu"]
+script = ExtResource("5_c0fs1")
+method = &"despawn_waifu_ff"
+method = &"despawn_waifu_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_42wnk"]
+script = ExtResource("5_c0fs1")
+method = &"text_freeze_player_ff"
+method = &"text_freeze_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
 [sub_resource type="Resource" id="Resource_c0fs1"]
 script = ExtResource("5_c0fs1")
 method = &"text_freeze_player_ff"
 method = &"text_freeze_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_3xtn3"]
+script = ExtResource("5_c0fs1")
+method = &"player_push_back_ff"
+method = &"player_push_back_ff"
 metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
 [node name="Debug" type="Node2D"]
@@ -27,33 +57,77 @@ metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 tile_map_data = PackedByteArray("AAD8//z/AQAAAAAAAAD9//z/AQAAAAAAAAD+//z/AQAAAAAAAAD///z/AQAAAAAAAAAAAPz/AQAAAAAAAAABAPz/AQAAAAAAAAACAPz/AQAAAAAAAAADAPz/AQAAAAAAAAAEAPz/AQAAAAAAAAAFAPz/AQAAAAAAAAAGAPz/AQAAAAAAAAAGAP3/AQAAAAAAAAAGAP7/AQAAAAAAAAAGAP//AQAAAAAAAAAGAAEAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAGAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAADAAYAAQAAAAAAAAACAAYAAQAAAAAAAAABAAYAAQAAAAAAAAAAAAYAAQAAAAAAAAD//wYAAQAAAAAAAAD+/wYAAQAAAAAAAAD9/wYAAQAAAAAAAAD8/wUAAQAAAAAAAAD8/wQAAQAAAAAAAAD8/wMAAQAAAAAAAAD8/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD8////AQAAAAAAAAD8//7/AQAAAAAAAAD8//3/AQAAAAAAAAD8/wYAAQAAAAAAAAAGAAAAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_7dxi0")
 
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="WaifuSpawner" type="Sprite2D" parent="Floor"]
+position = Vector2(-30.000002, -29)
+scale = Vector2(0.109375, 0.062500015)
+texture = ExtResource("3_7dxi0")
+
+[node name="InteractColider2" parent="Floor/WaifuSpawner" instance=ExtResource("4_ydjxa")]
+scale = Vector2(5.690631, 5.744657)
+actions = Array[ExtResource("5_c0fs1")]([SubResource("Resource_rx2t5")])
+
+[node name="WaifuSpawner2" type="Sprite2D" parent="Floor"]
+position = Vector2(-36, -16)
+scale = Vector2(0.109375, 0.062500015)
+texture = ExtResource("3_7dxi0")
+
+[node name="InteractColider2" parent="Floor/WaifuSpawner2" instance=ExtResource("4_ydjxa")]
+scale = Vector2(5.690631, 5.744657)
+actions = Array[ExtResource("5_c0fs1")]([SubResource("Resource_4tido")])
+
+[node name="WaifuSpawner3" type="Sprite2D" parent="Floor"]
+position = Vector2(-15, -16)
+scale = Vector2(0.109375, 0.062500015)
+texture = ExtResource("3_7dxi0")
+
+[node name="InteractColider2" parent="Floor/WaifuSpawner3" instance=ExtResource("4_ydjxa")]
+scale = Vector2(5.690631, 5.744657)
+actions = Array[ExtResource("5_c0fs1")]([SubResource("Resource_7vtsu")])
+
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="Icon" type="Sprite2D" parent="YSort"]
-position = Vector2(72.00001, 80)
+position = Vector2(76, 83)
+rotation = -0.2540114
 scale = Vector2(0.2734375, 0.1875)
 texture = ExtResource("3_7dxi0")
 
 [node name="SceneChanger" parent="YSort/Icon" instance=ExtResource("3_c0fs1")]
 position = Vector2(-2.670288e-05, -5.2452087e-06)
-scale = Vector2(3.657143, 5.3333335)
+scale = Vector2(5.442986, 5.591424)
 to_scene = "TestHall"
 interactable = true
 
+[node name="Icon3" type="Sprite2D" parent="YSort"]
+position = Vector2(-16, 53)
+scale = Vector2(0.2734375, 0.1875)
+texture = ExtResource("3_7dxi0")
+
+[node name="InteractColider" parent="YSort/Icon3" instance=ExtResource("4_ydjxa")]
+position = Vector2(2.861023e-05, 0)
+scale = Vector2(5.605099, 5.6444516)
+actions = Array[ExtResource("5_c0fs1")]([SubResource("Resource_42wnk")])
+text_id = "test1"
+
 [node name="Icon2" type="Sprite2D" parent="YSort"]
-position = Vector2(-20.000008, 79)
+position = Vector2(-16, 80)
 scale = Vector2(0.2734375, 0.1875)
 texture = ExtResource("3_7dxi0")
 
 [node name="InteractColider" parent="YSort/Icon2" instance=ExtResource("4_ydjxa")]
 position = Vector2(2.861023e-05, 0)
-scale = Vector2(5.534855, 6.3333335)
-actions = Array[ExtResource("5_c0fs1")]([SubResource("Resource_c0fs1")])
-text_id = "hola"
+scale = Vector2(5.6898375, 5.5277553)
+actions = Array[ExtResource("5_c0fs1")]([SubResource("Resource_c0fs1"), SubResource("Resource_3xtn3")])
+text_id = "test2"
 auto = true
 
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="default" type="Node2D" parent="SpawnPoints"]
 position = Vector2(24, 0)
+
+[node name="WaifuPoint01" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-30, -36)

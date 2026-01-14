@@ -3,7 +3,7 @@ extends CharacterBody2D
 var lock_movement := false
 
 const SPEED = 50.0
-const RUNMULT = 2.0
+const RUNMULT = 1.5
 
 var movement: Vector2
 

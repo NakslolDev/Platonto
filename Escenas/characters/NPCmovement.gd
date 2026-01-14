@@ -1,0 +1,77 @@
+extends CharacterBody2D
+
+@export var identifier: Actions.char
+@export var animation: AnimatedSprite2D
+
+signal vector_reached
+
+var moving := false
+var running := false
+var starting_pos: Vector2
+var desplazamiento: Vector2
+
+var animation_running := false
+
+const SPEED := 50.0
+const RUNMULT := 1.5
+
+var movement: Vector2
+
+func _ready() -> void:
+	Actions.move_char.connect(self._move)
+	Actions.play_animation.connect(self._animation)
+
+func _physics_process(_delta: float) -> void:
+	
+	if not moving:
+		return
+	
+	var current_speed := SPEED
+	if running:
+		current_speed *= RUNMULT
+	
+	velocity = movement * current_speed
+	move_and_slide()
+	
+	if (abs(position.x - starting_pos.x) >= abs(desplazamiento.x) and abs(movement.x) > 0.5) or (abs(position.y - starting_pos.y) >= abs(desplazamiento.y) and abs(movement.y) > 0.5):
+		moving = false # me aseguro de que solo se emita 1 vez
+		emit_signal("vector_reached")
+
+func _move(character: Actions.char, run: bool, rout: Array[Vector2]):
+	
+	if character != identifier:	
+		return
+	
+	running = run
+	
+	for vector in rout:
+		
+		starting_pos = position
+		desplazamiento = vector
+		movement = get_movement(vector)
+		
+		moving = true
+		
+		await self.vector_reached
+	
+	movement = Vector2.ZERO # capa extra de seguridad
+	
+	Actions.emit_signal("movement_done", identifier)
+
+func get_movement(vector: Vector2) -> Vector2:
+	
+	if vector.x * vector.y != 0: # Hace que no se pueda desplazar en diagonal
+		vector.y = 0 # en caso de, elimina el componente y
+	
+	return vector.normalized()
+
+func _animation(character: Actions.char, animname: String):
+	
+	if character != identifier:	
+		return
+	
+	if animname == "stop":
+		animation_running = false
+	else:
+		animation_running = true
+		animation.play(animname)

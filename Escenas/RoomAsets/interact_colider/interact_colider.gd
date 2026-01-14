@@ -2,6 +2,7 @@ extends Area2D
 
 @export var actions: Array[HitboxEvent]
 @export var text_id: String
+@export var ingnore_on_text := true
 @export var auto := false
 
 @export var game_state: Array[GameVariables]
@@ -30,6 +31,9 @@ func _input(event: InputEvent) -> void:
 func activate():
 	
 	if not active:
+		return
+	
+	if ingnore_on_text and Gamestate.printing:
 		return
 	
 	for event in actions:

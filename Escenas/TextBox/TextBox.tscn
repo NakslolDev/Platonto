@@ -1,16 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://ueoi3s0r0l47"]
+[gd_scene load_steps=9 format=3 uid="uid://ueoi3s0r0l47"]
 
 [ext_resource type="Script" uid="uid://bkqgugaqouqgh" path="res://Escenas/TextBox/text_box.gd" id="1_kjw2d"]
 [ext_resource type="Theme" uid="uid://hnjog2hko8rb" path="res://resources/encripted.tres" id="1_q4qu7"]
 [ext_resource type="Script" uid="uid://dc2e5hn4wjtdw" path="res://Escenas/TextBox/rich_text_label.gd" id="3_62g67"]
+[ext_resource type="Script" uid="uid://bmhw14xn8rwhx" path="res://Effects/shake.gd" id="3_j6i7b"]
+[ext_resource type="Script" uid="uid://byiv8sg0sc7sy" path="res://Effects/wave.gd" id="4_14gqf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjw2d"]
 bg_color = Color(0, 0, 0, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_14gqf"]
+script = ExtResource("3_j6i7b")
+persistant_offset = true
+range_x = 0.5
+range_y = 0.5
+bbcode = "_shake"
+metadata/_custom_type_script = "uid://bmhw14xn8rwhx"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_jxwy3"]
+script = ExtResource("4_14gqf")
+speed = 5.0
+separation = 0.35
+amplitude = 1.0
+bbcode = "_wave"
+metadata/_custom_type_script = "uid://byiv8sg0sc7sy"
 
 [node name="TextBox" type="Control" node_paths=PackedStringArray("label")]
 texture_filter = 1
@@ -25,10 +43,10 @@ label = NodePath("Panel/RichTextLabel")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 384.0
-offset_right = 1024.0
-offset_bottom = 608.0
+offset_left = 32.0
+offset_top = 104.0
+offset_right = 280.0
+offset_bottom = 168.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kjw2d")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
@@ -36,12 +54,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = -16.0
-offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_q4qu7")
+bbcode_enabled = true
+text = "[_wave]buenasdas"
 scroll_active = false
+custom_effects = [SubResource("RichTextEffect_14gqf"), SubResource("RichTextEffect_jxwy3")]
 script = ExtResource("3_62g67")
