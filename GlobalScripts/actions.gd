@@ -5,6 +5,7 @@ signal player_lock(lock: bool)
 signal text_finished
 signal player_push_back
 
+
 enum char {Player, Waifu, Scientific, Prisoner01, General, Militar01, Militar02, Militar03}
 
 signal load_character(char, position: String)
