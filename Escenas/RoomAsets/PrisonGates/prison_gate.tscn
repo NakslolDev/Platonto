@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=4 uid="uid://ddcc1lmr4i14o"]
+
+[ext_resource type="TileSet" uid="uid://ble4tabx2cktd" path="res://resources/TileSet.tres" id="1_osib4"]
+[ext_resource type="Script" uid="uid://twode4fseppu" path="res://Escenas/RoomAsets/PrisonGates/prison_gate.gd" id="1_r6g58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osib4"]
+size = Vector2(32, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6g58"]
+size = Vector2(16, 0)
+
+[node name="PrisonGate1" type="Node2D" node_paths=PackedStringArray("gate")]
+texture_filter = 1
+script = ExtResource("1_r6g58")
+gate = NodePath("Gate")
+
+[node name="Bars" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="Bars" type="TileMapLayer" parent="Bars"]
+tile_map_data = PackedByteArray("AAD+//3/AAABAAAAAAD+//7/AAABAAEAAAD+////AAABAAIAAAD///3/AAABAAAAAAD///7/AAABAAEAAAD/////AAABAAIAAAABAP3/AAABAAAAAAABAP7/AAABAAEAAAABAP//AAABAAIAAAACAP3/AAABAAAAAAACAP7/AAABAAEAAAACAP//AAABAAIAAAAAAP3/AAABAAMAAAA=")
+tile_set = ExtResource("1_osib4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bars"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bars/StaticBody2D"]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_osib4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bars/StaticBody2D"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_osib4")
+
+[node name="Gate" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="Gate" type="TileMapLayer" parent="Gate"]
+tile_map_data = PackedByteArray("AAAAAP7/AAABAAQAAAAAAP//AAABAAUAAAA=")
+tile_set = ExtResource("1_osib4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Gate"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/StaticBody2D"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_r6g58")

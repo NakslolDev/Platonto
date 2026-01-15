@@ -6,6 +6,8 @@ enum dir { FRONT, BACK, LEFT, RIGHT }
 var direction: dir = dir.FRONT
 
 func _process(_delta: float) -> void:
+	if root.animation_running:
+		return
 	calc_dir()
 
 func calc_dir():

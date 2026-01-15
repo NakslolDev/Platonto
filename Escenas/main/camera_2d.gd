@@ -7,11 +7,18 @@ extends Camera2D
 
 @export var chat_gpt := false
 
+func _ready():
+	for child in get_children():
+		child.visible = true
+
 func locate():
 	position = player.position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	
+	if Gamestate.current_mision == Gamestate.mision.WAITING_ON_CELL:
+		return
 	
 	if player.position.x < position.x - radius:
 		position.x -= delta * speed * absf(player.position.x - (position.x - radius))

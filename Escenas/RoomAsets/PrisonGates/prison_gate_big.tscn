@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=4 uid="uid://bej5bspfffh7p"]
+
+[ext_resource type="Script" uid="uid://twode4fseppu" path="res://Escenas/RoomAsets/PrisonGates/prison_gate.gd" id="1_f1hw2"]
+[ext_resource type="TileSet" uid="uid://ble4tabx2cktd" path="res://resources/TileSet.tres" id="2_kyc2y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1hw2"]
+size = Vector2(64, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyc2y"]
+size = Vector2(64, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6g58"]
+size = Vector2(16, 0)
+
+[node name="PrisonGateBig" type="Node2D" node_paths=PackedStringArray("gate")]
+texture_filter = 1
+script = ExtResource("1_f1hw2")
+gate = NodePath("Gate")
+
+[node name="Bars" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="Bars" type="TileMapLayer" parent="Bars"]
+tile_map_data = PackedByteArray("AAD+//3/AAABAAAAAAD+//7/AAABAAEAAAD+////AAABAAIAAAD///3/AAABAAAAAAD///7/AAABAAEAAAD/////AAABAAIAAAABAP3/AAABAAAAAAABAP7/AAABAAEAAAABAP//AAABAAIAAAACAP3/AAABAAAAAAACAP7/AAABAAEAAAACAP//AAABAAIAAAAAAP3/AAABAAMAAAD9//3/AAABAAAAAAD9//7/AAABAAEAAAD9////AAABAAIAAAADAP3/AAABAAAAAAADAP7/AAABAAEAAAADAP//AAABAAIAAAD8//3/AAABAAAAAAD8//7/AAABAAEAAAD8////AAABAAIAAAAEAP3/AAABAAAAAAAEAP7/AAABAAEAAAAEAP//AAABAAIAAAA=")
+tile_set = ExtResource("2_kyc2y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bars"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bars/StaticBody2D"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_f1hw2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bars/StaticBody2D"]
+position = Vector2(48, 0)
+shape = SubResource("RectangleShape2D_kyc2y")
+
+[node name="Gate" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="Gate" type="TileMapLayer" parent="Gate"]
+tile_map_data = PackedByteArray("AAAAAP7/AAABAAQAAAAAAP//AAABAAUAAAA=")
+tile_set = ExtResource("2_kyc2y")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Gate"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/StaticBody2D"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_r6g58")

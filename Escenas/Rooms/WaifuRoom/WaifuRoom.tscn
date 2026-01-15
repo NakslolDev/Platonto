@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=4 uid="uid://cxgxpta5c2vo"]
+
+[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_nadgk"]
+[ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="2_yu2w2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdvou"]
+texture = ExtResource("1_nadgk")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_7dxi0"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_sdvou")
+
+[node name="WaifuRoom" type="Node2D"]
+
+[node name="ColitionRoom" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD6//r/AQAAAAAAAAD6//n/AQAAAAAAAAD6//j/AQAAAAAAAAD6//3/AQAAAAAAAAD6//7/AQAAAAAAAAD6////AQAAAAAAAAD6/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAD6//f/AQAAAAAAAAD6//b/AQAAAAAAAAD6//X/AQAAAAAAAAD7//X/AQAAAAAAAAD8//X/AQAAAAAAAAD9//X/AQAAAAAAAAD+//X/AQAAAAAAAAD///X/AQAAAAAAAAAAAPX/AQAAAAAAAAABAPX/AQAAAAAAAAACAPX/AQAAAAAAAAADAPX/AQAAAAAAAAAEAPX/AQAAAAAAAAAEAPb/AQAAAAAAAAAEAPf/AQAAAAAAAAAEAPj/AQAAAAAAAAAEAPn/AQAAAAAAAAAEAPr/AQAAAAAAAAAEAPv/AQAAAAAAAAAEAPz/AQAAAAAAAAAEAP3/AQAAAAAAAAAEAP7/AQAAAAAAAAAEAP//AQAAAAAAAAAEAAAAAQAAAAAAAAADAAAAAQAAAAAAAAACAAAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_7dxi0")
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="MainHall" parent="Floor" instance=ExtResource("2_yu2w2")]
+position = Vector2(-96, -64)
+scale = Vector2(0.8, 2.4)
+to_scene = "Rooms"
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="default" type="Node2D" parent="SpawnPoints"]
+position = Vector2(0, -64)
+
+[node name="Rooms" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-80, -64)

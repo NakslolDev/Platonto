@@ -5,3 +5,8 @@ enum mision {ALL, NONE, WAITING_ON_CELL, }
 var current_mision := mision.WAITING_ON_CELL
 
 var printing: bool
+
+
+# Varuables
+
+var waifudebugin := false

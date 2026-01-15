@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=4 uid="uid://doo5ykubp27fv"]
+
+[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_w8p8k"]
+[ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="2_rfseg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sr1yb"]
+texture = ExtResource("1_w8p8k")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_07vrh"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_sr1yb")
+
+[node name="Cafe" type="Node2D"]
+
+[node name="ColitionRoom" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wEAAQAAAAAAAAD+/wAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAIAP//AQAAAAAAAAAIAP7/AQAAAAAAAAAIAP3/AQAAAAAAAAAIAPz/AQAAAAAAAAAIAPv/AQAAAAAAAAAIAPr/AQAAAAAAAAAIAPn/AQAAAAAAAAAIAPj/AQAAAAAAAAAIAPf/AQAAAAAAAAAIAPb/AQAAAAAAAAAIAPX/AQAAAAAAAAAIAPT/AQAAAAAAAAAFAPT/AQAAAAAAAAAFAPX/AQAAAAAAAAAFAPb/AQAAAAAAAAAFAPf/AQAAAAAAAAAEAPf/AQAAAAAAAAADAPf/AQAAAAAAAAACAPf/AQAAAAAAAAABAPf/AQAAAAAAAAAAAPf/AQAAAAAAAAD///f/AQAAAAAAAAD+//f/AQAAAAAAAAD9//f/AQAAAAAAAAD8//f/AQAAAAAAAAD7//f/AQAAAAAAAAD6//f/AQAAAAAAAAD5//f/AQAAAAAAAAD4//f/AQAAAAAAAAD3//f/AQAAAAAAAAD2//f/AQAAAAAAAAD1//f/AQAAAAAAAAD0//f/AQAAAAAAAADz//f/AQAAAAAAAADy//f/AQAAAAAAAADy//j/AQAAAAAAAADy//n/AQAAAAAAAADy//r/AQAAAAAAAADy//v/AQAAAAAAAADy//z/AQAAAAAAAADy//3/AQAAAAAAAADy//7/AQAAAAAAAADy////AQAAAAAAAADy/wAAAQAAAAAAAADy/wEAAQAAAAAAAADy/wIAAQAAAAAAAAD2/wIAAQAAAAAAAAD2/wEAAQAAAAAAAAD2/wAAAQAAAAAAAAD3/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD5/wAAAQAAAAAAAAD6/wAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_07vrh")
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="MainHall" parent="Floor" instance=ExtResource("2_rfseg")]
+position = Vector2(0, 32)
+scale = Vector2(2.4, 0.8)
+to_scene = "MainHall"
+
+[node name="Rooms" parent="Floor" instance=ExtResource("2_rfseg")]
+position = Vector2(112, -192)
+scale = Vector2(2.4, 0.8)
+to_scene = "Rooms"
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="default" type="Node2D" parent="SpawnPoints"]
+position = Vector2(0, -40)
+
+[node name="MainHall" type="Node2D" parent="SpawnPoints"]
+position = Vector2(0, 16)
+
+[node name="Rooms" type="Node2D" parent="SpawnPoints"]
+texture_filter = 1
+position = Vector2(112, -176)

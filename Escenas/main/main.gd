@@ -5,10 +5,18 @@ var current_room_instance: Node
 
 var current_room: String
 var last_room: String
+var changing_room := false
 
 var rooms_index := {
 	"Debug": 0,
 	"TestHall": 1,
+	"Prison": 2,
+	"MainHall": 3,
+	"BlackRoom": 4,
+	"Lab": 5,
+	"Cafe": 6,
+	"Rooms": 7,
+	"WaifuRoom": 8,
 }
 
 @export var character: Array[PackedScene]
@@ -26,10 +34,15 @@ func resize_current_characters():
 func _ready():
 	Actions.load_character.connect(_load_char)
 	Actions.unload_character.connect(_unload_char)
+	Actions.change_room.connect(_change_room_char)
 	resize_current_characters()
-	change_room("Debug")
+	change_room("Prison")
 
 func change_room(room: String):
+	
+	if changing_room:
+		push_warning("already changing rooms")
+		return
 	
 	last_room = current_room
 	current_room = room
@@ -74,9 +87,10 @@ func locate_player():
 
 func logic_change(trans_ended: bool):
 	player.lock_movement = !trans_ended
+	changing_room = !trans_ended
 
 
-func _load_char(_char: Actions.char, position):
+func _load_char(_char: Actions.char, position, animation: StringName = "none"):
 	
 	if current_characters[_char] != null:
 		push_warning("character ", _char, " already instanciated")
@@ -98,11 +112,17 @@ func _load_char(_char: Actions.char, position):
 			inst_char.global_position = spawns.get_node("default").global_position
 	elif position is Vector2:
 		inst_char.global_position = position
+	
+	if animation != "none":
+		inst_char.animation_running = true
+		inst_char.animation.play(animation)
 
 func _unload_char(_char: Actions.char):
 	if current_characters[_char] == null:
 		push_warning("Character ", _char, " not in scene")
 		return
+	
+	Actions.unload_char(_char)
 	
 	current_characters[_char].queue_free()
 
@@ -114,16 +134,29 @@ func unload_characters():
 		off_scene_characters[chara] = {
 			"scene": last_room,
 			"position": current_characters[chara].position,
+			"animation": current_characters[chara].animation.animation
 		}
 		
 		_unload_char(chara)
-	print(off_scene_characters)
+
+func _change_room_char(_char: Actions.char, room: String, position: String, animation: String):
+	if current_characters[_char] == null: return
+		
+	off_scene_characters[_char] = {
+		"scene": room,
+		"position": position,
+		"animation": animation
+	}
+	
+	_unload_char(_char)
 
 func load_offscene_characters():
 	for chara in off_scene_characters:
 		if off_scene_characters[chara]["scene"] != current_room: continue
 		
 		var character_position = off_scene_characters[chara]["position"]
-		_load_char(chara, character_position)
+		var character_animation = off_scene_characters[chara]["animation"]
+		_load_char(chara, character_position, character_animation)
+		
 		off_scene_characters.erase(chara)
 	print(off_scene_characters)

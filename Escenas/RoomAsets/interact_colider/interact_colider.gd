@@ -4,15 +4,13 @@ extends Area2D
 @export var text_id: String
 @export var ingnore_on_text := true
 @export var auto := false
+@export var one_use := false
 
 @export var game_state: Array[GameVariables]
 @export var mision := Gamestate.mision.ALL
 
 var player_in := false
 var active: bool
-
-func _ready() -> void:
-	check_active()
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "PlayerDetect":
@@ -30,6 +28,8 @@ func _input(event: InputEvent) -> void:
 
 func activate():
 	
+	check_active()
+	
 	if not active:
 		return
 	
@@ -41,6 +41,9 @@ func activate():
 	
 	if text_id != "":
 		Actions.show_text(text_id)
+	
+	if one_use:
+		self.queue_free()
 
 func check_active():
 	
