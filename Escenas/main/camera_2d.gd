@@ -7,6 +7,8 @@ extends Camera2D
 
 @export var chat_gpt := false
 
+var internal_cam_locked := false
+
 func _ready():
 	for child in get_children():
 		child.visible = true
@@ -17,8 +19,10 @@ func locate():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	
-	if Gamestate.current_mision == Gamestate.mision.WAITING_ON_CELL:
+	if Actions.lock_cam:
 		return
+	
+	position -= Actions.displace_cam
 	
 	if player.position.x < position.x - radius:
 		position.x -= delta * speed * absf(player.position.x - (position.x - radius))
@@ -29,3 +33,5 @@ func _physics_process(delta: float) -> void:
 		position.y -= delta * speed * absf(player.position.y - (position.y - radius))
 	if player.position.y > position.y + radius:
 		position.y += delta * speed * absf(player.position.y - (position.y + radius))
+	
+	position += Actions.displace_cam

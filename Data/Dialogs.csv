@@ -1,8 +1,39 @@
-ID;texto
- ;
-test1_01;[_shake][_wave]hola
-test1_02;Que estas comiendo? [_wave]Mazapanesconchurros
+;texto
 ;
+test1_01;[_shake][_wave]hola[medium]
+test1_02;Que estas comiendo? [_wave]Mazapanesconchurros[high]
 ;
-test2_01;[_shake]Que haces aqui?
-test2_02;No puedes pasar
+test2_01;[_shake]Que haces aqui?[low][hide][skip]
+test2_02;No puedes pasar[low]
+;
+Prison1_01;este es el sujeto 01...[high][hide][quiet][auto][skip]
+Prison1_02;de momento todos los vitales estan normales[high2][hide][quiet][auto][skip]
+Prison1_03;parece que esta en estado vegetativo.[low][hide][quiet][auto][skip]
+Prison1_04;si, lo parece..[high2][hide][quiet][auto][skip]
+Prison1_05;vamos al siguiente[high][hide][quiet][auto][skip]
+;
+Prison2_01;este es el sujeto 02[high][auto][skip1]
+Prison2_02;sus vitales estan estables[high2][auto][skip1]
+Prison2_03;este se mueve. aunque parece que no nos entiende[high][auto][skip1]
+Prison2_04;vayamos al siguiente[high][auto][skip1]
+;
+PrisonDead_01;oh[high][hide][auto][skip1]
+;
+PrisonDead2_01;QUE HACEIS AHI PARADOS?[low][auto][skip1]
+PrisonDead2_02;id a aydar[low][auto][skip1]
+;
+PrisonDead3_01;el sujeto 01[high][auto][skip1]
+PrisonDead3_02;esta muerto[high][auto][skip1]
+PrisonDead3_03;entonces habra que conformarnos con este[low][auto][skip1]
+;
+NotHere_01;por aqui no[low]
+;
+FollowMe_01;sigueme[high]
+;
+WaitMe_01;esperame[high]
+;
+BlackRoomHere_01;tienes que entrar a esta sala[high]
+;
+NotHereW_01;por aqui no[high]
+;
+BlackRoomThere_01;yo estare viendo por aqui[high]

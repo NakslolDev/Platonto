@@ -15,11 +15,15 @@ func _show_text(id: String):
 		return
 	
 	Gamestate.printing = true
-	visible = true
-	var i := 1
 	
+	var i := 1
 	while Gamestate.printing:
 		var dialog = Dialogs.get_dialog(id + "_" + str(i).pad_zeros(2))
+		
+		if label.find_bracket(dialog, "hide"):
+			visible = false
+		else:
+			visible = true
 		
 		print("--")
 		print("Gamestate.printing id: ", id + "_" + str(i).pad_zeros(2))

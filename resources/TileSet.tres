@@ -26,6 +26,16 @@ texture = ExtResource("1_oks8a")
 2:7/0 = 0
 1:7/0 = 0
 0:9/0 = 0
+1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, 8, 4, 8, 8, -8, 8)
+2:6/0 = 0
+3:5/0 = 0
+4:6/0 = 0
+4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 4, 1, 4, 1, 8, 8, 8)
+4:5/0 = 0
+3:6/0 = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, -1, 4, -1, 8, -8, 8)
 
 [resource]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_u2gtp")

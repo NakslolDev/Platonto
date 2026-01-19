@@ -1,74 +1,74 @@
-[gd_scene load_steps=22 format=3 uid="uid://px7jg51e3um8"]
+[gd_scene load_steps=22 format=3 uid="uid://c8aem3jeoj5s6"]
 
-[ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_vuukh"]
-[ext_resource type="Texture2D" uid="uid://c8wj6bej16mbv" path="res://Sprites/MainChar/MainChar.png" id="2_86mpn"]
-[ext_resource type="Script" uid="uid://0guhfmqa4ftf" path="res://Escenas/characters/Doctor/animations.gd" id="3_vuukh"]
+[ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_ivu6k"]
+[ext_resource type="Texture2D" uid="uid://c8wj6bej16mbv" path="res://Sprites/MainChar/MainChar.png" id="2_e78uu"]
+[ext_resource type="Script" uid="uid://lma8bf5u4abx" path="res://Escenas/characters/Militar02/animations.gd" id="3_g81go"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8rn"]
 size = Vector2(10, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek8r7"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4pr6r"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnmht"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3bmu"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(0, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_65x0r"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sh6e8"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jrfvs"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uk1np"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(0, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrkmq"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bpwn5"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ufwtv"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fohp5"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ki8tg"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7guu"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(32, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8lga"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mx1a0"]
-atlas = ExtResource("2_86mpn")
+atlas = ExtResource("2_e78uu")
 region = Rect2(32, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vuukh"]
@@ -170,8 +170,8 @@ animations = [{
 [node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
 texture_filter = 1
 collision_mask = 0
-script = ExtResource("1_vuukh")
-identifier = 1
+script = ExtResource("1_ivu6k")
+identifier = 5
 animation = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -181,5 +181,5 @@ shape = SubResource("RectangleShape2D_1x8rn")
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_vuukh")
 animation = &"walk_right"
-script = ExtResource("3_vuukh")
+script = ExtResource("3_g81go")
 root = NodePath("..")

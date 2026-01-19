@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://c2bdy7l1ykl2a"]
+[gd_scene load_steps=19 format=4 uid="uid://c2bdy7l1ykl2a"]
 
 [ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_1l862"]
+[ext_resource type="Script" uid="uid://rsy4b0okcvmm" path="res://Escenas/Rooms/Prison/ready.gd" id="1_ajca3"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="2_u2gtp"]
 [ext_resource type="TileSet" uid="uid://ble4tabx2cktd" path="res://resources/TileSet.tres" id="3_7juh1"]
 [ext_resource type="PackedScene" uid="uid://n0d3287r3s5k" path="res://Escenas/RoomAsets/interact_colider/interact_colider.tscn" id="4_rm5t1"]
 [ext_resource type="PackedScene" uid="uid://bej5bspfffh7p" path="res://Escenas/RoomAsets/PrisonGates/prison_gate_big.tscn" id="5_6xpri"]
 [ext_resource type="Script" uid="uid://dyy6wjgl3kpu" path="res://GlobalScripts/interactcallable.gd" id="5_btvic"]
 [ext_resource type="PackedScene" uid="uid://ddcc1lmr4i14o" path="res://Escenas/RoomAsets/PrisonGates/prison_gate.tscn" id="6_6xpri"]
+[ext_resource type="Script" uid="uid://b5qsucinxeerc" path="res://GlobalScripts/variableresource.gd" id="7_x3k85"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdvou"]
 texture = ExtResource("1_1l862")
@@ -19,13 +21,50 @@ sources/1 = SubResource("TileSetAtlasSource_sdvou")
 
 [sub_resource type="Resource" id="Resource_6xpri"]
 script = ExtResource("5_btvic")
-method = &"open_gate_ff"
-args = [2]
-method = &"open_gate_ff"
+method = &"player_push_back_ff"
+method = &"player_push_back_ff"
 metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_ajca3"]
+script = ExtResource("5_btvic")
+method = &"text_freeze_player_ff"
+method = &"text_freeze_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_x3k85"]
+script = ExtResource("5_btvic")
+method = &"text_freeze_player_ff"
+method = &"text_freeze_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_skdxb"]
+script = ExtResource("5_btvic")
+method = &"follow_waifu_ff"
+method = &"follow_waifu_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_ems2c"]
+script = ExtResource("5_btvic")
+method = &"follow_waifu_2_ff"
+method = &"follow_waifu_2_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_m6yw3"]
+script = ExtResource("5_btvic")
+method = &"player_push_back_ff"
+method = &"player_push_back_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_4pi52"]
+script = ExtResource("7_x3k85")
+name = "wait_before_trans"
+metadata/_custom_type_script = "uid://b5qsucinxeerc"
 
 [node name="Prison" type="Node2D"]
 texture_filter = 1
+
+[node name="NodeReady" type="Node" parent="."]
+script = ExtResource("1_ajca3")
 
 [node name="ColitionRoom" type="TileMapLayer" parent="."]
 visible = false
@@ -43,9 +82,42 @@ position = Vector2(-600, -40)
 scale = Vector2(2.4, 0.5)
 to_scene = "MainHall"
 
-[node name="(Temporal)OpenGate" parent="Floor" instance=ExtResource("4_rm5t1")]
-position = Vector2(-24, -24)
-actions = Array[ExtResource("5_btvic")]([SubResource("Resource_6xpri")])
+[node name="MilitarNotHere" parent="Floor" instance=ExtResource("4_rm5t1")]
+position = Vector2(-4, 72)
+scale = Vector2(1.215638, 4.3064904)
+actions = Array[ExtResource("5_btvic")]([SubResource("Resource_6xpri"), SubResource("Resource_ajca3")])
+text_id = "NotHere"
+auto = true
+mision = 3
+
+[node name="WaifuFollow" type="Node2D" parent="Floor"]
+visible = false
+
+[node name="WaifuFollowMe1" parent="Floor/WaifuFollow" instance=ExtResource("4_rm5t1")]
+position = Vector2(-88, 72)
+scale = Vector2(1.215638, 4.3064904)
+actions = Array[ExtResource("5_btvic")]([SubResource("Resource_x3k85"), SubResource("Resource_skdxb")])
+text_id = "FollowMe"
+auto = true
+one_use = true
+mision = 3
+
+[node name="WaifuFollowMe8" parent="Floor/WaifuFollow" instance=ExtResource("4_rm5t1")]
+position = Vector2(-528, 72)
+scale = Vector2(1.215638, 4.3064904)
+actions = Array[ExtResource("5_btvic")]([SubResource("Resource_ems2c")])
+auto = true
+one_use = true
+mision = 3
+
+[node name="WaifuWaitMe" parent="Floor/WaifuFollow" instance=ExtResource("4_rm5t1")]
+position = Vector2(-600, -40)
+scale = Vector2(2.399387, 0.7933109)
+actions = Array[ExtResource("5_btvic")]([SubResource("Resource_x3k85"), SubResource("Resource_m6yw3")])
+text_id = "WaitMe"
+auto = true
+game_state = Array[ExtResource("7_x3k85")]([SubResource("Resource_4pi52")])
+mision = 3
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -69,7 +141,22 @@ number = 4
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="default" type="Node2D" parent="SpawnPoints"]
-position = Vector2(-56, 24)
+position = Vector2(-56, 26)
 
 [node name="MainHall" type="Node2D" parent="SpawnPoints"]
-position = Vector2(-600, -32)
+position = Vector2(-600, -16)
+
+[node name="WaifuPrison" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-592, 56)
+
+[node name="ScientistPrison" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-608, 56)
+
+[node name="GeneralPrison" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-600, 66)
+
+[node name="Mili1Prison" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-617, 71)
+
+[node name="Mili2Prison" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-582, 71)

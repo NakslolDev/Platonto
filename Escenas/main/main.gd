@@ -1,5 +1,7 @@
 extends Node
 
+@export var first_room := "Prison"
+
 @export var rooms: Array[PackedScene]
 var current_room_instance: Node
 
@@ -36,7 +38,7 @@ func _ready():
 	Actions.unload_character.connect(_unload_char)
 	Actions.change_room.connect(_change_room_char)
 	resize_current_characters()
-	change_room("Prison")
+	change_room(first_room)
 
 func change_room(room: String):
 	
@@ -88,6 +90,10 @@ func locate_player():
 func logic_change(trans_ended: bool):
 	player.lock_movement = !trans_ended
 	changing_room = !trans_ended
+	if trans_ended:
+		var node_ready = current_room_instance.get_node_or_null("NodeReady")
+		if node_ready != null:
+			node_ready.func_ready()
 
 
 func _load_char(_char: Actions.char, position, animation: StringName = "none"):

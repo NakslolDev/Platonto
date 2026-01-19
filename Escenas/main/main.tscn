@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://drfnyhgpj5olb"]
+[gd_scene load_steps=22 format=3 uid="uid://drfnyhgpj5olb"]
 
 [ext_resource type="Script" uid="uid://dhk03hkc3u0la" path="res://Escenas/main/camera_2d.gd" id="1_2of3d"]
 [ext_resource type="Script" uid="uid://c4l1c3u51xs27" path="res://Escenas/main/main.gd" id="1_2we06"]
 [ext_resource type="PackedScene" uid="uid://bg3tdup37qiuv" path="res://Escenas/Player/Player.tscn" id="2_83cwb"]
 [ext_resource type="PackedScene" uid="uid://c10sx6x3qipq7" path="res://Escenas/Rooms/TestHall/test_hall.tscn" id="3_2we06"]
-[ext_resource type="PackedScene" uid="uid://px7jg51e3um8" path="res://Escenas/characters/Doctor/Waifu.tscn" id="4_5r113"]
+[ext_resource type="PackedScene" uid="uid://px7jg51e3um8" path="res://Escenas/characters/Waifu/Waifu.tscn" id="4_5r113"]
 [ext_resource type="PackedScene" uid="uid://c2bdy7l1ykl2a" path="res://Escenas/Rooms/Prison/Prison.tscn" id="4_ag2vn"]
 [ext_resource type="PackedScene" uid="uid://d1y45ilycwciq" path="res://Escenas/Rooms/Debug/Debug.tscn" id="4_bwgev"]
 [ext_resource type="PackedScene" uid="uid://bs2aeotvqendl" path="res://Escenas/Rooms/MainHall/MainHall.tscn" id="5_ga1pt"]
@@ -17,11 +17,15 @@
 [ext_resource type="PackedScene" uid="uid://d1lwa0wdlnddk" path="res://Escenas/Rooms/Rooms/Rooms.tscn" id="9_0jel8"]
 [ext_resource type="PackedScene" uid="uid://cxgxpta5c2vo" path="res://Escenas/Rooms/WaifuRoom/WaifuRoom.tscn" id="10_bxvr6"]
 [ext_resource type="PackedScene" uid="uid://tyhevwi2aopk" path="res://Escenas/Exit/exit.tscn" id="11_e46kr"]
+[ext_resource type="PackedScene" uid="uid://cwd6ap4exqji2" path="res://Escenas/characters/Scientist/scientist.tscn" id="13_bxvr6"]
+[ext_resource type="PackedScene" uid="uid://dan2vqemoiclq" path="res://Escenas/characters/General/general.tscn" id="14_3w5lp"]
+[ext_resource type="PackedScene" uid="uid://df28xnhy0celp" path="res://Escenas/characters/Militar01/militar.tscn" id="15_ffjya"]
+[ext_resource type="PackedScene" uid="uid://c8aem3jeoj5s6" path="res://Escenas/characters/Militar02/militar.tscn" id="16_lmg33"]
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player", "transition", "camera")]
 script = ExtResource("1_2we06")
 rooms = Array[PackedScene]([ExtResource("4_bwgev"), ExtResource("3_2we06"), ExtResource("4_ag2vn"), ExtResource("5_ga1pt"), ExtResource("6_k7qcx"), ExtResource("7_odf77"), ExtResource("8_odf77"), ExtResource("9_0jel8"), ExtResource("10_bxvr6")])
-character = Array[PackedScene]([ExtResource("2_83cwb"), ExtResource("4_5r113")])
+character = Array[PackedScene]([ExtResource("2_83cwb"), ExtResource("4_5r113"), ExtResource("13_bxvr6"), ExtResource("14_3w5lp"), ExtResource("15_ffjya"), ExtResource("16_lmg33")])
 player = NodePath("Player")
 transition = NodePath("CanvasLayer/Transition")
 camera = NodePath("Camera2D")

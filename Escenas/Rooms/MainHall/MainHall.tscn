@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=4 uid="uid://bs2aeotvqendl"]
+[gd_scene load_steps=12 format=4 uid="uid://bs2aeotvqendl"]
 
+[ext_resource type="Script" uid="uid://bk82pggd6pnr" path="res://Escenas/Rooms/MainHall/ready.gd" id="1_3t4nw"]
 [ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_qknmp"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="2_f0cvl"]
+[ext_resource type="TileSet" uid="uid://ble4tabx2cktd" path="res://resources/TileSet.tres" id="3_culfs"]
+[ext_resource type="PackedScene" uid="uid://n0d3287r3s5k" path="res://Escenas/RoomAsets/interact_colider/interact_colider.tscn" id="4_sl8lh"]
+[ext_resource type="Script" uid="uid://dyy6wjgl3kpu" path="res://GlobalScripts/interactcallable.gd" id="5_culfs"]
+[ext_resource type="PackedScene" uid="uid://c18kyyf0q5b53" path="res://Escenas/RoomAsets/Door/door.tscn" id="7_o25xd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdvou"]
 texture = ExtResource("1_qknmp")
@@ -12,13 +17,49 @@ texture = ExtResource("1_qknmp")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_sdvou")
 
+[sub_resource type="Resource" id="Resource_o25xd"]
+script = ExtResource("5_culfs")
+method = &"text_freeze_player_ff"
+method = &"text_freeze_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_ehlfv"]
+script = ExtResource("5_culfs")
+method = &"player_push_back_ff"
+method = &"player_push_back_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
 [node name="MainHall" type="Node2D"]
+texture_filter = 1
+
+[node name="NodeReady" type="Node" parent="."]
+script = ExtResource("1_3t4nw")
 
 [node name="ColitionRoom" type="TileMapLayer" parent="."]
+visible = false
 tile_map_data = PackedByteArray("AAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAACAAAAAQAAAAAAAAACAP//AQAAAAAAAAD8////AQAAAAAAAAD7////AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAFAP//AQAAAAAAAAAGAP//AQAAAAAAAAD9////AQAAAAAAAAD6////AQAAAAAAAAD5////AQAAAAAAAAD4////AQAAAAAAAAD3////AQAAAAAAAAD2////AQAAAAAAAAD1////AQAAAAAAAAD0////AQAAAAAAAADz////AQAAAAAAAADy////AQAAAAAAAADx////AQAAAAAAAADx//v/AQAAAAAAAADy//v/AQAAAAAAAADz//v/AQAAAAAAAAD0//v/AQAAAAAAAAD1//v/AQAAAAAAAAD2//v/AQAAAAAAAAD3//v/AQAAAAAAAAD6//v/AQAAAAAAAAD7//v/AQAAAAAAAAD8//v/AQAAAAAAAAD9//v/AQAAAAAAAAD+//v/AQAAAAAAAAD+//r/AQAAAAAAAAD+//n/AQAAAAAAAAD+//j/AQAAAAAAAAD+//f/AQAAAAAAAAACAPf/AQAAAAAAAAACAPj/AQAAAAAAAAACAPn/AQAAAAAAAAACAPr/AQAAAAAAAAACAPv/AQAAAAAAAAD6//r/AQAAAAAAAAD3//r/AQAAAAAAAAADAPv/AQAAAAAAAAAEAPv/AQAAAAAAAAAFAPv/AQAAAAAAAAAGAPv/AQAAAAAAAAAHAPv/AQAAAAAAAAAIAPv/AQAAAAAAAAAHAP//AQAAAAAAAAAIAP//AQAAAAAAAAAJAP//AQAAAAAAAAAKAP//AQAAAAAAAAALAP//AQAAAAAAAAALAP7/AQAAAAAAAAALAP3/AQAAAAAAAAALAPz/AQAAAAAAAAALAPv/AQAAAAAAAAALAPr/AQAAAAAAAAAIAPr/AQAAAAAAAADw//v/AQAAAAAAAADv//v/AQAAAAAAAADu//v/AQAAAAAAAADt//v/AQAAAAAAAADs//v/AQAAAAAAAADr//v/AQAAAAAAAADw////AQAAAAAAAADv////AQAAAAAAAADu////AQAAAAAAAADt////AQAAAAAAAADs////AQAAAAAAAADr////AQAAAAAAAADq////AQAAAAAAAADp////AQAAAAAAAADo////AQAAAAAAAADo//7/AQAAAAAAAADo//3/AQAAAAAAAADo//r/AQAAAAAAAADo//v/AQAAAAAAAADo//z/AQAAAAAAAADr//r/AQAAAAAAAAD+//b/AQAAAAAAAAD+//X/AQAAAAAAAAD+//T/AQAAAAAAAAD///T/AQAAAAAAAAAAAPT/AQAAAAAAAAABAPT/AQAAAAAAAAACAPT/AQAAAAAAAAACAPX/AQAAAAAAAAACAPb/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_7dxi0")
 
 [node name="Floor" type="Node2D" parent="."]
+
+[node name="DoorBlackRoom" parent="Floor" instance=ExtResource("7_o25xd")]
+position = Vector2(-112, -80)
+identifier = "door_black_room"
+auto_open = false
+
+[node name="DoorLab" parent="Floor" instance=ExtResource("7_o25xd")]
+position = Vector2(160, -96)
+identifier = "door_black_room"
+auto_open = true
+require_card = true
+
+[node name="DoorCafe" parent="Floor" instance=ExtResource("7_o25xd")]
+position = Vector2(-352, -80)
+auto_open = true
+
+[node name="FloorWalls" type="TileMapLayer" parent="Floor"]
+tile_map_data = PackedByteArray("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AADu//v/AAABAAYAAADv//v/AAABAAYAAADw//v/AAABAAYAAADx//v/AAABAAYAAADy//v/AAABAAYAAADz//v/AAABAAYAAAD6//v/AAABAAYAAAD7//v/AAABAAYAAAD8//v/AAABAAYAAAD9//v/AAABAAYAAAD+//v/AAABAAYAAAD6//r/AAACAAYAAAD7//r/AAACAAYAAAD8//r/AAACAAYAAAD9//r/AAACAAYAAAD+//r/AAACAAYAAAD7//n/AAACAAYAAAD6//n/AAACAAYAAAD8//n/AAACAAYAAAD9//n/AAACAAYAAAD+//n/AAACAAYAAAD+//j/AAACAAYAAAD9//j/AAACAAYAAAD8//j/AAACAAYAAAD7//j/AAACAAYAAAD6//j/AAACAAYAAAD5//j/AAACAAYAAAD4//j/AAACAAYAAAD3//j/AAACAAYAAAD2//j/AAACAAYAAAD1//j/AAACAAYAAAD0//j/AAACAAYAAADr//r/AAACAAYAAADs//r/AAACAAYAAADt//r/AAACAAYAAADu//r/AAACAAYAAADv//r/AAACAAYAAADw//r/AAACAAYAAADx//r/AAACAAYAAADy//r/AAACAAYAAADz//r/AAACAAYAAAD0//r/AAACAAYAAAD1//r/AAACAAYAAAD2//r/AAACAAYAAAD3//r/AAACAAYAAADr//n/AAACAAYAAADs//n/AAACAAYAAADt//n/AAACAAYAAADu//n/AAACAAYAAADv//n/AAACAAYAAADw//n/AAACAAYAAADx//n/AAACAAYAAADy//n/AAACAAYAAADz//n/AAACAAYAAAD0//n/AAACAAYAAAD1//n/AAACAAYAAAD2//n/AAACAAYAAAD3//n/AAACAAYAAADz//j/AAACAAYAAADy//j/AAACAAYAAADx//j/AAACAAYAAADw//j/AAACAAYAAADv//j/AAACAAYAAADu//j/AAACAAYAAADt//j/AAACAAYAAADs//j/AAACAAYAAADr//j/AAACAAYAAAD4//f/AAACAAYAAAD5//f/AAACAAYAAAD5//b/AAACAAYAAAD4//b/AAACAAYAAAD///T/AAABAAYAAAAAAPT/AAABAAYAAAABAPT/AAABAAYAAAD///H/AAACAAYAAAD///L/AAACAAYAAAD///P/AAACAAYAAAAAAPH/AAACAAYAAAAAAPL/AAACAAYAAAAAAPP/AAACAAYAAAABAPH/AAACAAYAAAABAPL/AAACAAYAAAABAPP/AAACAAYAAAACAPv/AAABAAYAAAADAPv/AAABAAYAAAAEAPv/AAABAAYAAAAFAPv/AAABAAYAAAAGAPv/AAABAAYAAAAHAPv/AAABAAYAAAAIAPv/AAABAAYAAAAJAPj/AAADAAUAAAAJAPn/AAADAAYAAAAKAPj/AAAEAAUAAAAKAPn/AAAEAAYAAAAJAPb/AAACAAYAAAAJAPf/AAACAAYAAAAKAPb/AAACAAYAAAAKAPf/AAACAAYAAAACAPj/AAACAAYAAAACAPn/AAACAAYAAAACAPr/AAACAAYAAAADAPj/AAACAAYAAAADAPn/AAACAAYAAAADAPr/AAACAAYAAAAEAPj/AAACAAYAAAAEAPn/AAACAAYAAAAEAPr/AAACAAYAAAAFAPj/AAACAAYAAAAFAPn/AAACAAYAAAAFAPr/AAACAAYAAAAGAPj/AAACAAYAAAAGAPn/AAACAAYAAAAGAPr/AAACAAYAAAAHAPj/AAACAAYAAAAHAPn/AAACAAYAAAAHAPr/AAACAAYAAAAIAPj/AAACAAYAAAAIAPn/AAACAAYAAAAIAPr/AAACAAYAAADp//b/AAACAAYAAADp//f/AAACAAYAAADp//j/AAACAAYAAADp//n/AAADAAUAAADq//b/AAACAAYAAADq//f/AAACAAYAAADq//j/AAACAAYAAADq//n/AAAEAAUAAADn//b/AAAAAAEAAADn//f/AAAAAAEAAADn//j/AAAAAAEAAADn//n/AAAAAAEAAADn//r/AAAAAAEAAADn//v/AAAAAAEAAADn//z/AAAAAAEAAADn//3/AAAAAAEAAADn//7/AAAAAAEAAADo//b/AAAAAAEAAADo//f/AAAAAAEAAADo//j/AAAAAAEAAADo//n/AAAAAAEAAADo//r/AAAAAAEAAADo//v/AAAAAAEAAADo//z/AAAAAAEAAADo//3/AAAAAAEAAADo//7/AAAAAAEAAAALAPb/AAAAAAEAAAALAPf/AAAAAAEAAAALAPj/AAAAAAEAAAALAPn/AAAAAAEAAAALAPr/AAAAAAEAAAALAPv/AAAAAAEAAAALAPz/AAAAAAEAAAALAP3/AAAAAAEAAAALAP7/AAAAAAEAAAAMAPb/AAAAAAEAAAAMAPf/AAAAAAEAAAAMAPj/AAAAAAEAAAAMAPn/AAAAAAEAAAAMAPr/AAAAAAEAAAAMAPv/AAAAAAEAAAAMAPz/AAAAAAEAAAAMAP3/AAAAAAEAAAAMAP7/AAAAAAEAAAA=")
+tile_set = ExtResource("3_culfs")
 
 [node name="Prison" parent="Floor" instance=ExtResource("2_f0cvl")]
 position = Vector2(8, 16)
@@ -26,20 +67,55 @@ scale = Vector2(2.4, 0.8)
 to_scene = "Prison"
 
 [node name="BlackRoom" parent="Floor" instance=ExtResource("2_f0cvl")]
-position = Vector2(-112, -96)
+position = Vector2(-112.00001, -88)
 scale = Vector2(2.4, 0.8)
 to_scene = "BlackRoom"
 
 [node name="Lab" parent="Floor" instance=ExtResource("2_f0cvl")]
-position = Vector2(160, -96)
+position = Vector2(160, -104)
 scale = Vector2(2.4, 0.8)
 to_scene = "Lab"
 
 [node name="Cafe" parent="Floor" instance=ExtResource("2_f0cvl")]
 texture_filter = 1
-position = Vector2(-352, -96)
+position = Vector2(-352, -88)
 scale = Vector2(2.4, 0.8)
 to_scene = "Cafe"
+
+[node name="BeforeBlackRoom" type="Node2D" parent="Floor"]
+visible = false
+
+[node name="InteractColider" parent="Floor/BeforeBlackRoom" instance=ExtResource("4_sl8lh")]
+position = Vector2(8, -88)
+scale = Vector2(2.410029, 1.599147)
+actions = Array[ExtResource("5_culfs")]([SubResource("Resource_o25xd"), SubResource("Resource_ehlfv")])
+text_id = "NotHereW"
+auto = true
+mision = 3
+
+[node name="InteractColider2" parent="Floor/BeforeBlackRoom" instance=ExtResource("4_sl8lh")]
+position = Vector2(64, -40)
+scale = Vector2(2.2297912, 2.5254676)
+actions = Array[ExtResource("5_culfs")]([SubResource("Resource_o25xd"), SubResource("Resource_ehlfv")])
+text_id = "NotHereW"
+auto = true
+mision = 3
+
+[node name="InteractColider4" parent="Floor/BeforeBlackRoom" instance=ExtResource("4_sl8lh")]
+position = Vector2(-207.99997, -40)
+scale = Vector2(7.1301475, 2.8050227)
+actions = Array[ExtResource("5_culfs")]([SubResource("Resource_o25xd"), SubResource("Resource_ehlfv")])
+text_id = "NotHereW"
+auto = true
+mision = 3
+
+[node name="InteractColider3" parent="Floor/BeforeBlackRoom" instance=ExtResource("4_sl8lh")]
+position = Vector2(8, 16.000002)
+scale = Vector2(3.197675, 1.1106944)
+actions = Array[ExtResource("5_culfs")]([SubResource("Resource_o25xd"), SubResource("Resource_ehlfv")])
+text_id = "NotHereW"
+auto = true
+mision = 3
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -47,16 +123,19 @@ y_sort_enabled = true
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="default" type="Node2D" parent="SpawnPoints"]
-position = Vector2(0, -64)
+position = Vector2(8, -40)
 
 [node name="Prison" type="Node2D" parent="SpawnPoints"]
-position = Vector2(8, 0)
+position = Vector2(8, -8)
 
 [node name="BlackRoom" type="Node2D" parent="SpawnPoints"]
-position = Vector2(-112, -80)
+position = Vector2(-112, -72)
 
 [node name="Lab" type="Node2D" parent="SpawnPoints"]
-position = Vector2(160, -80)
+position = Vector2(160, -88)
 
 [node name="Cafe" type="Node2D" parent="SpawnPoints"]
-position = Vector2(-352, -80)
+position = Vector2(-352, -72)
+
+[node name="Waifu1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(8, -32)
