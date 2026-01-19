@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d1y45ilycwciq" path="res://Escenas/Rooms/Debug/Debug.tscn" id="4_bwgev"]
 [ext_resource type="PackedScene" uid="uid://bs2aeotvqendl" path="res://Escenas/Rooms/MainHall/MainHall.tscn" id="5_ga1pt"]
 [ext_resource type="PackedScene" uid="uid://dpa1o341hrdf7" path="res://Escenas/Rooms/BlackRoom/BlackRoom.tscn" id="6_k7qcx"]
-[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="6_ocu4p"]
+[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="6_ocu4p"]
 [ext_resource type="PackedScene" uid="uid://ueoi3s0r0l47" path="res://Escenas/TextBox/TextBox.tscn" id="6_qas0q"]
 [ext_resource type="Script" uid="uid://16r0102ekdji" path="res://Escenas/main/transition.gd" id="7_fsthx"]
 [ext_resource type="PackedScene" uid="uid://ptjhex7677vd" path="res://Escenas/Rooms/Lab/Lab.tscn" id="7_odf77"]
@@ -24,6 +24,7 @@
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player", "transition", "camera")]
 script = ExtResource("1_2we06")
+first_room = "BlackRoom"
 rooms = Array[PackedScene]([ExtResource("4_bwgev"), ExtResource("3_2we06"), ExtResource("4_ag2vn"), ExtResource("5_ga1pt"), ExtResource("6_k7qcx"), ExtResource("7_odf77"), ExtResource("8_odf77"), ExtResource("9_0jel8"), ExtResource("10_bxvr6")])
 character = Array[PackedScene]([ExtResource("2_83cwb"), ExtResource("4_5r113"), ExtResource("13_bxvr6"), ExtResource("14_3w5lp"), ExtResource("15_ffjya"), ExtResource("16_lmg33")])
 player = NodePath("Player")
@@ -63,4 +64,4 @@ region_rect = Rect2(0, 16, 16, 16)
 script = ExtResource("7_fsthx")
 
 [node name="Exit" parent="CanvasLayer" instance=ExtResource("11_e46kr")]
-exit_delay = 0.01
+exit_delay = 1.0

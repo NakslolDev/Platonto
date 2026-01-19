@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://dan2vqemoiclq"]
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_knhau"]
-[ext_resource type="Texture2D" uid="uid://c8wj6bej16mbv" path="res://Sprites/MainChar/MainChar.png" id="2_s1gbu"]
+[ext_resource type="Texture2D" uid="uid://ncbdru54lhtx" path="res://Sprites/MainChar/MainChar.png" id="2_s1gbu"]
 [ext_resource type="Script" uid="uid://jotucb7s0gd7" path="res://Escenas/characters/General/animations.gd" id="3_upxr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8rn"]

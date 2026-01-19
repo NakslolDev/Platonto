@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://df28xnhy0celp"]
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_x7o5t"]
-[ext_resource type="Texture2D" uid="uid://c8wj6bej16mbv" path="res://Sprites/MainChar/MainChar.png" id="2_wuyob"]
+[ext_resource type="Texture2D" uid="uid://ncbdru54lhtx" path="res://Sprites/MainChar/MainChar.png" id="2_wuyob"]
 [ext_resource type="Script" uid="uid://ebt2coigdvka" path="res://Escenas/characters/Militar01/animations.gd" id="3_1mebd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8rn"]

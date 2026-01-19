@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=4 uid="uid://d1y45ilycwciq"]
 
-[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_5lyy6"]
+[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_5lyy6"]
 [ext_resource type="Script" uid="uid://b4ns8elp2ql8k" path="res://Escenas/Rooms/Debug/ready.gd" id="1_42wnk"]
 [ext_resource type="Texture2D" uid="uid://bn5a6m7g4xscx" path="res://icon.svg" id="3_7dxi0"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="3_c0fs1"]

@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var actions: Array[HitboxEvent]
+@export var actions_on_exit: Array[HitboxEvent]
 @export var text_id: String
 @export var ingnore_on_text := true
 @export var auto := false
@@ -21,6 +22,8 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_area_exited(area: Area2D) -> void:
 	if area.name == "PlayerDetect":
 		player_in = false
+		if auto:
+			activate_exit()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and not auto and player_in:
@@ -37,6 +40,25 @@ func activate():
 		return
 	
 	for event in actions:
+		event.execute()
+	
+	if text_id != "":
+		Actions.show_text(text_id)
+	
+	if one_use:
+		self.queue_free()
+
+func activate_exit():
+	
+	check_active()
+	
+	if not active:
+		return
+	
+	if ingnore_on_text and Gamestate.printing:
+		return
+	
+	for event in actions_on_exit:
 		event.execute()
 	
 	if text_id != "":

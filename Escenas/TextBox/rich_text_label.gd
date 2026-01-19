@@ -5,13 +5,14 @@ signal dialog_done
 var done: bool
 var active := false
 
-enum sound {NEUTRAL, HIGH, HIGH2, MEDIUM, LOW}
+enum sound {NEUTRAL, HIGH, HIGH2, MEDIUM, LOW, DISTORTED}
 var sound_playing := sound.NEUTRAL
 
 enum vol {NORMAL, QUIET, QUIETER}
 var volume := vol.NORMAL
 
 @export var Audios: Array[AudioStreamPlayer]
+@export var extortion: AudioStreamPlayer
 
 var auto: bool
 
@@ -35,6 +36,8 @@ func print_text(dialog: String):
 		sound_playing = sound.MEDIUM
 	if find_bracket(text, "low"):
 		sound_playing = sound.LOW
+	if find_bracket(text, "distorted"):
+		sound_playing = sound.DISTORTED
 	
 	volume = vol.NORMAL
 	
@@ -123,6 +126,11 @@ func play_sound(current_char: String):
 		Audios[sound_playing].pitch_scale = randf_range(0.7, 1)
 	elif sound_playing == sound.HIGH:
 		Audios[sound_playing].pitch_scale = randf_range(2, 2.5)
+	elif sound_playing == sound.DISTORTED:
+		Audios[sound_playing].pitch_scale = randf_range(2, 2.5)
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Dialog"), randf_range(-10, -30))
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("DistortedDialog"), randf_range(20, 0))
+		extortion.play()
 	elif sound_playing == sound.HIGH2:
 		Audios[sound_playing].pitch_scale = randf_range(1.8, 2.2)
 	elif sound_playing == sound.MEDIUM:

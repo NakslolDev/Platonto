@@ -1,9 +1,56 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://d1l1xii35cen1"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://d1l1xii35cen1"]
+
+[sub_resource type="AudioEffectEQ10" id="AudioEffectEQ10_j3pel"]
+resource_name = "EQ10"
+band_db/31_hz = -60.0
+band_db/62_hz = -60.0
+band_db/125_hz = -60.0
+band_db/250_hz = -43.7
+band_db/500_hz = -19.6
+band_db/2000_hz = -17.9
+band_db/4000_hz = -45.0
+band_db/8000_hz = -60.0
+band_db/16000_hz = -60.0
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
+resource_name = "Distortion"
+pre_gain = -4.41
+keep_hf_hz = 9982.0
+drive = 0.35
+post_gain = -3.82
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_j3pel"]
+resource_name = "Compressor"
+threshold = -44.0
+ratio = 15.2
+gain = 5.2
+attack_us = 230.0
+release_ms = 231.0
+mix = 0.75
+sidechain = &"DistortedDialog"
 
 [resource]
-bus/1/name = &"Dialog"
+bus/1/name = &"SFX"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
-bus/1/send = &""
+bus/1/send = &"Master"
+bus/2/name = &"Dialog"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"SFX"
+bus/3/name = &"DistortedDialog"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Dialog"
+bus/3/effect/0/effect = SubResource("AudioEffectEQ10_j3pel")
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/3/effect/1/enabled = true
+bus/3/effect/2/effect = SubResource("AudioEffectCompressor_j3pel")
+bus/3/effect/2/enabled = true

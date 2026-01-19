@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://doo5ykubp27fv"]
 
-[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_w8p8k"]
+[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_w8p8k"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="2_rfseg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sr1yb"]
@@ -44,3 +44,6 @@ position = Vector2(0, 16)
 [node name="Rooms" type="Node2D" parent="SpawnPoints"]
 texture_filter = 1
 position = Vector2(112, -176)
+
+[node name="ScientistCafe" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-106, -102)

@@ -20,6 +20,7 @@ var animated_characters: Array[char]
 
 var lock_cam := false
 var displace_cam := Vector2.ZERO
+var static_cam := Vector2.ZERO
 
 func show_text(id: String):
 	emit_signal("text", id)
@@ -175,6 +176,9 @@ func despawn_waifu_debug_ff():
 	emit_signal("unload_character", npc_identif)
 
 signal open_gate(number: int)
+signal open_door(identif: String)
+@warning_ignore("unused_signal") # si se usa... Pero en otro script
+signal close_door(identif: String)
 
 func first_animation_ff():
 	
@@ -516,7 +520,7 @@ func follow_waifu_ff():
 	await text_finished
 	
 	var running := false
-	var rout: Array[Vector2] = [Vector2(-500, 0.0)] 
+	var rout: Array[Vector2] = [Vector2(-496, 0.0)] 
 	
 	emit_signal("move_char", npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -534,9 +538,22 @@ func follow_waifu_2_ff():
 	
 	animated_characters.append(npc_identif)
 	
-	
 	var running := false
-	var rout: Array[Vector2] = [Vector2(0.0, -112.0)] 
+	var rout: Array[Vector2] = [Vector2(0.0, -90.0)] 
+	
+	emit_signal("move_char", npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	
+	var wait_time := 0.5
+	await get_tree().create_timer(wait_time).timeout
+	
+	var door_id := "prison_door"
+	emit_signal("open_door", door_id)
+	
+	await get_tree().create_timer(wait_time).timeout
+	
+	running = false
+	rout = [Vector2(0.0, -8.0)] 
 	
 	emit_signal("move_char", npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -548,8 +565,6 @@ func follow_waifu_2_ff():
 	Gamestate.wait_before_trans = false
 	
 	animated_characters.erase(npc_identif)
-
-signal open_door(identif: String)
 
 func enter_black_room_first_ff():
 	
@@ -563,7 +578,7 @@ func enter_black_room_first_ff():
 	animated_characters.append(npc_identif)
 	
 	emit_signal("player_lock", true)
-	displace_cam = Vector2(0.0, -32)
+	displace_cam = Vector2(0.0, -32.0)
 	
 	var running := false
 	var rout: Array[Vector2] = [Vector2(-120, 0.0), Vector2(0.0, -40.0)] 
@@ -584,7 +599,7 @@ func enter_black_room_first_ff():
 	await get_tree().create_timer(1.0).timeout
 	
 	running = false
-	rout = [Vector2(0.0, 40.0), Vector2(120, 0.0), Vector2(0.0, 16.0)] 
+	rout = [Vector2(0.0, 32.0), Vector2(120, 0.0), Vector2(0.0, 16.0)] 
 	
 	emit_signal("move_char", npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -604,3 +619,37 @@ func enter_black_room_first_ff():
 	displace_cam = Vector2.ZERO
 	
 	animated_characters.erase(npc_identif)
+
+func cam_place_black_room_ff():
+	static_cam = Vector2(0.0, -120.0)
+
+func cam_quit_black_room_ff():
+	static_cam = Vector2.ZERO
+
+signal punish_end
+func punish_player():
+	
+	player_lock.emit(true)
+	play_animation.emit(char.Player, "shock")
+	
+	await get_tree().create_timer(2.0).timeout
+	
+	player_lock.emit(false)
+	play_animation.emit(char.Player, "stop")
+	
+	punish_end.emit()
+
+signal start_test_1
+func start_blackroom_1_ff():
+	await text_finished
+	start_test_1.emit()
+
+signal continue_test
+func explain_yellow_mellow():
+	
+	var text_id := "empezartest2"
+	emit_signal("text", text_id)
+	
+	await text_finished
+	await get_tree().create_timer(1.0).timeout
+	continue_test.emit()

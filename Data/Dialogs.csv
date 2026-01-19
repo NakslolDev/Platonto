@@ -30,10 +30,13 @@ NotHere_01;por aqui no[low]
 ;
 FollowMe_01;sigueme[high]
 ;
-WaitMe_01;esperame[high]
-;
 BlackRoomHere_01;tienes que entrar a esta sala[high]
 ;
 NotHereW_01;por aqui no[high]
 ;
 BlackRoomThere_01;yo estare viendo por aqui[high]
+;
+empezartest1_01;VAMOS A EMPEZAR EL TEST[distorted][auto][skip1]
+empezartest1_02;NO PISES LAS CELDAS ILUMINADAS[distorted][auto][skip1]
+;
+empezartest2_01;PISA LAS CELDAS AMARILLAS[distorted][auto][skip1]
