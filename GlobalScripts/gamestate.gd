@@ -16,3 +16,10 @@ var wait_before_trans := false
 var card := false
 
 var open_doors: Array[String]
+
+var open_cells: Array[int]
+
+var cup := false
+
+enum coffee_food {MILK, SUGAR, COFFEE}
+var in_cup: Array[coffee_food] = []

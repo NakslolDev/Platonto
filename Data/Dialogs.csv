@@ -40,3 +40,21 @@ empezartest1_01;VAMOS A EMPEZAR EL TEST[distorted][auto][skip1]
 empezartest1_02;NO PISES LAS CELDAS ILUMINADAS[distorted][auto][skip1]
 ;
 empezartest2_01;PISA LAS CELDAS AMARILLAS[distorted][auto][skip1]
+;
+finaltest1_01;lo estas haciendo muy bien[high]
+finaltest1_02;estos datos valen oro [high]
+;
+vecafe1_01;ve a traerme un cafe[high]
+vecafe1_02;es por alli[high]
+;
+cafeporaquino_01;la cafeteria esta al final del pasillo[high]
+;
+sobresalto_01;oh[high2][hide][auto][skip]
+;
+explicacafe1_01;el cafe no se hace asi[high2]
+;
+explicacafe2_01;primero la leche[high2]
+;
+explicacafe3_01;luego el azucar[high2]
+;
+explicacafe4_01;y por ultimo el cafe[high2]

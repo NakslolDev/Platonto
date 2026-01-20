@@ -32,7 +32,7 @@ func _start_test_1():
 			await Actions.punish_end
 		await get_tree().create_timer(randf_range(1.5,3.5)).timeout
 	
-	Actions.explain_yellow_mellow()
+	Actions.explain_yellow_mellow_ff()
 	await Actions.continue_test
 	
 	light_up(4)

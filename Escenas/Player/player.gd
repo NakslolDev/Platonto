@@ -19,6 +19,8 @@ const RUNMULT = 1.5
 
 var movement: Vector2
 
+@export var electric_zap_sound: AudioStreamPlayer
+
 func _ready() -> void:
 	Actions.player_lock.connect(self._player_lock)
 	Actions.player_push_back.connect(self._player_push_back)
@@ -49,7 +51,7 @@ func _physics_process(_delta: float) -> void:
 
 func _move(character: Actions.char, run: bool, rout: Array[Vector2]):
 	
-	if character != identifier:	
+	if character != identifier:
 		return
 	
 	autorunning = run
@@ -85,6 +87,8 @@ func _animation(character: Actions.char, animname: String):
 	else:
 		animation_running = true
 		animation.play(animname)
+		if animname == "shock":
+			electric_zap_sound.play()
 
 
 func _player_lock(lock: bool):
