@@ -26,6 +26,7 @@ func _ready() -> void:
 	Actions.player_push_back.connect(self._player_push_back)
 	Actions.move_char.connect(self._move)
 	Actions.play_animation.connect(self._animation)
+	Actions.get_char_position.connect(self._position)
 
 func _physics_process(_delta: float) -> void:
 	
@@ -102,3 +103,8 @@ func _player_push_back():
 	
 	velocity = movement * current_speed * -1
 	move_and_slide()
+
+
+func _position(character: Actions.char):
+	if character != identifier: return
+	Actions.return_position.emit(position)

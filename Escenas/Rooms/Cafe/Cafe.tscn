@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://doo5ykubp27fv"]
+[gd_scene load_steps=20 format=4 uid="uid://doo5ykubp27fv"]
 
 [ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_w8p8k"]
 [ext_resource type="PackedScene" uid="uid://c18kyyf0q5b53" path="res://Escenas/RoomAsets/Door/door.tscn" id="2_64rkd"]
@@ -17,6 +17,18 @@ texture = ExtResource("1_w8p8k")
 [sub_resource type="TileSet" id="TileSet_07vrh"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_sr1yb")
+
+[sub_resource type="Resource" id="Resource_adxj4"]
+script = ExtResource("7_hxv2q")
+method = &"text_freeze_player_ff"
+method = &"text_freeze_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_gyv8r"]
+script = ExtResource("7_hxv2q")
+method = &"player_push_back_ff"
+method = &"player_push_back_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1vql"]
 size = Vector2(32, 8)
@@ -81,6 +93,13 @@ position = Vector2(112, -184)
 scale = Vector2(2.4, 0.8)
 to_scene = "Rooms"
 
+[node name="NoExit" parent="Floor" instance=ExtResource("6_ubeo4")]
+position = Vector2(-184, 10)
+scale = Vector2(2.426733, 0.72230965)
+actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_adxj4"), SubResource("Resource_gyv8r")])
+text_id = "cafenoexit"
+auto = true
+
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -138,51 +157,58 @@ region_rect = Rect2(64, 128, 32, 16)
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_x1vql")
 
-[node name="CoffeeMaker" type="Node2D" parent="YSort" node_paths=PackedStringArray("texture_no_cup", "texture_cup")]
+[node name="CoffeeMaker" type="Node2D" parent="YSort" node_paths=PackedStringArray("texture_no_cup", "texture_cup", "texture_coming")]
 position = Vector2(-8, -128)
 script = ExtResource("5_64rkd")
 texture_no_cup = NodePath("NoCup")
 texture_cup = NodePath("Cup")
+texture_coming = NodePath("Coming")
 
 [node name="NoCup" type="Sprite2D" parent="YSort/CoffeeMaker"]
-position = Vector2(4, -10)
+position = Vector2(2, -7)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(64, 112, 16, 16)
 
 [node name="Cup" type="Sprite2D" parent="YSort/CoffeeMaker"]
-position = Vector2(4, -10)
+position = Vector2(2, -7)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(80, 112, 16, 16)
 
+[node name="Coming" type="Sprite2D" parent="YSort/CoffeeMaker"]
+position = Vector2(2, -7)
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(80, 96, 16, 16)
+
 [node name="Coffee" parent="YSort/CoffeeMaker" instance=ExtResource("6_ubeo4")]
-position = Vector2(1.5, 4)
-scale = Vector2(0.65230143, 0.59187406)
+position = Vector2(2, 3)
+scale = Vector2(0.06276195, 0.5710179)
 actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_0ywax")])
 game_state = Array[ExtResource("8_hxv2q")]([SubResource("Resource_4dpbc")])
 
 [node name="Milk" type="Sprite2D" parent="YSort/CoffeeMaker"]
-position = Vector2(-39, -7)
+position = Vector2(-40, -8)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(96, 128, 16, 16)
 
 [node name="Milk" parent="YSort/CoffeeMaker/Milk" instance=ExtResource("6_ubeo4")]
-position = Vector2(-0.5, 11)
-scale = Vector2(0.6229434, 0.5976786)
+position = Vector2(0, 11)
+scale = Vector2(0.064001605, 0.58208656)
 actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_gx14w")])
 game_state = Array[ExtResource("8_hxv2q")]([SubResource("Resource_hxv2q")])
 
 [node name="Sugar" type="Sprite2D" parent="YSort/CoffeeMaker"]
-position = Vector2(-79, -5)
+position = Vector2(-80, -5)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(96, 112, 16, 16)
 
 [node name="Milk" parent="YSort/CoffeeMaker/Sugar" instance=ExtResource("6_ubeo4")]
-position = Vector2(0, 9)
-scale = Vector2(0.6229434, 0.5976786)
+position = Vector2(0, 8)
+scale = Vector2(0.059484653, 0.589836)
 actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_itscp")])
 game_state = Array[ExtResource("8_hxv2q")]([SubResource("Resource_8pq7x")])
 
@@ -200,3 +226,6 @@ position = Vector2(112, -168)
 
 [node name="ScientistCafe" type="Node2D" parent="SpawnPoints"]
 position = Vector2(-115, -112)
+
+[node name="GuardExit" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-184, 10)

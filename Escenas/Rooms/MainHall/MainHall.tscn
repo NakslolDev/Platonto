@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bs2aeotvqendl"]
+[gd_scene load_steps=15 format=4 uid="uid://bs2aeotvqendl"]
 
 [ext_resource type="Script" uid="uid://bk82pggd6pnr" path="res://Escenas/Rooms/MainHall/ready.gd" id="1_3t4nw"]
 [ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_qknmp"]
@@ -41,6 +41,12 @@ method = &"player_push_back_ff"
 method = &"player_push_back_ff"
 metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
+[sub_resource type="Resource" id="Resource_lfukx"]
+script = ExtResource("5_culfs")
+method = &"fall_with_coffee_ff"
+method = &"fall_with_coffee_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
 [node name="MainHall" type="Node2D"]
 texture_filter = 1
 
@@ -61,8 +67,9 @@ auto_open = false
 
 [node name="DoorLab" parent="Floor" instance=ExtResource("7_o25xd")]
 position = Vector2(160, -96)
-identifier = "door_black_room"
+identifier = "door_lab"
 auto_open = true
+require_card = true
 
 [node name="DoorCafe" parent="Floor" instance=ExtResource("7_o25xd")]
 position = Vector2(-352, -80)
@@ -137,6 +144,21 @@ actions = Array[ExtResource("5_culfs")]([SubResource("Resource_5njwl"), SubResou
 text_id = "cafeporaquino"
 auto = true
 mision = 5
+
+[node name="ReturnCoffee1" type="Node2D" parent="Floor"]
+
+[node name="GiveCoffee" parent="Floor/ReturnCoffee1" instance=ExtResource("4_sl8lh")]
+position = Vector2(-40, -40)
+scale = Vector2(2.3266313, 2.408308)
+mision = 6
+
+[node name="Fall" parent="Floor/ReturnCoffee1" instance=ExtResource("4_sl8lh")]
+position = Vector2(-144, -40)
+scale = Vector2(1.6952103, 2.6709855)
+actions = Array[ExtResource("5_culfs")]([SubResource("Resource_lfukx")])
+auto = true
+one_use = true
+mision = 6
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true

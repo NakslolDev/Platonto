@@ -49,6 +49,8 @@ vecafe1_02;es por alli[high]
 ;
 cafeporaquino_01;la cafeteria esta al final del pasillo[high]
 ;
+cafenoexit_01;[_shake]NO PUEDES PASAR[medium]
+;
 sobresalto_01;oh[high2][hide][auto][skip]
 ;
 explicacafe1_01;el cafe no se hace asi[high2]
@@ -58,3 +60,10 @@ explicacafe2_01;primero la leche[high2]
 explicacafe3_01;luego el azucar[high2]
 ;
 explicacafe4_01;y por ultimo el cafe[high2]
+;
+fell1_01;ESTAS BIEN?[high]
+fell1_02;tienes que tener mas cuidado[high]
+;
+fell2_01;no te preocupes por el cafe[high]
+;
+segundotest_01;ya puedes entrar para la siguiente prueba[high]

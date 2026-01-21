@@ -157,7 +157,8 @@ func _change_room_char(_char: Actions.char, room: String, position: String, anim
 	_unload_char(_char)
 
 func load_offscene_characters():
-	for chara in off_scene_characters:
+	var keys := off_scene_characters.keys()
+	for chara in keys:
 		if off_scene_characters[chara]["scene"] != current_room: continue
 		
 		var character_position = off_scene_characters[chara]["position"]

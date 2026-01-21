@@ -20,6 +20,7 @@ var movement: Vector2
 func _ready() -> void:
 	Actions.move_char.connect(self._move)
 	Actions.play_animation.connect(self._animation)
+	Actions.get_char_position.connect(self._position)
 
 func _physics_process(_delta: float) -> void:
 	
@@ -75,3 +76,8 @@ func _animation(character: Actions.char, animname: String):
 	else:
 		animation_running = true
 		animation.play(animname)
+
+
+func _position(character: Actions.char):
+	if character != identifier: return
+	Actions.return_position.emit(position)

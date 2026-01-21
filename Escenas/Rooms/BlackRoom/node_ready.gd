@@ -21,6 +21,12 @@ func new_char_state():
 	main.off_scene_characters[2]["scene"] = "Cafe"
 	main.off_scene_characters[2]["position"] = "ScientistCafe"
 	main.off_scene_characters[2]["animation"] = &"spin"
+	
+	if not main.off_scene_characters.has(4):
+		main.off_scene_characters[4] = {}
+	main.off_scene_characters[4]["scene"] = "Cafe"
+	main.off_scene_characters[4]["position"] = "GuardExit"
+	main.off_scene_characters[4]["animation"] = &"idle_back"
 
 func sync_all():
 	new_char_state()
