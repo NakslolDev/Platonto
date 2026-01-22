@@ -10,6 +10,8 @@ func func_ready() -> void:
 		Actions.enter_black_room_first_ff()
 	
 	if Gamestate.current_mision == Gamestate.mision.BLACKROOM_1:
+		if not Gamestate.finished_blackroom: return
+		Gamestate.finished_blackroom = false
 		Actions.close_door.emit("door_black_room")
 		Gamestate.current_mision = Gamestate.mision.GO_GET_COFFEE_1
 		Actions.exit_black_room_first_ff()
@@ -25,5 +27,8 @@ func func_ready() -> void:
 		Gamestate.current_mision = Gamestate.mision.RETURN_COFFEE_1
 	
 	if Gamestate.current_mision == Gamestate.mision.BLACKROOM_2:
+		if not Gamestate.finished_blackroom: return
+		Gamestate.finished_blackroom = false
 		Actions.close_door.emit("door_black_room")
 		Gamestate.current_mision = Gamestate.mision.GO_GET_COFEE_2
+		Actions.exit_black_room_second_ff()

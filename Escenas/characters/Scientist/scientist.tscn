@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://cwd6ap4exqji2"]
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_hbpcd"]
-[ext_resource type="Texture2D" uid="uid://ncbdru54lhtx" path="res://Sprites/MainChar/MainChar.png" id="2_g8gu5"]
+[ext_resource type="Texture2D" uid="uid://c8wj6bej16mbv" path="res://Sprites/MainChar/MainChar.png" id="2_g8gu5"]
 [ext_resource type="Script" uid="uid://dpfb6476v57u8" path="res://Escenas/characters/Scientist/animations.gd" id="3_hbpcd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8rn"]

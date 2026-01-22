@@ -5,7 +5,7 @@ extends Node2D
 
 @export var door: Node2D
 
-var on := 0
+var on: Array[int]
 
 var gen_wait_time := 1.0
 
@@ -74,6 +74,7 @@ func _start_test_1():
 	await get_tree().create_timer(randf_range(1.5,3.5)).timeout
 	
 	light_up(12)
+	Gamestate.finished_blackroom = true
 	door.open_door()
 
 
@@ -110,4 +111,4 @@ func bait(number: int, main := true, full := false):
 	area.visible = false
 
 func check_in(number: int) -> bool:
-	return number == on
+	return on.has(number)

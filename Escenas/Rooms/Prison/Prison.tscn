@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=4 uid="uid://c2bdy7l1ykl2a"]
 
-[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_1l862"]
+[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_1l862"]
 [ext_resource type="Script" uid="uid://rsy4b0okcvmm" path="res://Escenas/Rooms/Prison/ready.gd" id="1_ajca3"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="2_u2gtp"]
 [ext_resource type="TileSet" uid="uid://ble4tabx2cktd" path="res://resources/TileSet.tres" id="3_7juh1"]

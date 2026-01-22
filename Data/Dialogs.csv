@@ -10,7 +10,7 @@ Prison1_01;este es el sujeto 01...[high][hide][quiet][auto][skip]
 Prison1_02;de momento todos los vitales estan normales[high2][hide][quiet][auto][skip]
 Prison1_03;parece que esta en estado vegetativo.[low][hide][quiet][auto][skip]
 Prison1_04;si, lo parece..[high2][hide][quiet][auto][skip]
-Prison1_05;vamos al siguiente[high][hide][quiet][auto][skip]
+Prison1_05;vamos al siguiente[high][hide][quiet][auto][skip1]
 ;
 Prison2_01;este es el sujeto 02[high][auto][skip1]
 Prison2_02;sus vitales estan estables[high2][auto][skip1]
@@ -67,3 +67,13 @@ fell1_02;tienes que tener mas cuidado[high]
 fell2_01;no te preocupes por el cafe[high]
 ;
 segundotest_01;ya puedes entrar para la siguiente prueba[high]
+;
+givecoffee1_01;ya tienes el cafe[high]
+;
+givecoffee2_01;esta perfecto[high]
+givecoffee2_02;gracias[high]
+;
+empezartest2_01;VAMOS A EMPEZAR EL SEGUNDO TEST[distorted][auto][skip1]
+empezartest2_02;PREPARATE PORQUE ES MAS RAPIDO[distorted][auto][skip1]
+;
+exittest_01;YA PUEDES SALIR[distorted][auto][skip1]

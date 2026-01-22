@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://bs2aeotvqendl"]
+[gd_scene load_steps=16 format=4 uid="uid://bs2aeotvqendl"]
 
 [ext_resource type="Script" uid="uid://bk82pggd6pnr" path="res://Escenas/Rooms/MainHall/ready.gd" id="1_3t4nw"]
-[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_qknmp"]
+[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_qknmp"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="2_f0cvl"]
 [ext_resource type="TileSet" uid="uid://ble4tabx2cktd" path="res://resources/TileSet.tres" id="3_culfs"]
 [ext_resource type="PackedScene" uid="uid://n0d3287r3s5k" path="res://Escenas/RoomAsets/interact_colider/interact_colider.tscn" id="4_sl8lh"]
@@ -39,6 +39,12 @@ metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 script = ExtResource("5_culfs")
 method = &"player_push_back_ff"
 method = &"player_push_back_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_hulfl"]
+script = ExtResource("5_culfs")
+method = &"give_coffee_ff"
+method = &"give_coffee_ff"
 metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
 [sub_resource type="Resource" id="Resource_lfukx"]
@@ -80,7 +86,7 @@ tile_map_data = PackedByteArray("AADr//z/AAAAAAIAAADs//z/AAAAAAIAAADt//z/AAAAAAI
 tile_set = ExtResource("3_culfs")
 
 [node name="Prison" parent="Floor" instance=ExtResource("2_f0cvl")]
-position = Vector2(8, 16)
+position = Vector2(8, 20)
 scale = Vector2(2.4, 0.8)
 to_scene = "Prison"
 
@@ -148,8 +154,11 @@ mision = 5
 [node name="ReturnCoffee1" type="Node2D" parent="Floor"]
 
 [node name="GiveCoffee" parent="Floor/ReturnCoffee1" instance=ExtResource("4_sl8lh")]
-position = Vector2(-40, -40)
+position = Vector2(-56, -40)
 scale = Vector2(2.3266313, 2.408308)
+actions = Array[ExtResource("5_culfs")]([SubResource("Resource_hulfl")])
+auto = true
+one_use = true
 mision = 6
 
 [node name="Fall" parent="Floor/ReturnCoffee1" instance=ExtResource("4_sl8lh")]

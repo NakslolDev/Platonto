@@ -21,5 +21,7 @@ var open_cells: Array[int]
 
 var cup := false
 
+var finished_blackroom := false
+
 enum coffee_food {MILK, SUGAR, COFFEE}
 var in_cup: Array[coffee_food] = []

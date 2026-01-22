@@ -216,7 +216,7 @@ func first_anim_waifu():
 	load_character.emit(npc_identif, spawnpoint)
 	
 	var running := false
-	var rout: Array[Vector2] = [Vector2(370, 0.0), Vector2(0.0, -10.0)] 
+	var rout: Array[Vector2] = [Vector2(390, 0.0), Vector2(0.0, -10.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -230,7 +230,7 @@ func first_anim_waifu():
 	await text_finished
 	
 	running = false
-	rout = [Vector2(0.0, 10.0), Vector2(180, 0.0), Vector2(0.0, -10.0)] 
+	rout = [Vector2(0.0, 10.0), Vector2(160, 0.0), Vector2(0.0, -10.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -303,7 +303,7 @@ func first_anim_scientist():
 	load_character.emit(npc_identif, spawnpoint)
 	
 	var running := false
-	var rout: Array[Vector2] = [Vector2(370, 0.0), Vector2(0.0, -10.0)] 
+	var rout: Array[Vector2] = [Vector2(390, 0.0), Vector2(0.0, -10.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -311,7 +311,7 @@ func first_anim_scientist():
 	await text_finished
 	
 	running = false
-	rout = [Vector2(0.0, 10.0), Vector2(165, 0.0), Vector2(0.0, -10.0)] 
+	rout = [Vector2(0.0, 10.0), Vector2(145, 0.0), Vector2(0.0, -10.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -342,7 +342,7 @@ func first_anim_scientist():
 	wait_time = 0.5
 	await get_tree().create_timer(wait_time).timeout
 	
-	var animation := "spin"
+	var animation := "spin" # open gate
 	play_animation.emit(npc_identif, animation)
 	
 	wait_time = 1.5
@@ -370,7 +370,7 @@ func first_anim_general():
 	load_character.emit(npc_identif, spawnpoint)
 	
 	var running := false
-	var rout: Array[Vector2] = [Vector2(370, 0.0), Vector2(0.0, -10.0)] 
+	var rout: Array[Vector2] = [Vector2(390, 0.0), Vector2(0.0, -10.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -381,7 +381,7 @@ func first_anim_general():
 	await get_tree().create_timer(wait_time).timeout
 	
 	running = false
-	rout = [Vector2(0.0, 10.0), Vector2(175, 0.0), Vector2(0.0, -15.0)] 
+	rout = [Vector2(0.0, 10.0), Vector2(155, 0.0), Vector2(0.0, -15.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -428,7 +428,7 @@ func first_anim_militar1():
 	load_character.emit(npc_identif, spawnpoint)
 	
 	var running := false
-	var rout: Array[Vector2] = [Vector2(370, 0.0), Vector2(0.0, -10.0)] 
+	var rout: Array[Vector2] = [Vector2(390, 0.0), Vector2(0.0, -10.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -439,7 +439,7 @@ func first_anim_militar1():
 	await get_tree().create_timer(wait_time).timeout
 	
 	running = false
-	rout = [Vector2(0.0, 10.0), Vector2(175, 0.0), Vector2(0.0, -10.0)] 
+	rout = [Vector2(0.0, 10.0), Vector2(155, 0.0), Vector2(0.0, -10.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -478,19 +478,22 @@ func first_anim_militar2():
 	var spawnpoint := "Mili2Prison"
 	load_character.emit(npc_identif, spawnpoint)
 	
+	var wait_time := 0.5
+	await get_tree().create_timer(wait_time).timeout
+	
 	var running := false
-	var rout: Array[Vector2] = [Vector2(370, 0.0), Vector2(0.0, -10.0)] 
+	var rout: Array[Vector2] = [Vector2(390, 0.0), Vector2(0.0, -10.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
 	
 	await text_finished
 	
-	var wait_time := 0.1
+	wait_time = 0.1
 	await get_tree().create_timer(wait_time).timeout
 	
 	running = false
-	rout = [Vector2(0.0, 10.0), Vector2(175, 0.0), Vector2(0.0, -10.0)] 
+	rout = [Vector2(0.0, 10.0), Vector2(155, 0.0), Vector2(0.0, -10.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
@@ -598,6 +601,7 @@ func enter_black_room_first_ff():
 		return
 	
 	animated_characters.append(npc_identif)
+	animated_characters.append(char.Player)
 	
 	player_lock.emit(true)
 	displace_cam = Vector2(0.0, -32.0)
@@ -641,6 +645,7 @@ func enter_black_room_first_ff():
 	displace_cam = Vector2.ZERO
 	
 	animated_characters.erase(npc_identif)
+	animated_characters.erase(char.Player)
 
 func cam_place_black_room_ff():
 	static_cam = Vector2(0.0, -120.0)
@@ -688,6 +693,7 @@ func exit_black_room_first_ff():
 		return
 	
 	animated_characters.append(npc_identif)
+	animated_characters.append(char.Player)
 	
 	player_lock.emit(true)
 	
@@ -733,7 +739,7 @@ func exit_black_room_first_ff():
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
 	
-	play_animation.emit(char.Player, "spin")
+	play_animation.emit(char.Player, "spin") # hold coffee
 	Gamestate.cup = true
 	
 	rout = [Vector2(0.0, 20.0)] 
@@ -770,6 +776,7 @@ func exit_black_room_first_ff():
 	player_lock.emit(false)
 	play_animation.emit(char.Player, "stop")
 	
+	animated_characters.erase(char.Player)
 	animated_characters.erase(npc_identif)
 
 signal coffee_cup(on: bool)
@@ -783,6 +790,7 @@ func coffee_machine_ff():
 	if Gamestate.in_cup.has(COFFEE): return
 	
 	player_lock.emit(true)
+	animated_characters.append(char.Player)
 	
 	if Gamestate.in_cup == [MILK, SUGAR]:
 		coffee_cup.emit(true, true)
@@ -790,6 +798,7 @@ func coffee_machine_ff():
 		Gamestate.in_cup.append(COFFEE)
 		coffee_cup.emit(false)
 		player_lock.emit(false)
+		animated_characters.erase(char.Player)
 	else:
 		coffee_cup.emit(true)
 		animation_on_coffee_machine()
@@ -805,6 +814,7 @@ func sugar_ff():
 		Gamestate.in_cup.append(SUGAR)
 	else:
 		player_lock.emit(true)
+		animated_characters.append(char.Player)
 		animation_on_sugar()
 
 func animation_on_coffee_machine():
@@ -924,6 +934,7 @@ func animation_on_coffee_machine():
 	
 	player_lock.emit(false)
 	play_animation.emit(char.Player, "stop")
+	animated_characters.erase(char.Player)
 	
 	running = false
 	rout = [Vector2(-108.0,0.0), Vector2(0.0,6.0)]
@@ -932,7 +943,7 @@ func animation_on_coffee_machine():
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
 	
-	play_animation.emit(npc_identif, "spin")
+	play_animation.emit(npc_identif, "spin") # idle drinking coffee
 	
 	animated_characters.erase(npc_identif)
 
@@ -1064,6 +1075,7 @@ func animation_on_sugar():
 	
 	player_lock.emit(false)
 	play_animation.emit(char.Player, "stop")
+	animated_characters.erase(char.Player)
 	
 	running = false
 	rout = [Vector2(-27.0,0.0), Vector2(0.0,6.0)]
@@ -1072,7 +1084,7 @@ func animation_on_sugar():
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
 	
-	play_animation.emit(npc_identif, "spin")
+	play_animation.emit(npc_identif, "spin") # idle drinking coffee
 	
 	animated_characters.erase(npc_identif)
 
@@ -1176,6 +1188,101 @@ func fall_with_coffee_ff():
 	
 	open_blackroom_door_2()
 
+func give_coffee_ff():
+	
+	var npc_identif := char.Waifu
+	
+	if animated_characters.has(npc_identif):
+		push_warning("there is an animation playing: ", npc_identif)
+		return
+	if not npc_conected(npc_identif):
+		push_warning("npc not conected: ", npc_identif)
+		return
+	
+	animated_characters.append(char.Player)
+	animated_characters.append(npc_identif)
+	
+	player_lock.emit(true)
+	
+	var player_pos := await find_char_position(char.Player)
+	
+	npc_identif = char.Waifu # Ahora se va a mover waifu
+	
+	var waifu_pos := await find_char_position(npc_identif)
+	
+	var movement_y_needed: float = player_pos.y - waifu_pos.y
+	var movement_x_needed: float = player_pos.x - waifu_pos.x + 16
+	
+	var running := false
+	var rout: Array[Vector2] = [Vector2(0.0,movement_y_needed), Vector2(movement_x_needed, 0.0)]
+	
+	play_animation.emit(npc_identif, "stop")
+	move_char.emit(npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	var text_id := "givecoffee1"
+	text.emit(text_id)
+	await text_finished
+	
+	running = false
+	rout = [Vector2(-6.0, 0.0), Vector2(6.0, 0.0)]
+	
+	play_animation.emit(npc_identif, "walk_left")
+	move_char.emit(npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	play_animation.emit(npc_identif, "idle_left")
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	play_animation.emit(npc_identif, "spin") #drink coffee
+	
+	await get_tree().create_timer(2.0).timeout
+	
+	play_animation.emit(npc_identif, "idle_left")
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	text_id = "givecoffee2"
+	text.emit(text_id)
+	await text_finished
+	
+	player_pos = await find_char_position(char.Player)
+	
+	waifu_pos = await find_char_position(npc_identif)
+	
+	movement_y_needed = -76.0 - waifu_pos.y
+	movement_x_needed = -112.0 - waifu_pos.x
+	
+	running = false
+	rout = [Vector2(movement_x_needed, 0.0), Vector2(0.0,movement_y_needed)]
+	
+	play_animation.emit(npc_identif, "stop")
+	move_char.emit(npc_identif, running, rout)
+	
+	await get_tree().create_timer(0.2).timeout
+	
+	running = false
+	rout = [Vector2(movement_x_needed - 6, 0.0)]
+	
+	play_animation.emit(char.Player, "walk_right")
+	player_lock.emit(false)
+	move_char.emit(char.Player, running, rout)
+	
+	await _movement_done(char.Player)
+	player_lock.emit(true)
+	play_animation.emit(char.Player, "idle_right")
+	
+	await _movement_done(npc_identif)
+	
+	animated_characters.erase(char.Player)
+	animated_characters.erase(char.Waifu)
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	open_blackroom_door_2()
+
 func open_blackroom_door_2():
 	
 	var npc_identif := char.Waifu
@@ -1188,6 +1295,7 @@ func open_blackroom_door_2():
 		return
 	
 	animated_characters.append(npc_identif)
+	animated_characters.append(char.Player)
 	
 	open_door.emit("door_black_room")
 	
@@ -1198,7 +1306,6 @@ func open_blackroom_door_2():
 	
 	await text_finished
 	
-	Gamestate.current_mision = Gamestate.mision.BLACKROOM_2
 	player_lock.emit(false)
 	play_animation.emit(char.Player, "stop")
 	
@@ -1208,6 +1315,119 @@ func open_blackroom_door_2():
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
 	
-	play_animation.emit(npc_identif, "spin")
+	play_animation.emit(npc_identif, "spin") # notes
 	
+	animated_characters.erase(char.Player)
+	animated_characters.erase(npc_identif)
+
+
+signal start_test_2
+func start_blackroom_2_ff():
+	await text_finished
+	start_test_2.emit()
+
+func exit_test_2_ff():
+	var text_id := "exittest"
+	text.emit(text_id)
+	
+	await text_finished
+	continue_test.emit()
+
+
+func exit_black_room_second_ff():
+	return
+	var npc_identif := char.Waifu
+	
+	if animated_characters.has(npc_identif):
+		push_warning("there is an animation playing: ", npc_identif)
+		return
+	if not npc_conected(npc_identif):
+		push_warning("npc not conected: ", npc_identif)
+		return
+	
+	animated_characters.append(npc_identif)
+	animated_characters.append(char.Player)
+	
+	player_lock.emit(true)
+	
+	play_animation.emit(npc_identif, "stop")
+	
+	var running := true
+	var rout: Array[Vector2] = [Vector2(0.0, 120.0), Vector2(-120.0, 0.0), Vector2(0.0, -16.0)] 
+	
+	move_char.emit(npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	var text_id := "finaltest1"
+	text.emit(text_id)
+	
+	await text_finished
+	
+	running = false
+	rout = [Vector2(0.0, 16.0)] 
+	
+	move_char.emit(npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	play_animation.emit(npc_identif, "idle_right")
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	play_animation.emit(npc_identif, "idle_left")
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	play_animation.emit(npc_identif, "idle_back")
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	play_animation.emit(npc_identif, "walk_back")
+	
+	running = true
+	rout = [Vector2(0.0, -20.0)] 
+	move_char.emit(npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	
+	play_animation.emit(char.Player, "spin") # hold coffee
+	Gamestate.cup = true
+	
+	rout = [Vector2(0.0, 20.0)] 
+	move_char.emit(npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	
+	play_animation.emit(npc_identif, "idle_back")
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	play_animation.emit(npc_identif, "stop")
+	
+	running = false
+	rout = [Vector2(-100.0, 0.0)] 
+	
+	move_char.emit(npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	text_id = "vecafe1"
+	text.emit(text_id)
+	
+	await text_finished
+	
+	running = false
+	rout = [Vector2(164.0, 0.0)] 
+	
+	move_char.emit(npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	
+	play_animation.emit(npc_identif, "idle_left")
+	
+	player_lock.emit(false)
+	play_animation.emit(char.Player, "stop")
+	
+	animated_characters.erase(char.Player)
 	animated_characters.erase(npc_identif)

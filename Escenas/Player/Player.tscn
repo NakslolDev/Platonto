@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://bg3tdup37qiuv"]
 
 [ext_resource type="Script" uid="uid://dgti7sves7wb4" path="res://Escenas/Player/player.gd" id="1_qk22e"]
-[ext_resource type="Texture2D" uid="uid://ncbdru54lhtx" path="res://Sprites/MainChar/MainChar.png" id="1_u2dgf"]
+[ext_resource type="Texture2D" uid="uid://c8wj6bej16mbv" path="res://Sprites/MainChar/MainChar.png" id="1_u2dgf"]
 [ext_resource type="Script" uid="uid://cgkbhp6qu10ar" path="res://Escenas/Player/animated_sprite_2d.gd" id="3_ek8r7"]
 [ext_resource type="AudioStream" uid="uid://biiqs18k4vwiq" path="res://Sounds/electric_zap.ogg" id="4_4pr6r"]
 

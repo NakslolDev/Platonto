@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_vuukh"]
 [ext_resource type="Texture2D" uid="uid://cirf6ec4v85b5" path="res://Sprites/Waifu/pixilart-sprite.png" id="2_0awsg"]
-[ext_resource type="Texture2D" uid="uid://ncbdru54lhtx" path="res://Sprites/MainChar/MainChar.png" id="2_86mpn"]
+[ext_resource type="Texture2D" uid="uid://c8wj6bej16mbv" path="res://Sprites/MainChar/MainChar.png" id="2_86mpn"]
 [ext_resource type="Script" uid="uid://0guhfmqa4ftf" path="res://Escenas/characters/Waifu/animations.gd" id="3_vuukh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8rn"]

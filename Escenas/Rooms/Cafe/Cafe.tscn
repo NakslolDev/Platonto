@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=4 uid="uid://doo5ykubp27fv"]
 
-[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_w8p8k"]
+[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_w8p8k"]
 [ext_resource type="PackedScene" uid="uid://c18kyyf0q5b53" path="res://Escenas/RoomAsets/Door/door.tscn" id="2_64rkd"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="2_rfseg"]
 [ext_resource type="TileSet" uid="uid://ble4tabx2cktd" path="res://resources/TileSet.tres" id="2_x1vql"]
@@ -84,7 +84,7 @@ tile_map_data = PackedByteArray("AAD2////AAAAAAQAAAD3////AAAAAAQAAAD4////AAAAAAQ
 tile_set = ExtResource("2_x1vql")
 
 [node name="MainHall" parent="Floor" instance=ExtResource("2_rfseg")]
-position = Vector2(0, 32)
+position = Vector2(0, 36)
 scale = Vector2(2.4, 0.8)
 to_scene = "MainHall"
 
@@ -93,12 +93,21 @@ position = Vector2(112, -184)
 scale = Vector2(2.4, 0.8)
 to_scene = "Rooms"
 
-[node name="NoExit" parent="Floor" instance=ExtResource("6_ubeo4")]
+[node name="NoExit1" parent="Floor" instance=ExtResource("6_ubeo4")]
 position = Vector2(-184, 10)
 scale = Vector2(2.426733, 0.72230965)
 actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_adxj4"), SubResource("Resource_gyv8r")])
 text_id = "cafenoexit"
 auto = true
+mision = 5
+
+[node name="NoExit2" parent="Floor" instance=ExtResource("6_ubeo4")]
+position = Vector2(-184, 10)
+scale = Vector2(2.426733, 0.72230965)
+actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_adxj4"), SubResource("Resource_gyv8r")])
+text_id = "cafenoexit"
+auto = true
+mision = 6
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
