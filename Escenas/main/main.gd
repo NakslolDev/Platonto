@@ -19,6 +19,7 @@ var rooms_index := {
 	"Cafe": 6,
 	"Rooms": 7,
 	"WaifuRoom": 8,
+	"Exit": 9,
 }
 
 @export var character: Array[PackedScene]

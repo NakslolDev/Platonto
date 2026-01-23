@@ -5,8 +5,18 @@ extends AnimatedSprite2D
 enum dir { FRONT, BACK, LEFT, RIGHT }
 var direction: dir = dir.FRONT
 
+var skins := {
+	"a": preload("res://Sprites/MainChar/Player.tres"),
+	"b": preload("res://Sprites/MainChar/ClothedPlayer.tres"),
+}
+
+func _ready():
+	_change_outfit("a")
+	Actions.change_outfit.connect(_change_outfit)
+
 func _process(_delta: float) -> void:
 	if root.animation_running:
+		speed_scale = 1.0
 		return
 	calc_dir()
 
@@ -82,3 +92,8 @@ func play_walk():
 			play("walk_left")
 		dir.RIGHT:
 			play("walk_right")
+
+
+func _change_outfit(id: String):
+	sprite_frames = skins[id]
+	play("idle_front")

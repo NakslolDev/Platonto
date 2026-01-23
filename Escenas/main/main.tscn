@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://drfnyhgpj5olb"]
+[gd_scene load_steps=26 format=3 uid="uid://drfnyhgpj5olb"]
 
 [ext_resource type="Script" uid="uid://dhk03hkc3u0la" path="res://Escenas/main/camera_2d.gd" id="1_2of3d"]
 [ext_resource type="Script" uid="uid://c4l1c3u51xs27" path="res://Escenas/main/main.gd" id="1_2we06"]
@@ -9,23 +9,27 @@
 [ext_resource type="PackedScene" uid="uid://d1y45ilycwciq" path="res://Escenas/Rooms/Debug/Debug.tscn" id="4_bwgev"]
 [ext_resource type="PackedScene" uid="uid://bs2aeotvqendl" path="res://Escenas/Rooms/MainHall/MainHall.tscn" id="5_ga1pt"]
 [ext_resource type="PackedScene" uid="uid://dpa1o341hrdf7" path="res://Escenas/Rooms/BlackRoom/BlackRoom.tscn" id="6_k7qcx"]
-[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="6_ocu4p"]
+[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="6_ocu4p"]
 [ext_resource type="PackedScene" uid="uid://ueoi3s0r0l47" path="res://Escenas/TextBox/TextBox.tscn" id="6_qas0q"]
 [ext_resource type="Script" uid="uid://16r0102ekdji" path="res://Escenas/main/transition.gd" id="7_fsthx"]
 [ext_resource type="PackedScene" uid="uid://ptjhex7677vd" path="res://Escenas/Rooms/Lab/Lab.tscn" id="7_odf77"]
 [ext_resource type="PackedScene" uid="uid://doo5ykubp27fv" path="res://Escenas/Rooms/Cafe/Cafe.tscn" id="8_odf77"]
 [ext_resource type="PackedScene" uid="uid://d1lwa0wdlnddk" path="res://Escenas/Rooms/Rooms/Rooms.tscn" id="9_0jel8"]
 [ext_resource type="PackedScene" uid="uid://cxgxpta5c2vo" path="res://Escenas/Rooms/WaifuRoom/WaifuRoom.tscn" id="10_bxvr6"]
-[ext_resource type="PackedScene" uid="uid://tyhevwi2aopk" path="res://Escenas/Exit/exit.tscn" id="11_e46kr"]
+[ext_resource type="PackedScene" uid="uid://tyhevwi2aopk" path="res://Escenas/Exit_game/exit.tscn" id="11_e46kr"]
+[ext_resource type="PackedScene" uid="uid://bvbhbca3nqwkv" path="res://Escenas/Rooms/Exit/Exit.tscn" id="11_l8p4v"]
 [ext_resource type="PackedScene" uid="uid://cwd6ap4exqji2" path="res://Escenas/characters/Scientist/scientist.tscn" id="13_bxvr6"]
 [ext_resource type="PackedScene" uid="uid://dan2vqemoiclq" path="res://Escenas/characters/General/general.tscn" id="14_3w5lp"]
 [ext_resource type="PackedScene" uid="uid://df28xnhy0celp" path="res://Escenas/characters/Militar01/militar.tscn" id="15_ffjya"]
 [ext_resource type="PackedScene" uid="uid://c8aem3jeoj5s6" path="res://Escenas/characters/Militar02/militar.tscn" id="16_lmg33"]
+[ext_resource type="AudioStream" uid="uid://cwnaxjpfcqgpw" path="res://Sounds/get_item.ogg" id="22_ob4ap"]
+[ext_resource type="Script" uid="uid://hto2osx3mar4" path="res://Escenas/main/get_item.gd" id="23_l8p4v"]
+[ext_resource type="Script" uid="uid://cadoubtrm3wyt" path="res://Escenas/main/card_identifier.gd" id="25_e4wmf"]
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player", "transition", "camera")]
 script = ExtResource("1_2we06")
 first_room = "BlackRoom"
-rooms = Array[PackedScene]([ExtResource("4_bwgev"), ExtResource("3_2we06"), ExtResource("4_ag2vn"), ExtResource("5_ga1pt"), ExtResource("6_k7qcx"), ExtResource("7_odf77"), ExtResource("8_odf77"), ExtResource("9_0jel8"), ExtResource("10_bxvr6")])
+rooms = Array[PackedScene]([ExtResource("4_bwgev"), ExtResource("3_2we06"), ExtResource("4_ag2vn"), ExtResource("5_ga1pt"), ExtResource("6_k7qcx"), ExtResource("7_odf77"), ExtResource("8_odf77"), ExtResource("9_0jel8"), ExtResource("10_bxvr6"), ExtResource("11_l8p4v")])
 character = Array[PackedScene]([ExtResource("2_83cwb"), ExtResource("4_5r113"), ExtResource("13_bxvr6"), ExtResource("14_3w5lp"), ExtResource("15_ffjya"), ExtResource("16_lmg33")])
 player = NodePath("Player")
 transition = NodePath("CanvasLayer/Transition")
@@ -65,3 +69,18 @@ script = ExtResource("7_fsthx")
 
 [node name="Exit" parent="CanvasLayer" instance=ExtResource("11_e46kr")]
 exit_delay = 0.01
+
+[node name="Global_sounds" type="Node" parent="."]
+
+[node name="get_item" type="AudioStreamPlayer" parent="Global_sounds"]
+stream = ExtResource("22_ob4ap")
+volume_db = -5.0
+bus = &"SFX"
+script = ExtResource("23_l8p4v")
+
+[node name="card_identifier" type="AudioStreamPlayer" parent="Global_sounds"]
+stream = ExtResource("22_ob4ap")
+volume_db = -5.0
+pitch_scale = 0.5
+bus = &"SFX"
+script = ExtResource("25_e4wmf")

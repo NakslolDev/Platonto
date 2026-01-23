@@ -7,6 +7,7 @@ var direction: dir = dir.FRONT
 
 func _process(_delta: float) -> void:
 	if root.animation_running:
+		speed_scale = 1.0
 		return
 	if root.moving:
 		calc_dir()
@@ -42,7 +43,7 @@ func play_idle():
 			play("idle_right")
 
 func play_walk():
-	speed_scale = 1.5 if Input.is_action_pressed("run") else 1.0
+	speed_scale = 1.5 if root.running else 1.0
 	
 	match direction:
 		dir.FRONT:

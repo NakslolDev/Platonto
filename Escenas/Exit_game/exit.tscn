@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://tyhevwi2aopk"]
 
-[ext_resource type="Script" uid="uid://cihyrj4bpf2kf" path="res://Escenas/Exit/exit.gd" id="1_goh6k"]
-[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_k6hdm"]
+[ext_resource type="Script" uid="uid://cihyrj4bpf2kf" path="res://Escenas/Exit_game/exit.gd" id="1_goh6k"]
+[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_k6hdm"]
 
 [node name="Exit" type="Control" node_paths=PackedStringArray("cubes")]
 texture_filter = 1

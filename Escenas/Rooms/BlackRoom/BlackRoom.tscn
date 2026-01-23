@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=4 uid="uid://dpa1o341hrdf7"]
 
 [ext_resource type="Texture2D" uid="uid://c0k8gsja2coxv" path="res://Sprites/misc/RadialGradient.png" id="1_71kqh"]
-[ext_resource type="Texture2D" uid="uid://ctbhwkggeo75m" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_lakxl"]
+[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_lakxl"]
 [ext_resource type="Script" uid="uid://wli4w1nk8j2" path="res://Escenas/Rooms/BlackRoom/node_ready.gd" id="1_r2itm"]
 [ext_resource type="Script" uid="uid://cycign7kfmla7" path="res://Escenas/Rooms/BlackRoom/gradiant.gd" id="2_pf4us"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="2_sdvou"]
@@ -126,7 +126,6 @@ region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 
 [node name="Lights1" type="Node2D" parent="." node_paths=PackedStringArray("sound_high", "sound_low", "door")]
-visible = false
 script = ExtResource("9_cwplk")
 sound_high = NodePath("High")
 sound_low = NodePath("Low")

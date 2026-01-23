@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bc8t8gndoy2bx" path="res://Sounds/8.bit_taking_sound_4.ogg" id="6_67sfh"]
 [ext_resource type="AudioStream" uid="uid://c8d14y11ss2du" path="res://Sounds/8.bit_taking_sound_1.ogg" id="7_geo8f"]
 [ext_resource type="AudioStream" uid="uid://x6nwnlnfgqn4" path="res://Sounds/8.bit_taking_sound_3.ogg" id="8_jvpkm"]
-[ext_resource type="AudioStream" uid="uid://bbg1obu3chii2" path="res://Sounds/8.bit_taking_sound_2.ogg" id="9_50chp"]
+[ext_resource type="AudioStream" uid="uid://gptatft2ghun" path="res://Sounds/8.bit_taking_sound_2.ogg" id="9_50chp"]
 [ext_resource type="AudioStream" uid="uid://cd78krmrbd1rh" path="res://Sounds/interference.ogg" id="9_jvpkm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjw2d"]
