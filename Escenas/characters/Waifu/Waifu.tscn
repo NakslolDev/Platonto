@@ -1,11 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://px7jg51e3um8"]
+[gd_scene load_steps=33 format=3 uid="uid://px7jg51e3um8"]
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_vuukh"]
 [ext_resource type="Texture2D" uid="uid://duvd77bt2xi7q" path="res://Sprites/Waifu/pixilart-sprite (2).png" id="2_igtmp"]
 [ext_resource type="Script" uid="uid://0guhfmqa4ftf" path="res://Escenas/characters/Waifu/animations.gd" id="3_vuukh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8rn"]
-size = Vector2(10, 4)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uexbv"]
+atlas = ExtResource("2_igtmp")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hejpr"]
+atlas = ExtResource("2_igtmp")
+region = Rect2(240, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0awsg"]
 atlas = ExtResource("2_igtmp")
@@ -22,6 +27,26 @@ region = Rect2(48, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkbl2"]
 atlas = ExtResource("2_igtmp")
 region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3temx"]
+atlas = ExtResource("2_igtmp")
+region = Rect2(256, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igtmp"]
+atlas = ExtResource("2_igtmp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcqrn"]
+atlas = ExtResource("2_igtmp")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0suq7"]
+atlas = ExtResource("2_igtmp")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1pcq"]
+atlas = ExtResource("2_igtmp")
+region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8rfd"]
 atlas = ExtResource("2_igtmp")
@@ -91,6 +116,20 @@ region = Rect2(160, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_uexbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hejpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uexbv")
+}],
+"loop": true,
+"name": &"coffee",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0awsg")
 }],
 "loop": true,
@@ -119,6 +158,43 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3temx")
+}],
+"loop": true,
+"name": &"notes",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igtmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcqrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0suq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1pcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igtmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0suq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1pcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcqrn")
+}],
+"loop": true,
+"name": &"panic",
 "speed": 5.0
 }, {
 "frames": [{
@@ -195,6 +271,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igtmp"]
+size = Vector2(14, 4)
+
 [node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
 texture_filter = 1
 collision_mask = 0
@@ -202,12 +281,13 @@ script = ExtResource("1_vuukh")
 identifier = 1
 animation = NodePath("AnimatedSprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1x8rn")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("root")]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_vuukh")
-animation = &"walk_right"
+animation = &"notes"
+frame_progress = 0.7709704
 script = ExtResource("3_vuukh")
 root = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_igtmp")

@@ -16,6 +16,17 @@ var volume := vol.NORMAL
 
 var auto: bool
 
+func _ready():
+	Actions.change_font.connect(_change_font)
+
+func _change_font(normal: bool):
+	if normal:
+		var font: Font = load("res://Fuentes/NotEncripted.ttf")
+		add_theme_font_override("normal_font", font)
+	else:
+		remove_theme_font_override("normal_font")
+
+
 func print_text(dialog: String):
 	
 	text = dialog
@@ -94,12 +105,12 @@ func _input(event: InputEvent) -> void:
 	if not active:
 		return
 	if event.is_action_pressed("interact"):
+		if auto: return
 		if done:
 			if find_bracket(text, "skip1"): return
 			emit_signal("dialog_done")
 			active = false
 		else:
-			if auto: return
 			visible_characters = text.length()
 
 func find_bracket(txt:String, label: String):

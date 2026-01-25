@@ -22,7 +22,7 @@ func _entered(body: Node2D):
 		if not visible: return
 		parent.on.erase(int(self.name))
 		if not changed:
-			modulate.g = 0
+			modulate.r = 0
 			changed = true
 		return
 	
@@ -46,6 +46,6 @@ func _check_color():
 		if not visible: return
 		parent.on.erase(int(self.name))
 		if not changed:
-			modulate.g = 0
+			modulate.r = 0
 			changed = true
 		return

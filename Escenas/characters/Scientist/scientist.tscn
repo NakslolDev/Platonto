@@ -1,11 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwd6ap4exqji2"]
+[gd_scene load_steps=29 format=3 uid="uid://cwd6ap4exqji2"]
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_hbpcd"]
 [ext_resource type="Texture2D" uid="uid://chofmgn1g3h6v" path="res://Sprites/Scientist/pixilart-sprite (3).png" id="2_hbpcd"]
 [ext_resource type="Script" uid="uid://dpfb6476v57u8" path="res://Escenas/characters/Scientist/animations.gd" id="3_hbpcd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8rn"]
-size = Vector2(10, 4)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbpcd"]
+atlas = ExtResource("2_hbpcd")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s83oj"]
+atlas = ExtResource("2_hbpcd")
+region = Rect2(240, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8gu5"]
 atlas = ExtResource("2_hbpcd")
@@ -22,6 +27,10 @@ region = Rect2(48, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3kym"]
 atlas = ExtResource("2_hbpcd")
 region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y237w"]
+atlas = ExtResource("2_hbpcd")
+region = Rect2(256, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fs8eb"]
 atlas = ExtResource("2_hbpcd")
@@ -91,6 +100,20 @@ region = Rect2(160, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hbpcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s83oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbpcd")
+}],
+"loop": true,
+"name": &"coffee",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_g8gu5")
 }],
 "loop": true,
@@ -119,6 +142,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y237w")
+}],
+"loop": true,
+"name": &"notes",
 "speed": 5.0
 }, {
 "frames": [{
@@ -195,6 +226,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbpcd"]
+size = Vector2(14, 4)
+
 [node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
 texture_filter = 1
 collision_mask = 0
@@ -202,13 +236,12 @@ script = ExtResource("1_hbpcd")
 identifier = 2
 animation = NodePath("AnimatedSprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1x8rn")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("root")]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_vuukh")
-animation = &"walk_right"
-frame_progress = 0.078821115
+animation = &"notes"
 script = ExtResource("3_hbpcd")
 root = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hbpcd")

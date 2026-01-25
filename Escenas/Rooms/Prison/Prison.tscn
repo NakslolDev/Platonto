@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://c2bdy7l1ykl2a"]
+[gd_scene load_steps=27 format=4 uid="uid://c2bdy7l1ykl2a"]
 
 [ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_1l862"]
 [ext_resource type="Script" uid="uid://rsy4b0okcvmm" path="res://Escenas/Rooms/Prison/ready.gd" id="1_ajca3"]
@@ -50,11 +50,20 @@ method = &"follow_waifu_2_ff"
 method = &"follow_waifu_2_ff"
 metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skdxb"]
+size = Vector2(28, 6)
+
 [sub_resource type="Resource" id="Resource_jqdyu"]
 script = ExtResource("5_btvic")
 method = &"open_gate_ff"
 args = [4]
 method = &"open_gate_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_eqolk"]
+script = ExtResource("5_btvic")
+method = &"prison_ending_ff"
+method = &"prison_ending_ff"
 metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
 [sub_resource type="Resource" id="Resource_7lwx8"]
@@ -87,6 +96,12 @@ metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 script = ExtResource("10_skdxb")
 name = "card"
 metadata/_custom_type_script = "uid://b5qsucinxeerc"
+
+[sub_resource type="Resource" id="Resource_eg5p2"]
+script = ExtResource("5_btvic")
+method = &"text_freeze_player_ff"
+method = &"text_freeze_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
 [node name="Prison" type="Node2D"]
 texture_filter = 1
@@ -145,6 +160,18 @@ mision = 3
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="DeadPrisoner" type="StaticBody2D" parent="YSort"]
+position = Vector2(132, -22)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/DeadPrisoner"]
+texture = ExtResource("1_1l862")
+region_enabled = true
+region_rect = Rect2(64, 48, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/DeadPrisoner"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_skdxb")
+
 [node name="PrisonGate1" parent="YSort" instance=ExtResource("6_6xpri")]
 position = Vector2(-232, 32)
 number = 1
@@ -170,7 +197,7 @@ region_rect = Rect2(96, 96, 16, 16)
 [node name="InteractColider" parent="YSort/Gate_opener4" instance=ExtResource("4_rm5t1")]
 position = Vector2(0, 10)
 scale = Vector2(0.32504308, 1.0265632)
-actions = Array[ExtResource("5_btvic")]([SubResource("Resource_jqdyu")])
+actions = Array[ExtResource("5_btvic")]([SubResource("Resource_jqdyu"), SubResource("Resource_eqolk")])
 game_state = Array[ExtResource("10_skdxb")]([SubResource("Resource_7lwx8")])
 
 [node name="Gate_opener1" type="Sprite2D" parent="YSort"]
@@ -215,10 +242,15 @@ texture = ExtResource("1_1l862")
 region_enabled = true
 region_rect = Rect2(96, 96, 16, 16)
 
+[node name="InteractColider" parent="YSort" instance=ExtResource("4_rm5t1")]
+position = Vector2(-440, 25)
+actions = Array[ExtResource("5_btvic")]([SubResource("Resource_eg5p2")])
+text_id = "prisionero1"
+
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="default" type="Node2D" parent="SpawnPoints"]
-position = Vector2(-56, 26)
+position = Vector2(-56, 24)
 
 [node name="MainHall" type="Node2D" parent="SpawnPoints"]
 position = Vector2(-592, -24)
@@ -237,3 +269,27 @@ position = Vector2(-617, 71)
 
 [node name="Mili2Prison" type="Node2D" parent="SpawnPoints"]
 position = Vector2(-582, 71)
+
+[node name="Vegetal" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-264, -24)
+
+[node name="Prisoner1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-440, 24)
+
+[node name="Prisoner2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-392, -16)
+
+[node name="Prisoner3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-471, 8)
+
+[node name="Prisoner4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-504, -24)
+
+[node name="PSGeneral" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-534, 71)
+
+[node name="PSMilitar1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-542, 51)
+
+[node name="PSMilitar2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-545, 89)

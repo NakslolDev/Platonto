@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk443rlsbis8i"]
+
+[ext_resource type="Script" uid="uid://cws0gqaf6wsy1" path="res://Escenas/MainMenu/main_menu.gd" id="1_pu0wf"]
+[ext_resource type="Theme" uid="uid://hnjog2hko8rb" path="res://resources/encripted.tres" id="3_g7kht"]
+[ext_resource type="FontFile" uid="uid://cpsks1kxv8wir" path="res://Fuentes/NotEncripted.ttf" id="4_nfp0u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ywc0f"]
+load_path = "res://.godot/imported/TextureAtlas.png-52e66aa994807d62ab2858baeb37d973.ctex"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pu0wf")
+
+[node name="Transition" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(159.94, 91.94)
+scale = Vector2(20.0075, 11.5075)
+texture = SubResource("CompressedTexture2D_ywc0f")
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 32.0
+offset_right = 244.0
+offset_bottom = 70.0
+theme = ExtResource("3_g7kht")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("4_nfp0u")
+theme_override_font_sizes/font_size = 36
+text = "Play"
+
+[node name="PlayMiddle" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 72.0
+offset_right = 140.0
+offset_bottom = 120.0
+theme = ExtResource("3_g7kht")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("4_nfp0u")
+theme_override_font_sizes/font_size = 18
+text = "Play In
+Media Res"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 136.0
+offset_right = 195.0
+offset_bottom = 154.0
+theme = ExtResource("3_g7kht")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("4_nfp0u")
+theme_override_font_sizes/font_size = 9
+text = "Exit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="PlayMiddle" to="." method="_on_play_middle_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

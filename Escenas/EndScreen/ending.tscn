@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://h8i1qsla1e6o"]
+
+[ext_resource type="Script" uid="uid://gs5pp34bkrxj" path="res://Escenas/EndScreen/ending.gd" id="1_734t3"]
+[ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_xd72y"]
+[ext_resource type="PackedScene" uid="uid://ueoi3s0r0l47" path="res://Escenas/TextBox/TextBox.tscn" id="2_734t3"]
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_734t3")
+
+[node name="Transition" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(159.94, 91.94)
+scale = Vector2(20.0075, 11.5075)
+texture = ExtResource("1_xd72y")
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
+
+[node name="TextBox" parent="." instance=ExtResource("2_734t3")]
+visible = false
+layout_mode = 1

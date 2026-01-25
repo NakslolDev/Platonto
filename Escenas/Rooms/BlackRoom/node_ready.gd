@@ -16,10 +16,10 @@ func func_ready() -> void:
 	
 	if Gamestate.current_mision == Gamestate.mision.FOLLOW_SCIENTIST:
 		Gamestate.current_mision = Gamestate.mision.BLACKROOM_1
-		new_char_state()
+		sync_all()
 	
 	if Gamestate.current_mision == Gamestate.mision.BLACKROOM_2:
-		new_char_state() # porsia
+		sync_all() # porsia
 
 func new_char_state():
 	var main = get_tree().current_scene
@@ -30,7 +30,7 @@ func new_char_state():
 		main.off_scene_characters[2] = {}
 	main.off_scene_characters[2]["scene"] = "Cafe"
 	main.off_scene_characters[2]["position"] = "ScientistCafe"
-	main.off_scene_characters[2]["animation"] = &"spin" # idle drinking coffee
+	main.off_scene_characters[2]["animation"] = &"coffee" # idle drinking coffee
 	
 	if not main.off_scene_characters.has(4):
 		main.off_scene_characters[4] = {}
@@ -53,7 +53,37 @@ func sync_all():
 		main.off_scene_characters[1] = {}
 	main.off_scene_characters[1]["scene"] = "MainHall"
 	main.off_scene_characters[1]["position"] = Vector2(8.0, -167.833)
-	main.off_scene_characters[1]["animation"] = &"spin" #
+	main.off_scene_characters[1]["animation"] = &"notes"
 	
 	Gamestate.open_doors = ["prison_door", "door_black_room"]
 	Gamestate.open_cells = [2,3]
+	
+	if not main.off_scene_characters.has(6):
+		main.off_scene_characters[6] = {}
+	main.off_scene_characters[6]["scene"] = "Prison"
+	main.off_scene_characters[6]["position"] = "Vegetal"
+	main.off_scene_characters[6]["animation"] = &"idle_back"
+	
+	if not main.off_scene_characters.has(7):
+		main.off_scene_characters[7] = {}
+	main.off_scene_characters[7]["scene"] = "Prison"
+	main.off_scene_characters[7]["position"] = "Prisoner1"
+	main.off_scene_characters[7]["animation"] = &"idle_front"
+	
+	if not main.off_scene_characters.has(8):
+		main.off_scene_characters[8] = {}
+	main.off_scene_characters[8]["scene"] = "Prison"
+	main.off_scene_characters[8]["position"] = "Prisoner2"
+	main.off_scene_characters[8]["animation"] = &"idle_front"
+	
+	if not main.off_scene_characters.has(9):
+		main.off_scene_characters[9] = {}
+	main.off_scene_characters[9]["scene"] = "Prison"
+	main.off_scene_characters[9]["position"] = "Prisoner3"
+	main.off_scene_characters[9]["animation"] = &"idle_back"
+	
+	if not main.off_scene_characters.has(10):
+		main.off_scene_characters[10] = {}
+	main.off_scene_characters[10]["scene"] = "Prison"
+	main.off_scene_characters[10]["position"] = "Prisoner4"
+	main.off_scene_characters[10]["animation"] = &"spin"

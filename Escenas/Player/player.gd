@@ -21,6 +21,10 @@ var movement: Vector2
 
 @export var electric_zap_sound: AudioStreamPlayer
 
+var hurt: bool
+var hurt_cicle := false
+var hurt_cont := 0
+
 func _ready() -> void:
 	Actions.player_lock.connect(self._player_lock)
 	Actions.player_push_back.connect(self._player_push_back)
@@ -30,10 +34,24 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	
-	if lock_movement:
-		return
+	if hurt:
+		if hurt_cicle:
+			if hurt_cont == 0: position.x += 1
+			hurt_cont += 1
+			if hurt_cont == 3:
+				hurt_cicle = false
+				hurt_cont = 0
+		else:
+			if hurt_cont == 0: position.x -= 1
+			hurt_cont += 1
+			if hurt_cont == 3:
+				hurt_cicle = true
+				hurt_cont = 0
 	
 	if not automoving:
+		
+		if lock_movement: return
+		
 		movement = Input.get_vector("A", "D", "W", "S")
 		
 		if abs(movement.x) > 0.0 and abs(movement.y) > 0.0:
@@ -90,6 +108,8 @@ func _animation(character: Actions.char, animname: String):
 		animation.play(animname)
 		if animname == "shock":
 			electric_zap_sound.play()
+		if animname == "hurt":
+			hurt = true
 
 
 func _player_lock(lock: bool):
@@ -101,7 +121,7 @@ func _player_push_back():
 	if Input.is_action_pressed("run"):
 		current_speed *= RUNMULT
 	
-	velocity = movement * current_speed * -1
+	velocity = movement * current_speed * -1.5
 	move_and_slide()
 
 

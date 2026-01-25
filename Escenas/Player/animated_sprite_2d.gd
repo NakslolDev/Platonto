@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 
 func calc_dir():
 	var movement: Vector2 = root.movement
-	var stopped: bool = root.lock_movement
+	var stopped: bool = root.lock_movement and not root.automoving
 	
 	# Bloqueado
 	if stopped:
@@ -81,7 +81,7 @@ func play_idle():
 			play("idle_right")
 
 func play_walk():
-	speed_scale = 1.5 if Input.is_action_pressed("run") else 1.0
+	speed_scale = 1.5 if Input.is_action_pressed("run") and not root.automoving else 1.0
 	
 	match direction:
 		dir.FRONT:

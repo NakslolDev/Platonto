@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://drfnyhgpj5olb"]
+[gd_scene load_steps=44 format=3 uid="uid://drfnyhgpj5olb"]
 
 [ext_resource type="Script" uid="uid://dhk03hkc3u0la" path="res://Escenas/main/camera_2d.gd" id="1_2of3d"]
 [ext_resource type="Script" uid="uid://c4l1c3u51xs27" path="res://Escenas/main/main.gd" id="1_2we06"]
@@ -22,15 +22,32 @@
 [ext_resource type="PackedScene" uid="uid://dan2vqemoiclq" path="res://Escenas/characters/General/general.tscn" id="14_3w5lp"]
 [ext_resource type="PackedScene" uid="uid://df28xnhy0celp" path="res://Escenas/characters/Militar01/militar.tscn" id="15_ffjya"]
 [ext_resource type="PackedScene" uid="uid://c8aem3jeoj5s6" path="res://Escenas/characters/Militar02/militar.tscn" id="16_lmg33"]
+[ext_resource type="PackedScene" uid="uid://1bmhxduxh74f" path="res://Escenas/characters/Vegetal/Vegetal.tscn" id="18_3vgrm"]
+[ext_resource type="PackedScene" uid="uid://f0r28fpjxpn5" path="res://Escenas/characters/Prisoner01/Prisoner.tscn" id="19_48hxc"]
+[ext_resource type="PackedScene" uid="uid://d21elnjytgij8" path="res://Escenas/characters/Prisoner02/Prisoner.tscn" id="20_83gpq"]
+[ext_resource type="PackedScene" uid="uid://c0m4ic51w6aax" path="res://Escenas/characters/Prisoner03/Prisoner.tscn" id="21_2lfgf"]
 [ext_resource type="AudioStream" uid="uid://cwnaxjpfcqgpw" path="res://Sounds/get_item.ogg" id="22_ob4ap"]
+[ext_resource type="PackedScene" uid="uid://e4ynuwrvkyxx" path="res://Escenas/characters/Prisoner04/Prisoner.tscn" id="22_phcmb"]
+[ext_resource type="Texture2D" uid="uid://ddjg0cqdy3e5r" path="res://Sprites/misc/circle gradient.png" id="23_i8la3"]
 [ext_resource type="Script" uid="uid://hto2osx3mar4" path="res://Escenas/main/get_item.gd" id="23_l8p4v"]
+[ext_resource type="Script" uid="uid://dhjvpvlb8noee" path="res://Escenas/main/circle_gradient.gd" id="24_gdis5"]
 [ext_resource type="Script" uid="uid://cadoubtrm3wyt" path="res://Escenas/main/card_identifier.gd" id="25_e4wmf"]
+[ext_resource type="AudioStream" uid="uid://bind613wfuf6b" path="res://Sounds/hurt.mp3" id="25_exon3"]
+[ext_resource type="Script" uid="uid://crbbs3s66qaok" path="res://Escenas/main/blackout.gd" id="25_gdis5"]
+[ext_resource type="Script" uid="uid://dxfgjar4pxn12" path="res://Escenas/main/hurt.gd" id="26_smrkr"]
+[ext_resource type="AudioStream" uid="uid://wvmxva547osy" path="res://Sounds/needle.mp3" id="30_4n8os"]
+[ext_resource type="Script" uid="uid://dckuilhqy3ck5" path="res://Escenas/main/needle.gd" id="31_6ap7f"]
+[ext_resource type="Script" uid="uid://dx1t00temhhnd" path="res://Escenas/main/alarm.gd" id="31_phcmb"]
+[ext_resource type="PackedScene" uid="uid://b78j13m0dw33b" path="res://Escenas/YesNo/yes_or_no.tscn" id="32_f84wx"]
+[ext_resource type="AudioStream" uid="uid://ecolva05umvh" path="res://Sounds/gun.wav" id="35_2lfgf"]
+[ext_resource type="Script" uid="uid://c56y6yhifls6c" path="res://Escenas/main/gun.gd" id="35_83gpq"]
+[ext_resource type="AudioStream" uid="uid://bpl76rh3h7cmi" path="res://Sounds/alarm.mp3" id="38_sc3fx"]
+[ext_resource type="Script" uid="uid://d1h5nlfjniwhw" path="res://Escenas/main/alarm_sound.gd" id="39_f84wx"]
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player", "transition", "camera")]
 script = ExtResource("1_2we06")
-first_room = "BlackRoom"
 rooms = Array[PackedScene]([ExtResource("4_bwgev"), ExtResource("3_2we06"), ExtResource("4_ag2vn"), ExtResource("5_ga1pt"), ExtResource("6_k7qcx"), ExtResource("7_odf77"), ExtResource("8_odf77"), ExtResource("9_0jel8"), ExtResource("10_bxvr6"), ExtResource("11_l8p4v")])
-character = Array[PackedScene]([ExtResource("2_83cwb"), ExtResource("4_5r113"), ExtResource("13_bxvr6"), ExtResource("14_3w5lp"), ExtResource("15_ffjya"), ExtResource("16_lmg33")])
+character = Array[PackedScene]([ExtResource("2_83cwb"), ExtResource("4_5r113"), ExtResource("13_bxvr6"), ExtResource("14_3w5lp"), ExtResource("15_ffjya"), ExtResource("16_lmg33"), ExtResource("18_3vgrm"), ExtResource("19_48hxc"), ExtResource("20_83gpq"), ExtResource("21_2lfgf"), ExtResource("22_phcmb")])
 player = NodePath("Player")
 transition = NodePath("CanvasLayer/Transition")
 camera = NodePath("Camera2D")
@@ -55,10 +72,22 @@ position = Vector2(2, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Alarm" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(1, 0, 0, 0)
+texture_filter = 1
+position = Vector2(159.94, 91.94)
+scale = Vector2(20.0075, 11.5075)
+texture = ExtResource("6_ocu4p")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("31_phcmb")
+
 [node name="TextBox" parent="CanvasLayer" instance=ExtResource("6_qas0q")]
-visible = false
+
+[node name="YesNo" parent="CanvasLayer" instance=ExtResource("32_f84wx")]
 
 [node name="Transition" type="Sprite2D" parent="CanvasLayer"]
+visible = false
 texture_filter = 1
 position = Vector2(159.94, 91.94)
 scale = Vector2(20.0075, 11.5075)
@@ -67,8 +96,24 @@ region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 script = ExtResource("7_fsthx")
 
+[node name="CircleGradient" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(160, 90)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("23_i8la3")
+script = ExtResource("24_gdis5")
+
+[node name="Blackout" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+position = Vector2(159.94, 91.94)
+scale = Vector2(20.0075, 11.5075)
+texture = ExtResource("6_ocu4p")
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
+script = ExtResource("25_gdis5")
+
 [node name="Exit" parent="CanvasLayer" instance=ExtResource("11_e46kr")]
-exit_delay = 0.01
 
 [node name="Global_sounds" type="Node" parent="."]
 
@@ -77,6 +122,30 @@ stream = ExtResource("22_ob4ap")
 volume_db = -5.0
 bus = &"SFX"
 script = ExtResource("23_l8p4v")
+
+[node name="hurt" type="AudioStreamPlayer" parent="Global_sounds"]
+stream = ExtResource("25_exon3")
+volume_db = -5.0
+bus = &"SFX"
+script = ExtResource("26_smrkr")
+
+[node name="gun" type="AudioStreamPlayer" parent="Global_sounds"]
+stream = ExtResource("35_2lfgf")
+volume_db = -10.0
+bus = &"SFX"
+script = ExtResource("35_83gpq")
+
+[node name="alarm" type="AudioStreamPlayer" parent="Global_sounds"]
+stream = ExtResource("38_sc3fx")
+volume_db = -15.0
+bus = &"SFX"
+script = ExtResource("39_f84wx")
+
+[node name="needle" type="AudioStreamPlayer" parent="Global_sounds"]
+stream = ExtResource("30_4n8os")
+volume_db = -15.0
+bus = &"SFX"
+script = ExtResource("31_6ap7f")
 
 [node name="card_identifier" type="AudioStreamPlayer" parent="Global_sounds"]
 stream = ExtResource("22_ob4ap")

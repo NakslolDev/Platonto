@@ -25,10 +25,10 @@ func _show_text(id: String):
 		else:
 			visible = true
 		
-		print("--")
-		print("Gamestate.printing id: ", id + "_" + str(i).pad_zeros(2))
-		print("text:", dialog)
-		print("--")
+		#print("--")
+		#print("Gamestate.printing id: ", id + "_" + str(i).pad_zeros(2))
+		#print("text:", dialog)
+		#print("--")
 		
 		if dialog == "Something went wrong... (id non existent)":
 			Gamestate.printing = false

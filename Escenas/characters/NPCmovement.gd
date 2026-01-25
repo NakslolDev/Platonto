@@ -40,6 +40,8 @@ func _physics_process(_delta: float) -> void:
 
 func _move(character: Actions.char, run: bool, rout: Array[Vector2]):
 	
+	#print("hola: ", character, run, rout)
+	
 	if character != identifier:	
 		return
 	

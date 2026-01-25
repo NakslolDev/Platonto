@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0m4ic51w6aax"]
+
+[ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_fjcef"]
+[ext_resource type="SpriteFrames" uid="uid://dgmkfnjapkt4d" path="res://Sprites/MainChar/Player.tres" id="2_uywoo"]
+[ext_resource type="Script" uid="uid://dlafhxwnf2x3k" path="res://Escenas/characters/Prisoner03/animations.gd" id="3_4v302"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcef"]
+size = Vector2(14, 4)
+
+[node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+texture_filter = 1
+collision_mask = 0
+script = ExtResource("1_fjcef")
+identifier = 9
+animation = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("root")]
+position = Vector2(0, -6)
+sprite_frames = ExtResource("2_uywoo")
+animation = &"fall"
+script = ExtResource("3_4v302")
+root = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fjcef")

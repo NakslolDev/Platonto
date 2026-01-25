@@ -35,7 +35,9 @@ func resize_current_characters():
 @export var camera: Camera2D
 
 func _ready():
-	Actions.load_character.connect(_load_char)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if Gamestate.start_in_middle: first_room = "BlackRoom"
+	Actions.load_character.connect(_on_load_char_requested)
 	Actions.unload_character.connect(_unload_char)
 	Actions.change_room.connect(_change_room_char)
 	resize_current_characters()
@@ -66,7 +68,7 @@ func change_room(room: String):
 
 func load_room(index: int) -> void:
 	
-	print(current_room, " <- ", last_room)
+	#print(current_room, " <- ", last_room)
 	
 	if current_room_instance:
 		current_room_instance.queue_free()
@@ -97,7 +99,10 @@ func logic_change(trans_ended: bool):
 			node_ready.func_ready()
 
 
-func _load_char(_char: Actions.char, position, animation: StringName = "none"):
+func _on_load_char_requested(chara: Actions.char, pos, anim: StringName = "none"):
+	call_deferred("_load_char", chara, pos, anim)
+
+func _load_char(_char: Actions.char, position, animation: StringName):
 	
 	if current_characters[_char] != null:
 		push_warning("character ", _char, " already instanciated")
@@ -167,4 +172,4 @@ func load_offscene_characters():
 		_load_char(chara, character_position, character_animation)
 		
 		off_scene_characters.erase(chara)
-	print(off_scene_characters)
+	#print(off_scene_characters)

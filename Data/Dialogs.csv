@@ -1,4 +1,4 @@
-;texto
+id;texto
 ;
 test1_01;[_shake][_wave]hola[medium]
 test1_02;Que estas comiendo? [_wave]Mazapanesconchurros[high]
@@ -90,3 +90,96 @@ otrocafeporfa_02;[_wave]por favor[high]
 controlno_01;el paso esta prohibido[medium]
 ;
 givecoffee3_01;gracias[high]
+;
+ven_01;ven[high]
+;
+laboratorio1_01;te tengo que poner ahora una dosis experimental[high]
+laboratorio1_02;espera un poco[high]
+;
+notefueres_01;no te vallas[high]
+;
+notevengas_01;[_shake]NO ENTRES[high]
+;
+veninyeccion_01;ven aqui[high]
+;
+inyeccion1_01;quedate quieto[high]
+;
+inyeccion2_01;Como te encuentras?[high]
+;
+inyeccion3_01;[_shake]TRANQUILO[high][auto][skip1]
+inyeccion3_02;[_shake]TENGO UN NEUTRALIZANTE[high][auto][skip1]
+;
+room1_01;como estas?[high]
+room1_02;siento que haya salido mal[high]
+;
+room2_01;estoy bastante agotada[high]
+;
+room3_01;voy a darme una ducha[high]
+;
+room4_01;tu intenta recuperarte[high]
+room4_02;de acuerdo?[high]
+;
+notes_01;el experimento esta siendo un exito
+notes_02;el primer sujeto no se mueve, el tercero murio, pero el segundo tiene algun tipo de trastorno
+notes_03;con esta velocidad, conseguiremos sintetizar el suero en nada
+;
+;
+exit_ending_01;Te entiendo[high]
+exit_ending_02;Te entiendo perfectamente[high]
+exit_ending_03;Despiertas en un lugar extraño, y no entiendes nada de lo que nadie dice[high]
+exit_ending_04;Te hacen experimentos, te electrocutan, te mandan a por cafe...[high]
+exit_ending_05;Lo unico que quieres hacer es irte de ahi[high]
+exit_ending_06;Los demas presos? [_shake]QUE LES DEN![high]
+exit_ending_07;Estaran ahi por algo[high]
+exit_ending_08;Y la [_wave]doctora[/_wave]?[high]
+exit_ending_09;La unica persona que se ha preocupado por ti?[high]
+exit_ending_10;[_shake]A la primera de cambio le robas[high]
+exit_ending_11;Y para que te sirve la libertad de todas formas?[high]
+;
+prisionero1_01;tienes que ayudarnos a salir[medium]
+;
+prisonescape1_01;de donde has sacado la tarjeta?[medium]
+;
+prisonescape2_01;no importa. ahora hay que salir de aqui[medium]
+;
+prisonescape3_01;ALTO AHI. MANOS ARRIBA[low][auto][hide][skip]
+;
+prisonescape4_01;[_shake]SE ABRIRA FUEGO DE INMEDIATO[low]
+;
+prisonescape5_01;[_shake]DE DONDE DEMONIOS HAS SACADO ESA TARJETA?[low][auto][skip]
+;
+prison_ending_01;No ha salido como esperabas[high]
+prison_ending_02;Aun asi, la intencion era buena [high]
+prison_ending_03;Aunque sin ningun plan, tampoco se podia llegar muy lejos[high]
+prison_ending_04;Sabias que todos vosotros erais criminales con la pena capital?[high]
+prison_ending_05;[_shake]NO?[high]
+prison_ending_06;Probablemente porque es mentira[high]
+prison_ending_07;Pero no tenias ni idea de la situacion[high]
+prison_ending_08;Y aun asi, decidiste actuar por cuenta propia[high]
+prison_ending_09;Admirable, pero estupido[high]
+;
+drugs1_01;Aqui estas[high]
+drugs1_02;Te estaba buscando...[high]
+;
+drugs2_01;Espera, has entrado en el laboratorio?[high]
+drugs2_02;[_shake]No habras[skip][high]
+;
+drugs3_01;Mierda MIERDA [_shake]MIERDA[high]
+drugs3_02;NO ME QUEDA MAS NEUTRALIZANTE[high]
+;
+drugs4_01;[_shake]idiota[high]
+;
+drugs5_01;Dime[high]
+drugs5_02;Ha merecido la pena?[high]
+;
+drugsyes_01;Me alegro[auto][high]
+;
+drugsno_01;................[auto][high]
+;
+drugs_ending_01;Aun sabiendo los peligros[high]
+drugs_ending_02;Aun sabiendo que moririas[high]
+drugs_ending_03;Aun asi, decidiste tomar la via rapida[high]
+drugs_ending_04;Solamente para unos pocos segundos[high]
+drugs_ending_05;De haberlo querido realmente, podrias haber aprendido[high]
+drugs_ending_06;A hablar, a comunicarte.[high]..
+drugs_ending_07;Ya lo hiciste una vez, que te impide hacerlo otra vez?[high]

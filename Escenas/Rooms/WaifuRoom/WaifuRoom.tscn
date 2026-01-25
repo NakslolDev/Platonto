@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=4 uid="uid://cxgxpta5c2vo"]
+[gd_scene load_steps=17 format=4 uid="uid://cxgxpta5c2vo"]
 
 [ext_resource type="Script" uid="uid://dsko7xr0uiyva" path="res://Escenas/Rooms/WaifuRoom/node_ready.gd" id="1_a6xo6"]
 [ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_nadgk"]
 [ext_resource type="TileSet" uid="uid://ble4tabx2cktd" path="res://resources/TileSet.tres" id="2_2x3t5"]
 [ext_resource type="PackedScene" uid="uid://dpa46r3hc1jf2" path="res://Escenas/RoomAsets/SceneChanger/scene_changer.tscn" id="2_yu2w2"]
+[ext_resource type="Script" uid="uid://dwb3l7wtg77i5" path="res://Escenas/Rooms/WaifuRoom/door.gd" id="5_0aykm"]
+[ext_resource type="PackedScene" uid="uid://n0d3287r3s5k" path="res://Escenas/RoomAsets/interact_colider/interact_colider.tscn" id="5_741ah"]
+[ext_resource type="Script" uid="uid://cjmmefpp8oaup" path="res://Escenas/Rooms/WaifuRoom/notes.gd" id="6_5ayje"]
+[ext_resource type="Script" uid="uid://dyy6wjgl3kpu" path="res://GlobalScripts/interactcallable.gd" id="6_55jm3"]
+[ext_resource type="Script" uid="uid://b5qsucinxeerc" path="res://GlobalScripts/variableresource.gd" id="7_55jm3"]
+[ext_resource type="Script" uid="uid://bgm8co2bvge12" path="res://Escenas/Rooms/WaifuRoom/card.gd" id="7_83dx0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdvou"]
 texture = ExtResource("1_nadgk")
@@ -13,6 +19,24 @@ texture = ExtResource("1_nadgk")
 [sub_resource type="TileSet" id="TileSet_7dxi0"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_sdvou")
+
+[sub_resource type="Resource" id="Resource_5g3xg"]
+script = ExtResource("6_55jm3")
+method = &"text_freeze_player_ff"
+method = &"text_freeze_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_55jm3"]
+script = ExtResource("6_55jm3")
+method = &"take_card_ff"
+method = &"take_card_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_lcp3c"]
+script = ExtResource("7_55jm3")
+name = "card"
+need = false
+metadata/_custom_type_script = "uid://b5qsucinxeerc"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6xo6"]
 size = Vector2(16, 29)
@@ -25,13 +49,13 @@ script = ExtResource("1_a6xo6")
 [node name="ColitionRoom" type="TileMapLayer" parent="."]
 visible = false
 texture_filter = 1
-tile_map_data = PackedByteArray("AAD6//r/AQAAAAAAAAD6//n/AQAAAAAAAAD6//j/AQAAAAAAAAD6//3/AQAAAAAAAAD6//7/AQAAAAAAAAD6////AQAAAAAAAAD6/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAD6//f/AQAAAAAAAAD6//b/AQAAAAAAAAD6//X/AQAAAAAAAAD7//X/AQAAAAAAAAD8//X/AQAAAAAAAAD9//X/AQAAAAAAAAD+//X/AQAAAAAAAAD///X/AQAAAAAAAAAAAPX/AQAAAAAAAAABAPX/AQAAAAAAAAACAPX/AQAAAAAAAAADAPX/AQAAAAAAAAAEAPX/AQAAAAAAAAAEAPb/AQAAAAAAAAAEAPf/AQAAAAAAAAAEAPj/AQAAAAAAAAAEAPn/AQAAAAAAAAAEAPr/AQAAAAAAAAAEAPv/AQAAAAAAAAAEAPz/AQAAAAAAAAAEAP3/AQAAAAAAAAAEAP7/AQAAAAAAAAAEAP//AQAAAAAAAAAEAAAAAQAAAAAAAAADAAAAAQAAAAAAAAACAAAAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD6//r/AQAAAAAAAAD6//n/AQAAAAAAAAD6//j/AQAAAAAAAAD6//3/AQAAAAAAAAD6//7/AQAAAAAAAAD6////AQAAAAAAAAD6/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAEAPj/AQAAAAAAAAAEAPn/AQAAAAAAAAAEAPr/AQAAAAAAAAAEAPv/AQAAAAAAAAAEAPz/AQAAAAAAAAAEAP3/AQAAAAAAAAAEAP7/AQAAAAAAAAAEAP//AQAAAAAAAAAEAAAAAQAAAAAAAAADAAAAAQAAAAAAAAACAAAAAQAAAAAAAAD6//f/AQAAAAAAAAD7//f/AQAAAAAAAAD8//f/AQAAAAAAAAD9//f/AQAAAAAAAAD+//f/AQAAAAAAAAD///f/AQAAAAAAAAAAAPf/AQAAAAAAAAABAPf/AQAAAAAAAAACAPf/AQAAAAAAAAADAPf/AQAAAAAAAAAEAPf/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_7dxi0")
 
 [node name="Floor" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Floor"]
-tile_map_data = PackedByteArray("AAD7////AAADAAQAAAD8////AAAEAAQAAAD9////AAADAAQAAAD+////AAAEAAQAAAD/////AAADAAQAAAAAAP//AAAEAAQAAAABAP//AAADAAQAAAACAP//AAAEAAQAAAADAP//AAADAAQAAAD8//7/AAADAAQAAAD9//7/AAAEAAQAAAD+//7/AAADAAQAAAD///7/AAAEAAQAAAAAAP7/AAADAAQAAAABAP7/AAAEAAQAAAACAP7/AAADAAQAAAADAP7/AAAEAAQAAAD7//7/AAAEAAQAAAD7//b/AAAEAAQAAAD7//f/AAADAAQAAAD8//b/AAADAAQAAAD8//f/AAAEAAQAAAD7//j/AAAEAAQAAAD7//n/AAADAAQAAAD8//j/AAADAAQAAAD8//n/AAAEAAQAAAD7//r/AAAEAAQAAAD7//v/AAADAAQAAAD8//r/AAADAAQAAAD8//v/AAAEAAQAAAD7//z/AAAEAAQAAAD7//3/AAADAAQAAAD8//z/AAADAAQAAAD8//3/AAAEAAQAAAD9//b/AAAEAAQAAAD9//f/AAADAAQAAAD+//b/AAADAAQAAAD+//f/AAAEAAQAAAD9//j/AAAEAAQAAAD9//n/AAADAAQAAAD+//j/AAADAAQAAAD+//n/AAAEAAQAAAD9//r/AAAEAAQAAAD9//v/AAADAAQAAAD+//r/AAADAAQAAAD+//v/AAAEAAQAAAD9//z/AAAEAAQAAAD9//3/AAADAAQAAAD+//z/AAADAAQAAAD+//3/AAAEAAQAAAD///b/AAAEAAQAAAD///f/AAADAAQAAAAAAPb/AAADAAQAAAAAAPf/AAAEAAQAAAD///j/AAAEAAQAAAD///n/AAADAAQAAAAAAPj/AAADAAQAAAAAAPn/AAAEAAQAAAD///r/AAAEAAQAAAD///v/AAADAAQAAAAAAPr/AAADAAQAAAAAAPv/AAAEAAQAAAD///z/AAAEAAQAAAD///3/AAADAAQAAAAAAPz/AAADAAQAAAAAAP3/AAAEAAQAAAABAPb/AAAEAAQAAAABAPf/AAADAAQAAAACAPb/AAADAAQAAAACAPf/AAAEAAQAAAABAPj/AAAEAAQAAAABAPn/AAADAAQAAAACAPj/AAADAAQAAAACAPn/AAAEAAQAAAABAPr/AAAEAAQAAAABAPv/AAADAAQAAAACAPr/AAADAAQAAAACAPv/AAAEAAQAAAABAPz/AAAEAAQAAAABAP3/AAADAAQAAAACAPz/AAADAAQAAAACAP3/AAAEAAQAAAADAPb/AAAEAAQAAAADAPf/AAADAAQAAAADAPj/AAAEAAQAAAADAPn/AAADAAQAAAADAPr/AAAEAAQAAAADAPv/AAADAAQAAAADAPz/AAAEAAQAAAADAP3/AAADAAQAAAD6//v/AAAEAAQAAAD6//z/AAADAAQAAAD6//r/AAABAAkAAAD6//n/AAACAAkAAAD6//j/AAACAAkAAAD6//f/AAACAAkAAAD7//L/AAACAAkAAAD7//P/AAACAAkAAAD7//T/AAACAAkAAAD7//X/AAABAAkAAAD8//L/AAACAAkAAAD8//P/AAACAAkAAAD8//T/AAACAAkAAAD8//X/AAABAAkAAAD9//L/AAACAAkAAAD9//P/AAACAAkAAAD9//T/AAACAAkAAAD9//X/AAABAAkAAAD+//L/AAACAAkAAAD+//P/AAACAAkAAAD+//T/AAACAAkAAAD+//X/AAABAAkAAAD///L/AAACAAkAAAD///P/AAACAAkAAAD///T/AAACAAkAAAD///X/AAABAAkAAAAAAPL/AAACAAkAAAAAAPP/AAACAAkAAAAAAPT/AAACAAkAAAAAAPX/AAABAAkAAAABAPL/AAACAAkAAAABAPP/AAACAAkAAAABAPT/AAACAAkAAAABAPX/AAABAAkAAAACAPL/AAACAAkAAAACAPP/AAACAAkAAAACAPT/AAACAAkAAAACAPX/AAABAAkAAAADAPL/AAACAAkAAAADAPP/AAACAAkAAAADAPT/AAACAAkAAAADAPX/AAABAAkAAAD7//H/AAADAAkAAAD8//H/AAADAAkAAAD9//H/AAADAAkAAAD+//H/AAADAAkAAAD///H/AAADAAkAAAAAAPH/AAADAAkAAAABAPH/AAADAAkAAAACAPH/AAADAAkAAAADAPH/AAADAAkAAAD6//H/AAAIAAkAAAD6//L/AAAFAAkAAAD6//P/AAAFAAkAAAD6//T/AAAFAAkAAAD6//X/AAAFAAkAAAD6//b/AAAGAAkAAAA=")
+tile_map_data = PackedByteArray("AAD7////AAADAAQAAAD8////AAAEAAQAAAD9////AAADAAQAAAD+////AAAEAAQAAAD/////AAADAAQAAAAAAP//AAAEAAQAAAABAP//AAADAAQAAAACAP//AAAEAAQAAAADAP//AAADAAQAAAD8//7/AAADAAQAAAD9//7/AAAEAAQAAAD+//7/AAADAAQAAAD///7/AAAEAAQAAAAAAP7/AAADAAQAAAABAP7/AAAEAAQAAAACAP7/AAADAAQAAAADAP7/AAAEAAQAAAD7//7/AAAEAAQAAAD7//f/AAABAAkAAAD8//f/AAABAAkAAAD7//j/AAAEAAQAAAD7//n/AAADAAQAAAD8//j/AAADAAQAAAD8//n/AAAEAAQAAAD7//r/AAAEAAQAAAD7//v/AAADAAQAAAD8//r/AAADAAQAAAD8//v/AAAEAAQAAAD7//z/AAAEAAQAAAD7//3/AAADAAQAAAD8//z/AAADAAQAAAD8//3/AAAEAAQAAAD+//f/AAABAAkAAAD9//j/AAAEAAQAAAD9//n/AAADAAQAAAD+//j/AAADAAQAAAD+//n/AAAEAAQAAAD9//r/AAAEAAQAAAD9//v/AAADAAQAAAD+//r/AAADAAQAAAD+//v/AAAEAAQAAAD9//z/AAAEAAQAAAD9//3/AAADAAQAAAD+//z/AAADAAQAAAD+//3/AAAEAAQAAAD///f/AAABAAkAAAAAAPf/AAABAAkAAAD///j/AAAEAAQAAAD///n/AAADAAQAAAAAAPj/AAADAAQAAAAAAPn/AAAEAAQAAAD///r/AAAEAAQAAAD///v/AAADAAQAAAAAAPr/AAADAAQAAAAAAPv/AAAEAAQAAAD///z/AAAEAAQAAAD///3/AAADAAQAAAAAAPz/AAADAAQAAAAAAP3/AAAEAAQAAAABAPf/AAABAAkAAAACAPf/AAABAAkAAAABAPj/AAAEAAQAAAABAPn/AAADAAQAAAACAPj/AAADAAQAAAACAPn/AAAEAAQAAAABAPr/AAAEAAQAAAABAPv/AAADAAQAAAACAPr/AAADAAQAAAACAPv/AAAEAAQAAAABAPz/AAAEAAQAAAABAP3/AAADAAQAAAACAPz/AAADAAQAAAACAP3/AAAEAAQAAAADAPf/AAABAAkAAAADAPj/AAAEAAQAAAADAPn/AAADAAQAAAADAPr/AAAEAAQAAAADAPv/AAADAAQAAAADAPz/AAAEAAQAAAADAP3/AAADAAQAAAD6//v/AAAEAAQAAAD6//z/AAADAAQAAAD6//r/AAABAAkAAAD6//n/AAACAAkAAAD6//j/AAACAAkAAAD6//f/AAACAAkAAAD6//T/AAAFAAkAAAD6//X/AAAFAAkAAAD6//b/AAAGAAkAAAD7//P/AAADAAkAAAD7//T/AAACAAkAAAD7//X/AAACAAkAAAD7//b/AAACAAkAAAD8//P/AAADAAkAAAD8//T/AAACAAkAAAD8//X/AAACAAkAAAD8//b/AAACAAkAAAD9//P/AAADAAkAAAD9//T/AAACAAkAAAD9//X/AAACAAkAAAD+//P/AAADAAkAAAD+//T/AAACAAkAAAD+//X/AAACAAkAAAD+//b/AAACAAkAAAD///P/AAADAAkAAAD///T/AAACAAkAAAD///X/AAACAAkAAAD///b/AAACAAkAAAAAAPP/AAADAAkAAAAAAPT/AAACAAkAAAAAAPX/AAACAAkAAAAAAPb/AAACAAkAAAABAPP/AAADAAkAAAABAPT/AAACAAkAAAABAPX/AAACAAkAAAABAPb/AAACAAkAAAACAPP/AAADAAkAAAACAPT/AAACAAkAAAACAPX/AAACAAkAAAACAPb/AAACAAkAAAADAPP/AAADAAkAAAADAPT/AAACAAkAAAADAPX/AAACAAkAAAADAPb/AAACAAkAAAD6//P/AAAIAAkAAAA=")
 tile_set = ExtResource("2_2x3t5")
 
 [node name="Rooms" parent="Floor" instance=ExtResource("2_yu2w2")]
@@ -39,8 +63,30 @@ position = Vector2(-100, -64)
 scale = Vector2(0.8, 2.4)
 to_scene = "Rooms"
 
+[node name="Notes" parent="Floor" instance=ExtResource("5_741ah")]
+position = Vector2(-72, -23)
+actions = Array[ExtResource("6_55jm3")]([SubResource("Resource_5g3xg")])
+text_id = "notes"
+
+[node name="Card" parent="Floor" instance=ExtResource("5_741ah")]
+position = Vector2(-72, -112)
+actions = Array[ExtResource("6_55jm3")]([SubResource("Resource_55jm3")])
+one_use = true
+game_state = Array[ExtResource("7_55jm3")]([SubResource("Resource_lcp3c")])
+mision = 11
+
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="Door" type="Node2D" parent="YSort"]
+position = Vector2(-40, -128)
+
+[node name="Door" type="Sprite2D" parent="YSort/Door"]
+position = Vector2(0, -16)
+texture = ExtResource("1_nadgk")
+region_enabled = true
+region_rect = Rect2(112, 80, 16, 32)
+script = ExtResource("5_0aykm")
 
 [node name="Table" type="StaticBody2D" parent="YSort"]
 position = Vector2(-72, -24)
@@ -55,8 +101,14 @@ region_rect = Rect2(112, 112, 16, 32)
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_a6xo6")
 
+[node name="Notes" type="Sprite2D" parent="YSort/Table"]
+texture = ExtResource("1_nadgk")
+region_enabled = true
+region_rect = Rect2(80, 64, 16, 16)
+script = ExtResource("6_5ayje")
+
 [node name="Table2" type="StaticBody2D" parent="YSort"]
-position = Vector2(-72, -112)
+position = Vector2(-72, -108)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="YSort/Table2"]
@@ -68,18 +120,12 @@ region_rect = Rect2(112, 112, 16, 32)
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_a6xo6")
 
-[node name="Table3" type="StaticBody2D" parent="YSort"]
-position = Vector2(-72, -137)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="YSort/Table3"]
+[node name="Card" type="Sprite2D" parent="YSort/Table2"]
+position = Vector2(0, -8)
 texture = ExtResource("1_nadgk")
 region_enabled = true
-region_rect = Rect2(112, 112, 16, 32)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Table3"]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_a6xo6")
+region_rect = Rect2(128, 128, 16, 16)
+script = ExtResource("7_83dx0")
 
 [node name="SpawnPoints" type="Node" parent="."]
 
@@ -88,3 +134,9 @@ position = Vector2(0, -64)
 
 [node name="Rooms" type="Node2D" parent="SpawnPoints"]
 position = Vector2(-80, -64)
+
+[node name="Lab" type="Node2D" parent="SpawnPoints"]
+position = Vector2(0, -32)
+
+[node name="Waifu" type="Node2D" parent="SpawnPoints"]
+position = Vector2(0, -48)

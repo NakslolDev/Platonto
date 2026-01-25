@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bs2aeotvqendl"]
+[gd_scene load_steps=24 format=4 uid="uid://bs2aeotvqendl"]
 
 [ext_resource type="Script" uid="uid://bk82pggd6pnr" path="res://Escenas/Rooms/MainHall/ready.gd" id="1_3t4nw"]
 [ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_qknmp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dyy6wjgl3kpu" path="res://GlobalScripts/interactcallable.gd" id="5_culfs"]
 [ext_resource type="PackedScene" uid="uid://c18kyyf0q5b53" path="res://Escenas/RoomAsets/Door/door.tscn" id="7_o25xd"]
 [ext_resource type="Script" uid="uid://b5qsucinxeerc" path="res://GlobalScripts/variableresource.gd" id="8_ehlfv"]
+[ext_resource type="Script" uid="uid://ci70qfvhj2x1e" path="res://Escenas/Rooms/MainHall/cup.gd" id="9_5njwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdvou"]
 texture = ExtResource("1_qknmp")
@@ -42,6 +43,18 @@ method = &"player_push_back_ff"
 method = &"player_push_back_ff"
 metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
+[sub_resource type="Resource" id="Resource_oapjm"]
+script = ExtResource("5_culfs")
+method = &"waifu_notes_ff"
+method = &"waifu_notes_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_ch5fl"]
+script = ExtResource("5_culfs")
+method = &"waifu_no_more_notes_ff"
+method = &"waifu_no_more_notes_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
 [sub_resource type="Resource" id="Resource_hulfl"]
 script = ExtResource("5_culfs")
 method = &"give_coffee_ff"
@@ -58,6 +71,12 @@ metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 script = ExtResource("5_culfs")
 method = &"give_2_coffee_ff"
 method = &"give_2_coffee_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_ko64e"]
+script = ExtResource("5_culfs")
+method = &"drugs_ending_2_ff"
+method = &"drugs_ending_2_ff"
 metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
 [sub_resource type="Resource" id="Resource_tlfig"]
@@ -169,6 +188,14 @@ text_id = "cafeporaquino"
 auto = true
 mision = 5
 
+[node name="InteractColider2" parent="Floor/AfterBlackRoom1" instance=ExtResource("4_sl8lh")]
+position = Vector2(-208, -40)
+scale = Vector2(2.386036, 2.4739676)
+actions = Array[ExtResource("5_culfs")]([SubResource("Resource_oapjm")])
+actions_on_exit = Array[ExtResource("5_culfs")]([SubResource("Resource_ch5fl")])
+auto = true
+mision = 5
+
 [node name="ReturnCoffee1" type="Node2D" parent="Floor"]
 
 [node name="GiveCoffee" parent="Floor/ReturnCoffee1" instance=ExtResource("4_sl8lh")]
@@ -187,6 +214,13 @@ auto = true
 one_use = true
 mision = 6
 
+[node name="InteractColider2" parent="Floor/ReturnCoffee1" instance=ExtResource("4_sl8lh")]
+position = Vector2(-208, -40)
+scale = Vector2(2.386036, 2.4739676)
+actions = Array[ExtResource("5_culfs")]([SubResource("Resource_oapjm")])
+auto = true
+mision = 6
+
 [node name="ReturnCoffee2" type="Node2D" parent="Floor"]
 
 [node name="GiveCoffee" parent="Floor/ReturnCoffee2" instance=ExtResource("4_sl8lh")]
@@ -196,6 +230,14 @@ actions = Array[ExtResource("5_culfs")]([SubResource("Resource_kut0o")])
 auto = true
 one_use = true
 mision = 9
+
+[node name="DrugEnding" parent="Floor" instance=ExtResource("4_sl8lh")]
+position = Vector2(88, -40)
+scale = Vector2(1.0328128, 2.9649322)
+actions = Array[ExtResource("5_culfs")]([SubResource("Resource_ko64e")])
+auto = true
+one_use = true
+mision = 12
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -224,6 +266,13 @@ texture = ExtResource("1_qknmp")
 region_enabled = true
 region_rect = Rect2(96, 80, 16, 16)
 
+[node name="cup" type="Sprite2D" parent="YSort"]
+position = Vector2(-112, -34)
+texture = ExtResource("1_qknmp")
+region_enabled = true
+region_rect = Rect2(48, 32, 16, 16)
+script = ExtResource("9_5njwl")
+
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="default" type="Node2D" parent="SpawnPoints"]
@@ -243,3 +292,6 @@ position = Vector2(-352, -72)
 
 [node name="Waifu1" type="Node2D" parent="SpawnPoints"]
 position = Vector2(8, -32)
+
+[node name="Waifu2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-48, -40)

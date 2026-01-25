@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://btstt7ee85lsw" path="res://Sprites/General/pixilart-sprite (4).png" id="2_knhau"]
 [ext_resource type="Script" uid="uid://jotucb7s0gd7" path="res://Escenas/characters/General/animations.gd" id="3_upxr1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8rn"]
-size = Vector2(10, 4)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1gbu"]
 atlas = ExtResource("2_knhau")
 region = Rect2(112, 0, 16, 16)
@@ -195,15 +192,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knhau"]
+size = Vector2(14, 4)
+
 [node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
 texture_filter = 1
 collision_mask = 0
 script = ExtResource("1_knhau")
 identifier = 3
 animation = NodePath("AnimatedSprite2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1x8rn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("root")]
 position = Vector2(0, -6)
@@ -212,3 +209,6 @@ animation = &"walk_left"
 frame_progress = 0.049463358
 script = ExtResource("3_upxr1")
 root = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_knhau")

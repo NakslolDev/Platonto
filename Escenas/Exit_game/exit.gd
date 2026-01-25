@@ -28,7 +28,7 @@ func process_exit(delta):
 	exit_elapsed = 0.0
 	
 	if exit_index >= cubes.size():
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Escenas/MainMenu/main_menu.tscn")
 		return
 	
 	cubes[exit_index].visible = true
