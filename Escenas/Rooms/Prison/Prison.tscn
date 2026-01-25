@@ -138,11 +138,10 @@ auto = true
 mision = 3
 
 [node name="WaifuFollow" type="Node2D" parent="Floor"]
-visible = false
 
 [node name="WaifuFollowMe1" parent="Floor/WaifuFollow" instance=ExtResource("4_rm5t1")]
 position = Vector2(-88, 72)
-scale = Vector2(1.215638, 4.3064904)
+scale = Vector2(1.0921333, 3.8450885)
 actions = Array[ExtResource("5_btvic")]([SubResource("Resource_x3k85"), SubResource("Resource_skdxb")])
 text_id = "FollowMe"
 auto = true

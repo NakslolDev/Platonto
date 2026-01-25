@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c8aem3jeoj5s6"]
+[gd_scene load_steps=27 format=3 uid="uid://c8aem3jeoj5s6"]
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_ivu6k"]
 [ext_resource type="Texture2D" uid="uid://cl5j2kr4vqiev" path="res://Sprites/Militar/pixilart-sprite (5).png" id="2_ivu6k"]
@@ -6,6 +6,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8rn"]
 size = Vector2(10, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivu6k"]
+atlas = ExtResource("2_ivu6k")
+region = Rect2(224, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u18be"]
 atlas = ExtResource("2_ivu6k")
@@ -89,6 +93,14 @@ region = Rect2(160, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e78uu"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivu6k")
+}],
+"loop": true,
+"name": &"gun",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u18be")
@@ -208,6 +220,6 @@ shape = SubResource("RectangleShape2D_1x8rn")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("root")]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_e78uu")
-animation = &"walk_right"
+animation = &"gun"
 script = ExtResource("3_g81go")
 root = NodePath("..")

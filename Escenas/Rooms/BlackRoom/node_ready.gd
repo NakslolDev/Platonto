@@ -19,6 +19,7 @@ func func_ready() -> void:
 		sync_all()
 	
 	if Gamestate.current_mision == Gamestate.mision.BLACKROOM_2:
+		Gamestate.entered_black_room_second_time = true
 		sync_all() # porsia
 
 func new_char_state():

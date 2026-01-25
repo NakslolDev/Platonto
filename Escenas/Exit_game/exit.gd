@@ -10,6 +10,8 @@ var exit_elapsed := 0.0
 func _process(delta):
 	if Input.is_action_pressed("esc"):
 		process_exit(delta)
+		if Actions.animated_characters != []:
+			stop_exit()
 	else:
 		stop_exit()
 

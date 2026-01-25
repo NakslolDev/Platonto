@@ -46,6 +46,7 @@
 
 [node name="Main" type="Node" node_paths=PackedStringArray("player", "transition", "camera")]
 script = ExtResource("1_2we06")
+first_room = "MainHall"
 rooms = Array[PackedScene]([ExtResource("4_bwgev"), ExtResource("3_2we06"), ExtResource("4_ag2vn"), ExtResource("5_ga1pt"), ExtResource("6_k7qcx"), ExtResource("7_odf77"), ExtResource("8_odf77"), ExtResource("9_0jel8"), ExtResource("10_bxvr6"), ExtResource("11_l8p4v")])
 character = Array[PackedScene]([ExtResource("2_83cwb"), ExtResource("4_5r113"), ExtResource("13_bxvr6"), ExtResource("14_3w5lp"), ExtResource("15_ffjya"), ExtResource("16_lmg33"), ExtResource("18_3vgrm"), ExtResource("19_48hxc"), ExtResource("20_83gpq"), ExtResource("21_2lfgf"), ExtResource("22_phcmb")])
 player = NodePath("Player")

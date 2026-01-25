@@ -101,6 +101,11 @@ func _animation(character: Actions.char, animname: String):
 	if character != identifier:	
 		return
 	
+	if animname == "hurt":
+		hurt = true
+	else:
+		hurt = false
+	
 	if animname == "stop":
 		animation_running = false
 	else:
@@ -108,8 +113,6 @@ func _animation(character: Actions.char, animname: String):
 		animation.play(animname)
 		if animname == "shock":
 			electric_zap_sound.play()
-		if animname == "hurt":
-			hurt = true
 
 
 func _player_lock(lock: bool):

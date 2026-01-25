@@ -219,6 +219,7 @@ position = Vector2(-208, -40)
 scale = Vector2(2.386036, 2.4739676)
 actions = Array[ExtResource("5_culfs")]([SubResource("Resource_oapjm")])
 auto = true
+one_use = true
 mision = 6
 
 [node name="ReturnCoffee2" type="Node2D" parent="Floor"]

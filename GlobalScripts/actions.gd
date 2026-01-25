@@ -968,7 +968,16 @@ func animation_on_coffee_machine():
 	await text_finished
 	
 	running = false
-	rout = [Vector2(6.0, 0.0), Vector2(-6.0, 0.0)]
+	rout = [Vector2(6.0, 0.0)]
+	
+	play_animation.emit(npc_identif, "walk_right")
+	move_char.emit(npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	
+	get_item.emit()
+	
+	running = false
+	rout = [Vector2(-6.0, 0.0)]
 	
 	play_animation.emit(npc_identif, "walk_right")
 	move_char.emit(npc_identif, running, rout)
@@ -1116,7 +1125,16 @@ func animation_on_sugar():
 	await _movement_done(npc_identif)
 	
 	running = false
-	rout = [Vector2(0.0, 6.0), Vector2(0.0, -6.0)]
+	rout = [Vector2(0.0, 6.0)]
+	
+	play_animation.emit(npc_identif, "walk_front")
+	move_char.emit(npc_identif, running, rout)
+	await _movement_done(npc_identif)
+	
+	get_item.emit()
+	
+	running = false
+	rout = [Vector2(0.0, -6.0)]
 	
 	play_animation.emit(npc_identif, "walk_front")
 	move_char.emit(npc_identif, running, rout)
@@ -1175,6 +1193,7 @@ func fall_with_coffee_ff():
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
 	
+	play_animation.emit(char.Waifu, "idle_left")
 	var text_id := "PrisonDead" # es solo un efecto de sonido que estoy reutilizando
 	text.emit(text_id)
 	
@@ -1468,6 +1487,11 @@ func open_blackroom_door_2():
 	play_animation.emit(char.Player, "stop")
 	
 	await _movement_done(npc_identif)
+	
+	if Gamestate.entered_black_room_second_time:
+		animated_characters.erase(char.Player)
+		animated_characters.erase(npc_identif)
+		return
 	
 	play_animation.emit(npc_identif, "notes") # notes
 	
@@ -2089,12 +2113,17 @@ func prison_ending_ff():
 	play_animation.emit(npc_identif, "idle_back")
 	
 	load_character.emit(char.General, "PSGeneral")
-	play_animation.emit(char.General, "idle_right")
+	
 	
 	load_character.emit(char.Militar01, "PSMilitar1")
-	play_animation.emit(char.Militar01, "gun") # holding gun
+	
 	
 	load_character.emit(char.Militar02, "PSMilitar2")
+	
+	await get_tree().process_frame
+	
+	play_animation.emit(char.General, "idle_right")
+	play_animation.emit(char.Militar01, "gun") # holding gun
 	play_animation.emit(char.Militar02, "gun") # holding gun
 	
 	await get_tree().create_timer(0.5).timeout
