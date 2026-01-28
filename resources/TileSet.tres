@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://ble4tabx2cktd"]
+[gd_resource type="TileSet" format=3 uid="uid://ble4tabx2cktd"]
 
 [ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_oks8a"]
 
@@ -51,6 +51,11 @@ texture = ExtResource("1_oks8a")
 9:6/0 = 0
 5:5/0 = 0
 3:3/0 = 0
+7:3/0 = 0
+7:4/0 = 0
+9:4/0 = 0
+9:3/0 = 0
+9:5/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1

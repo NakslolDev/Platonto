@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://c8aem3jeoj5s6"]
+[gd_scene format=3 uid="uid://c8aem3jeoj5s6"]
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_ivu6k"]
 [ext_resource type="Texture2D" uid="uid://cl5j2kr4vqiev" path="res://Sprites/Militar/pixilart-sprite (5).png" id="2_ivu6k"]
-[ext_resource type="Script" uid="uid://lma8bf5u4abx" path="res://Escenas/characters/Militar02/animations.gd" id="3_g81go"]
+[ext_resource type="Script" uid="uid://0guhfmqa4ftf" path="res://Escenas/characters/animations.gd" id="3_ivu6k"]
+[ext_resource type="PackedScene" uid="uid://cct05qvivphrt" path="res://Escenas/characters/walksound/walksound.tscn" id="4_e78uu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8rn"]
 size = Vector2(10, 4)
@@ -207,19 +208,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+[node name="npc" type="CharacterBody2D" unique_id=1413075422 node_paths=PackedStringArray("animation")]
 texture_filter = 1
 collision_mask = 0
 script = ExtResource("1_ivu6k")
 identifier = 5
 animation = NodePath("AnimatedSprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1013019234]
 shape = SubResource("RectangleShape2D_1x8rn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("root")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1114671587 node_paths=PackedStringArray("root")]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_e78uu")
 animation = &"gun"
-script = ExtResource("3_g81go")
+script = ExtResource("3_ivu6k")
 root = NodePath("..")
+
+[node name="walksound" parent="." unique_id=905400817 node_paths=PackedStringArray("character") instance=ExtResource("4_e78uu")]
+character = NodePath("..")

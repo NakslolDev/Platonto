@@ -1,6 +1,7 @@
 extends Node
 
 @export var second := true
+@export var door: Node2D
 
 func func_ready() -> void:
 	
@@ -12,7 +13,7 @@ func func_ready() -> void:
 			Gamestate.current_mision = Gamestate.mision.BLACKROOM_1
 		sync_all()
 		Gamestate.finished_blackroom = true
-		$"../BottomDoor".open_door()
+		door.open_door()
 	
 	if Gamestate.current_mision == Gamestate.mision.FOLLOW_SCIENTIST:
 		Gamestate.current_mision = Gamestate.mision.BLACKROOM_1

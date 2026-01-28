@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cct05qvivphrt"]
+
+[ext_resource type="AudioStream" uid="uid://b3rm4xoeq1e5c" path="res://Sounds/individual_walk.ogg" id="1_bq561"]
+[ext_resource type="Script" uid="uid://bhwrv08wf0ghm" path="res://Escenas/characters/walksound/walksound.gd" id="2_kh4ho"]
+
+[node name="walksound" type="AudioStreamPlayer2D" unique_id=905400817 node_paths=PackedStringArray("timer")]
+stream = ExtResource("1_bq561")
+volume_db = -15.0
+max_distance = 300.0
+max_polyphony = 10
+bus = &"SFX"
+script = ExtResource("2_kh4ho")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="." unique_id=1955627372]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

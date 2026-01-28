@@ -1,38 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg3tdup37qiuv"]
+[gd_scene format=3 uid="uid://bg3tdup37qiuv"]
 
 [ext_resource type="Script" uid="uid://dgti7sves7wb4" path="res://Escenas/Player/player.gd" id="1_qk22e"]
 [ext_resource type="SpriteFrames" uid="uid://dgmkfnjapkt4d" path="res://Sprites/MainChar/Player.tres" id="2_4pr6r"]
 [ext_resource type="Script" uid="uid://cgkbhp6qu10ar" path="res://Escenas/Player/animated_sprite_2d.gd" id="3_ek8r7"]
 [ext_resource type="AudioStream" uid="uid://biiqs18k4vwiq" path="res://Sounds/electric_zap.ogg" id="4_4pr6r"]
+[ext_resource type="PackedScene" uid="uid://cct05qvivphrt" path="res://Escenas/characters/walksound/walksound.tscn" id="5_cnmht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pr6r"]
 size = Vector2(12, 4)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation", "electric_zap_sound")]
+[node name="Player" type="CharacterBody2D" unique_id=1809559270 node_paths=PackedStringArray("animation", "electric_zap_sound")]
 texture_filter = 1
 platform_floor_layers = 4294967040
 script = ExtResource("1_qk22e")
 animation = NodePath("AnimatedSprite2D")
-electric_zap_sound = NodePath("AnimatedSprite2D/AudioStreamPlayer")
+electric_zap_sound = NodePath("AnimatedSprite2D/shock")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2113003532]
 shape = SubResource("RectangleShape2D_4pr6r")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("root")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1567605552 node_paths=PackedStringArray("root")]
 position = Vector2(0, -6)
 sprite_frames = ExtResource("2_4pr6r")
-animation = &"fall"
+animation = &"idle_front"
 script = ExtResource("3_ek8r7")
 root = NodePath("..")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimatedSprite2D"]
+[node name="shock" type="AudioStreamPlayer" parent="AnimatedSprite2D" unique_id=1542579514]
 stream = ExtResource("4_4pr6r")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="PlayerDetect" type="Area2D" parent="."]
+[node name="PlayerDetect" type="Area2D" parent="." unique_id=1305649489]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect" unique_id=142425283]
 shape = SubResource("RectangleShape2D_4pr6r")
+
+[node name="walksound" parent="." unique_id=905400817 node_paths=PackedStringArray("character") instance=ExtResource("5_cnmht")]
+volume_db = -10.0
+character = NodePath("..")
+walking_time = 0.4
+running_time = 0.3

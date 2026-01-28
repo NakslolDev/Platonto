@@ -8,9 +8,9 @@ signal player_push_back
 
 enum char {Player, Waifu, Scientist, General, Militar01, Militar02, Vegetal, Prisoner01, Prisoner02, Prisoner03, Prisoner04}
 
-signal load_character(char: char, position: String)
+signal load_character(char: char, position: String, animation: String)
 signal unload_character(char: char)
-signal change_room(char: char, to_room: String, position: String)
+signal change_room(char: char, to_room: String, position: String, animation: String)
 
 signal move_char(char: char, runing: bool, rout: Array[Vector2])
 signal movement_done(char: char)
@@ -308,10 +308,12 @@ func first_anim_waifu():
 	await get_tree().create_timer(wait_time).timeout
 	
 	running = false
-	rout = [Vector2(-86.0, 0.0), Vector2(0.1, 0.0)] 
+	rout = [Vector2(-86.0, 0.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
+	
+	play_animation.emit(npc_identif, "idle_right")
 	
 	animated_characters.erase(npc_identif)
 
@@ -368,7 +370,12 @@ func first_anim_scientist():
 	var animation := "idle_back"
 	play_animation.emit(npc_identif, animation)
 	
-	wait_time = 1.5
+	wait_time = 1.0
+	await get_tree().create_timer(wait_time).timeout
+	
+	card_accepted.emit()
+	
+	wait_time = 0.5
 	await get_tree().create_timer(wait_time).timeout
 	
 	animation = "idle_front"
@@ -435,10 +442,12 @@ func first_anim_general():
 	await get_tree().create_timer(wait_time).timeout
 	
 	running = false
-	rout = [Vector2(0.0, 10.0), Vector2(30.0, 0.0), Vector2(0.0, -10.0), Vector2(-0.1, 0.0)] 
+	rout = [Vector2(0.0, 10.0), Vector2(30.0, 0.0), Vector2(0.0, -10.0)] 
 	
 	move_char.emit(npc_identif, running, rout)
 	await _movement_done(npc_identif)
+	
+	play_animation.emit(npc_identif, "idle_left")
 	
 	animated_characters.erase(npc_identif)
 
@@ -564,6 +573,7 @@ func follow_waifu_ff():
 	Gamestate.wait_before_trans = true
 	
 	animated_characters.append(npc_identif)
+	play_animation.emit(npc_identif, "stop")
 	
 	await text_finished
 	
@@ -1718,6 +1728,8 @@ signal deactivate_headache
 
 signal blackout
 signal blackin
+@warning_ignore("unused_signal")
+signal instant_blackout
 
 func first_lab_ff():
 	
@@ -1916,7 +1928,7 @@ func get_injection_ff():
 	await get_tree().create_timer(5.0).timeout
 	
 	var new_room := "WaifuRoom"
-	var position := "Waifu1"
+	var position := "Waifu"
 	change_room.emit(npc_identif, new_room, position, "idle_front")
 	
 	deactivate_headache.emit()

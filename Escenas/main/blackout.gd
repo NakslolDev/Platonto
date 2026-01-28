@@ -7,6 +7,7 @@ func _ready() -> void:
 	Actions.blackout.connect(_activate)
 	Actions.blackin.connect(_deactivate)
 	Actions.gun.connect(_instant)
+	Actions.instant_blackout.connect(_instant)
 	modulate.a = 0.0
 	visible = true
 

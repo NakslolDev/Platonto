@@ -1,25 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://f0r28fpjxpn5"]
+[gd_scene format=3 uid="uid://f0r28fpjxpn5"]
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_yfmn6"]
 [ext_resource type="SpriteFrames" uid="uid://dgmkfnjapkt4d" path="res://Sprites/MainChar/Player.tres" id="2_r52re"]
-[ext_resource type="Script" uid="uid://ikhq4axx5201" path="res://Escenas/characters/Prisoner01/animations.gd" id="3_ijgsw"]
+[ext_resource type="Script" uid="uid://0guhfmqa4ftf" path="res://Escenas/characters/animations.gd" id="3_lx3eb"]
+[ext_resource type="PackedScene" uid="uid://cct05qvivphrt" path="res://Escenas/characters/walksound/walksound.tscn" id="4_dxtum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lx3eb"]
 size = Vector2(14, 4)
 
-[node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+[node name="npc" type="CharacterBody2D" unique_id=2124346748 node_paths=PackedStringArray("animation")]
 texture_filter = 1
 collision_mask = 0
 script = ExtResource("1_yfmn6")
 identifier = 7
 animation = NodePath("AnimatedSprite2D")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("root")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=525904596 node_paths=PackedStringArray("root")]
 position = Vector2(0, -6)
 sprite_frames = ExtResource("2_r52re")
 animation = &"fall"
-script = ExtResource("3_ijgsw")
+script = ExtResource("3_lx3eb")
 root = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1055587623]
 shape = SubResource("RectangleShape2D_lx3eb")
+
+[node name="walksound" parent="." unique_id=905400817 node_paths=PackedStringArray("character") instance=ExtResource("4_dxtum")]
+character = NodePath("..")

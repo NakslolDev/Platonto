@@ -6,6 +6,7 @@ extends CharacterBody2D
 signal vector_reached
 
 var moving := false
+var stopped_for_idiot_player := false
 var running := false
 var starting_pos: Vector2
 var desplazamiento: Vector2
@@ -25,7 +26,15 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	
 	if not moving:
+		velocity = Vector2.ZERO
 		return
+	
+	if detect_player_ahead(movement):
+		stopped_for_idiot_player = true
+		velocity = Vector2.ZERO
+		return
+	else:
+		stopped_for_idiot_player = false
 	
 	var current_speed := SPEED
 	if running:
@@ -83,3 +92,37 @@ func _animation(character: Actions.char, animname: String):
 func _position(character: Actions.char):
 	if character != identifier: return
 	Actions.return_position.emit(position)
+
+
+func detect_player_ahead(motion: Vector2) -> bool:
+	
+	if Actions.animated_characters.has(Actions.char.Player): return false # si el jugador esta animado, aka no se mueve libremente
+	
+	var space := get_world_2d().direct_space_state
+	var pos := global_position
+	var length: float
+	
+	for iteration in [1, 0, -1]:
+		
+		var origin := pos
+		
+		if motion.x:
+			origin.y += 2 * iteration
+			length = 13.0
+		else:
+			origin.x += 7 * iteration
+			length = 8.0
+		
+		var end := origin + motion * length
+		
+		var query := PhysicsRayQueryParameters2D.create(origin, end)
+		query.exclude = [self]
+		query.collision_mask = 1 << 0  # ejemplo
+		
+		var result := space.intersect_ray(query)
+		
+		if result:
+			if str(result["collider"]).begins_with("Player"):
+				return true
+	
+	return false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://cxgxpta5c2vo"]
+[gd_scene format=4 uid="uid://cxgxpta5c2vo"]
 
 [ext_resource type="Script" uid="uid://dsko7xr0uiyva" path="res://Escenas/Rooms/WaifuRoom/node_ready.gd" id="1_a6xo6"]
 [ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_nadgk"]
@@ -41,102 +41,102 @@ metadata/_custom_type_script = "uid://b5qsucinxeerc"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6xo6"]
 size = Vector2(16, 29)
 
-[node name="WaifuRoom" type="Node2D"]
+[node name="WaifuRoom" type="Node2D" unique_id=496475620]
 
-[node name="NodeReady" type="Node" parent="."]
+[node name="NodeReady" type="Node" parent="." unique_id=1254977499]
 script = ExtResource("1_a6xo6")
 
-[node name="ColitionRoom" type="TileMapLayer" parent="."]
+[node name="ColitionRoom" type="TileMapLayer" parent="." unique_id=98232249]
 visible = false
 texture_filter = 1
 tile_map_data = PackedByteArray("AAD6//r/AQAAAAAAAAD6//n/AQAAAAAAAAD6//j/AQAAAAAAAAD6//3/AQAAAAAAAAD6//7/AQAAAAAAAAD6////AQAAAAAAAAD6/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAEAPj/AQAAAAAAAAAEAPn/AQAAAAAAAAAEAPr/AQAAAAAAAAAEAPv/AQAAAAAAAAAEAPz/AQAAAAAAAAAEAP3/AQAAAAAAAAAEAP7/AQAAAAAAAAAEAP//AQAAAAAAAAAEAAAAAQAAAAAAAAADAAAAAQAAAAAAAAACAAAAAQAAAAAAAAD6//f/AQAAAAAAAAD7//f/AQAAAAAAAAD8//f/AQAAAAAAAAD9//f/AQAAAAAAAAD+//f/AQAAAAAAAAD///f/AQAAAAAAAAAAAPf/AQAAAAAAAAABAPf/AQAAAAAAAAACAPf/AQAAAAAAAAADAPf/AQAAAAAAAAAEAPf/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_7dxi0")
 
-[node name="Floor" type="Node2D" parent="."]
+[node name="Floor" type="Node2D" parent="." unique_id=234321063]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Floor"]
-tile_map_data = PackedByteArray("AAD7////AAADAAQAAAD8////AAAEAAQAAAD9////AAADAAQAAAD+////AAAEAAQAAAD/////AAADAAQAAAAAAP//AAAEAAQAAAABAP//AAADAAQAAAACAP//AAAEAAQAAAADAP//AAADAAQAAAD8//7/AAADAAQAAAD9//7/AAAEAAQAAAD+//7/AAADAAQAAAD///7/AAAEAAQAAAAAAP7/AAADAAQAAAABAP7/AAAEAAQAAAACAP7/AAADAAQAAAADAP7/AAAEAAQAAAD7//7/AAAEAAQAAAD7//f/AAABAAkAAAD8//f/AAABAAkAAAD7//j/AAAEAAQAAAD7//n/AAADAAQAAAD8//j/AAADAAQAAAD8//n/AAAEAAQAAAD7//r/AAAEAAQAAAD7//v/AAADAAQAAAD8//r/AAADAAQAAAD8//v/AAAEAAQAAAD7//z/AAAEAAQAAAD7//3/AAADAAQAAAD8//z/AAADAAQAAAD8//3/AAAEAAQAAAD+//f/AAABAAkAAAD9//j/AAAEAAQAAAD9//n/AAADAAQAAAD+//j/AAADAAQAAAD+//n/AAAEAAQAAAD9//r/AAAEAAQAAAD9//v/AAADAAQAAAD+//r/AAADAAQAAAD+//v/AAAEAAQAAAD9//z/AAAEAAQAAAD9//3/AAADAAQAAAD+//z/AAADAAQAAAD+//3/AAAEAAQAAAD///f/AAABAAkAAAAAAPf/AAABAAkAAAD///j/AAAEAAQAAAD///n/AAADAAQAAAAAAPj/AAADAAQAAAAAAPn/AAAEAAQAAAD///r/AAAEAAQAAAD///v/AAADAAQAAAAAAPr/AAADAAQAAAAAAPv/AAAEAAQAAAD///z/AAAEAAQAAAD///3/AAADAAQAAAAAAPz/AAADAAQAAAAAAP3/AAAEAAQAAAABAPf/AAABAAkAAAACAPf/AAABAAkAAAABAPj/AAAEAAQAAAABAPn/AAADAAQAAAACAPj/AAADAAQAAAACAPn/AAAEAAQAAAABAPr/AAAEAAQAAAABAPv/AAADAAQAAAACAPr/AAADAAQAAAACAPv/AAAEAAQAAAABAPz/AAAEAAQAAAABAP3/AAADAAQAAAACAPz/AAADAAQAAAACAP3/AAAEAAQAAAADAPf/AAABAAkAAAADAPj/AAAEAAQAAAADAPn/AAADAAQAAAADAPr/AAAEAAQAAAADAPv/AAADAAQAAAADAPz/AAAEAAQAAAADAP3/AAADAAQAAAD6//v/AAAEAAQAAAD6//z/AAADAAQAAAD6//r/AAABAAkAAAD6//n/AAACAAkAAAD6//j/AAACAAkAAAD6//f/AAACAAkAAAD6//T/AAAFAAkAAAD6//X/AAAFAAkAAAD6//b/AAAGAAkAAAD7//P/AAADAAkAAAD7//T/AAACAAkAAAD7//X/AAACAAkAAAD7//b/AAACAAkAAAD8//P/AAADAAkAAAD8//T/AAACAAkAAAD8//X/AAACAAkAAAD8//b/AAACAAkAAAD9//P/AAADAAkAAAD9//T/AAACAAkAAAD9//X/AAACAAkAAAD+//P/AAADAAkAAAD+//T/AAACAAkAAAD+//X/AAACAAkAAAD+//b/AAACAAkAAAD///P/AAADAAkAAAD///T/AAACAAkAAAD///X/AAACAAkAAAD///b/AAACAAkAAAAAAPP/AAADAAkAAAAAAPT/AAACAAkAAAAAAPX/AAACAAkAAAAAAPb/AAACAAkAAAABAPP/AAADAAkAAAABAPT/AAACAAkAAAABAPX/AAACAAkAAAABAPb/AAACAAkAAAACAPP/AAADAAkAAAACAPT/AAACAAkAAAACAPX/AAACAAkAAAACAPb/AAACAAkAAAADAPP/AAADAAkAAAADAPT/AAACAAkAAAADAPX/AAACAAkAAAADAPb/AAACAAkAAAD6//P/AAAIAAkAAAA=")
+[node name="TileMapLayer" type="TileMapLayer" parent="Floor" unique_id=684244417]
+tile_map_data = PackedByteArray("AAD7////AAADAAQAAAD8////AAAEAAQAAAD9////AAADAAQAAAD+////AAAEAAQAAAD/////AAADAAQAAAAAAP//AAAEAAQAAAABAP//AAADAAQAAAACAP//AAAEAAQAAAADAP//AAADAAQAAAD8//7/AAADAAQAAAD9//7/AAAEAAQAAAD+//7/AAADAAQAAAD///7/AAAEAAQAAAAAAP7/AAADAAQAAAABAP7/AAAEAAQAAAACAP7/AAADAAQAAAADAP7/AAAEAAQAAAD7//7/AAAEAAQAAAD7//f/AAABAAkAAAD8//f/AAABAAkAAAD7//j/AAAEAAQAAAD7//n/AAADAAQAAAD8//j/AAADAAQAAAD8//n/AAAEAAQAAAD7//r/AAAEAAQAAAD7//v/AAADAAQAAAD8//r/AAADAAQAAAD8//v/AAAEAAQAAAD7//z/AAAEAAQAAAD7//3/AAADAAQAAAD8//z/AAADAAQAAAD8//3/AAAEAAQAAAD+//f/AAABAAkAAAD9//j/AAAEAAQAAAD9//n/AAADAAQAAAD+//j/AAADAAQAAAD+//n/AAAEAAQAAAD9//r/AAAEAAQAAAD9//v/AAADAAQAAAD+//r/AAADAAQAAAD+//v/AAAEAAQAAAD9//z/AAAEAAQAAAD9//3/AAADAAQAAAD+//z/AAADAAQAAAD+//3/AAAEAAQAAAD///f/AAABAAkAAAAAAPf/AAABAAkAAAD///j/AAAEAAQAAAD///n/AAADAAQAAAAAAPj/AAADAAQAAAAAAPn/AAAEAAQAAAD///r/AAAEAAQAAAD///v/AAADAAQAAAAAAPr/AAADAAQAAAAAAPv/AAAEAAQAAAD///z/AAAEAAQAAAD///3/AAADAAQAAAAAAPz/AAADAAQAAAAAAP3/AAAEAAQAAAABAPf/AAABAAkAAAACAPf/AAABAAkAAAABAPj/AAAEAAQAAAABAPn/AAADAAQAAAACAPj/AAADAAQAAAACAPn/AAAEAAQAAAABAPr/AAAEAAQAAAABAPv/AAADAAQAAAACAPr/AAADAAQAAAACAPv/AAAEAAQAAAABAPz/AAAEAAQAAAABAP3/AAADAAQAAAACAPz/AAADAAQAAAACAP3/AAAEAAQAAAADAPf/AAABAAkAAAADAPj/AAAEAAQAAAADAPn/AAADAAQAAAADAPr/AAAEAAQAAAADAPv/AAADAAQAAAADAPz/AAAEAAQAAAADAP3/AAADAAQAAAD6//v/AAAEAAQAAAD6//z/AAADAAQAAAD6//r/AAABAAkAAAD6//n/AAACAAkAAAD6//j/AAACAAkAAAD6//f/AAACAAkAAAD6//T/AAAFAAkAAAD6//X/AAAFAAkAAAD6//b/AAAGAAkAAAD7//P/AAADAAkAAAD7//T/AAACAAkAAAD7//X/AAACAAkAAAD7//b/AAACAAkAAAD8//P/AAADAAkAAAD8//T/AAACAAkAAAD8//X/AAACAAkAAAD8//b/AAACAAkAAAD9//P/AAADAAkAAAD9//T/AAACAAkAAAD9//X/AAACAAkAAAD+//P/AAADAAkAAAD+//T/AAACAAkAAAD+//X/AAACAAkAAAD+//b/AAACAAkAAAD///P/AAADAAkAAAD///T/AAACAAkAAAD///X/AAACAAkAAAD///b/AAACAAkAAAAAAPP/AAADAAkAAAAAAPT/AAACAAkAAAAAAPX/AAACAAkAAAAAAPb/AAACAAkAAAABAPP/AAADAAkAAAABAPT/AAACAAkAAAABAPX/AAACAAkAAAABAPb/AAACAAkAAAACAPP/AAADAAkAAAACAPT/AAACAAkAAAACAPX/AAACAAkAAAACAPb/AAACAAkAAAADAPP/AAADAAkAAAADAPT/AAACAAkAAAADAPX/AAACAAkAAAADAPb/AAACAAkAAAD6//P/AAAIAAkAAAD9//b/AAAHAAMAAAD9//f/AAAHAAQAAAA=")
 tile_set = ExtResource("2_2x3t5")
 
-[node name="Rooms" parent="Floor" instance=ExtResource("2_yu2w2")]
+[node name="Rooms" parent="Floor" unique_id=569427175 instance=ExtResource("2_yu2w2")]
 position = Vector2(-100, -64)
 scale = Vector2(0.8, 2.4)
 to_scene = "Rooms"
 
-[node name="Notes" parent="Floor" instance=ExtResource("5_741ah")]
+[node name="Notes" parent="Floor" unique_id=1516165660 instance=ExtResource("5_741ah")]
 position = Vector2(-72, -23)
 actions = Array[ExtResource("6_55jm3")]([SubResource("Resource_5g3xg")])
 text_id = "notes"
 
-[node name="Card" parent="Floor" instance=ExtResource("5_741ah")]
+[node name="Card" parent="Floor" unique_id=1840619234 instance=ExtResource("5_741ah")]
 position = Vector2(-72, -112)
 actions = Array[ExtResource("6_55jm3")]([SubResource("Resource_55jm3")])
 one_use = true
 game_state = Array[ExtResource("7_55jm3")]([SubResource("Resource_lcp3c")])
 mision = 11
 
-[node name="YSort" type="Node2D" parent="."]
+[node name="YSort" type="Node2D" parent="." unique_id=1081462951]
 y_sort_enabled = true
 
-[node name="Door" type="Node2D" parent="YSort"]
+[node name="Door" type="Node2D" parent="YSort" unique_id=334190268]
 position = Vector2(-40, -128)
 
-[node name="Door" type="Sprite2D" parent="YSort/Door"]
+[node name="Door" type="Sprite2D" parent="YSort/Door" unique_id=1460124398]
 position = Vector2(0, -16)
 texture = ExtResource("1_nadgk")
 region_enabled = true
 region_rect = Rect2(112, 80, 16, 32)
 script = ExtResource("5_0aykm")
 
-[node name="Table" type="StaticBody2D" parent="YSort"]
+[node name="Table" type="StaticBody2D" parent="YSort" unique_id=1888763868]
 position = Vector2(-72, -24)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="YSort/Table"]
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Table" unique_id=1746730009]
 texture = ExtResource("1_nadgk")
 region_enabled = true
 region_rect = Rect2(112, 112, 16, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Table"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Table" unique_id=1996859022]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_a6xo6")
 
-[node name="Notes" type="Sprite2D" parent="YSort/Table"]
+[node name="Notes" type="Sprite2D" parent="YSort/Table" unique_id=1728780458]
 texture = ExtResource("1_nadgk")
 region_enabled = true
 region_rect = Rect2(80, 64, 16, 16)
 script = ExtResource("6_5ayje")
 
-[node name="Table2" type="StaticBody2D" parent="YSort"]
+[node name="Table2" type="StaticBody2D" parent="YSort" unique_id=2045428076]
 position = Vector2(-72, -108)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="YSort/Table2"]
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Table2" unique_id=1295432837]
 texture = ExtResource("1_nadgk")
 region_enabled = true
 region_rect = Rect2(112, 112, 16, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Table2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Table2" unique_id=1862796625]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_a6xo6")
 
-[node name="Card" type="Sprite2D" parent="YSort/Table2"]
+[node name="Card" type="Sprite2D" parent="YSort/Table2" unique_id=639531964]
 position = Vector2(0, -8)
 texture = ExtResource("1_nadgk")
 region_enabled = true
 region_rect = Rect2(128, 128, 16, 16)
 script = ExtResource("7_83dx0")
 
-[node name="SpawnPoints" type="Node" parent="."]
+[node name="SpawnPoints" type="Node" parent="." unique_id=485391885]
 
-[node name="default" type="Node2D" parent="SpawnPoints"]
-position = Vector2(0, -64)
-
-[node name="Rooms" type="Node2D" parent="SpawnPoints"]
-position = Vector2(-80, -64)
-
-[node name="Lab" type="Node2D" parent="SpawnPoints"]
+[node name="default" type="Node2D" parent="SpawnPoints" unique_id=1459410986]
 position = Vector2(0, -32)
 
-[node name="Waifu" type="Node2D" parent="SpawnPoints"]
-position = Vector2(0, -48)
+[node name="Rooms" type="Node2D" parent="SpawnPoints" unique_id=1163349200]
+position = Vector2(-80, -64)
+
+[node name="Lab" type="Node2D" parent="SpawnPoints" unique_id=209094615]
+position = Vector2(0, -32)
+
+[node name="Waifu" type="Node2D" parent="SpawnPoints" unique_id=2070280305]
+position = Vector2(0, -64)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://drfnyhgpj5olb"]
+[gd_scene format=3 uid="uid://drfnyhgpj5olb"]
 
 [ext_resource type="Script" uid="uid://dhk03hkc3u0la" path="res://Escenas/main/camera_2d.gd" id="1_2of3d"]
 [ext_resource type="Script" uid="uid://c4l1c3u51xs27" path="res://Escenas/main/main.gd" id="1_2we06"]
@@ -44,21 +44,21 @@
 [ext_resource type="AudioStream" uid="uid://bpl76rh3h7cmi" path="res://Sounds/alarm.mp3" id="38_sc3fx"]
 [ext_resource type="Script" uid="uid://d1h5nlfjniwhw" path="res://Escenas/main/alarm_sound.gd" id="39_f84wx"]
 
-[node name="Main" type="Node" node_paths=PackedStringArray("player", "transition", "camera")]
+[node name="Main" type="Node" unique_id=1004138227 node_paths=PackedStringArray("player", "transition", "camera")]
 script = ExtResource("1_2we06")
-first_room = "MainHall"
+first_room = "BlackRoom"
 rooms = Array[PackedScene]([ExtResource("4_bwgev"), ExtResource("3_2we06"), ExtResource("4_ag2vn"), ExtResource("5_ga1pt"), ExtResource("6_k7qcx"), ExtResource("7_odf77"), ExtResource("8_odf77"), ExtResource("9_0jel8"), ExtResource("10_bxvr6"), ExtResource("11_l8p4v")])
 character = Array[PackedScene]([ExtResource("2_83cwb"), ExtResource("4_5r113"), ExtResource("13_bxvr6"), ExtResource("14_3w5lp"), ExtResource("15_ffjya"), ExtResource("16_lmg33"), ExtResource("18_3vgrm"), ExtResource("19_48hxc"), ExtResource("20_83gpq"), ExtResource("21_2lfgf"), ExtResource("22_phcmb")])
 player = NodePath("Player")
 transition = NodePath("CanvasLayer/Transition")
 camera = NodePath("Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=271261659 node_paths=PackedStringArray("player")]
 zoom = Vector2(1.1, 1.1)
 script = ExtResource("1_2of3d")
 player = NodePath("../Player")
 
-[node name="Black" type="Sprite2D" parent="Camera2D"]
+[node name="Black" type="Sprite2D" parent="Camera2D" unique_id=1396995529]
 visible = false
 z_index = -5
 texture_filter = 1
@@ -68,12 +68,12 @@ texture = ExtResource("6_ocu4p")
 region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 
-[node name="Player" parent="." instance=ExtResource("2_83cwb")]
+[node name="Player" parent="." unique_id=316216492 instance=ExtResource("2_83cwb")]
 position = Vector2(2, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=217719337]
 
-[node name="Alarm" type="Sprite2D" parent="CanvasLayer"]
+[node name="Alarm" type="Sprite2D" parent="CanvasLayer" unique_id=1470812206]
 modulate = Color(1, 0, 0, 0)
 texture_filter = 1
 position = Vector2(159.94, 91.94)
@@ -83,11 +83,11 @@ region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 script = ExtResource("31_phcmb")
 
-[node name="TextBox" parent="CanvasLayer" instance=ExtResource("6_qas0q")]
+[node name="TextBox" parent="CanvasLayer" unique_id=806402322 instance=ExtResource("6_qas0q")]
 
-[node name="YesNo" parent="CanvasLayer" instance=ExtResource("32_f84wx")]
+[node name="YesNo" parent="CanvasLayer" unique_id=202244440 instance=ExtResource("32_f84wx")]
 
-[node name="Transition" type="Sprite2D" parent="CanvasLayer"]
+[node name="Transition" type="Sprite2D" parent="CanvasLayer" unique_id=1069985580]
 visible = false
 texture_filter = 1
 position = Vector2(159.94, 91.94)
@@ -97,14 +97,14 @@ region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 script = ExtResource("7_fsthx")
 
-[node name="CircleGradient" type="Sprite2D" parent="CanvasLayer"]
+[node name="CircleGradient" type="Sprite2D" parent="CanvasLayer" unique_id=151253172]
 visible = false
 position = Vector2(160, 90)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("23_i8la3")
 script = ExtResource("24_gdis5")
 
-[node name="Blackout" type="Sprite2D" parent="CanvasLayer"]
+[node name="Blackout" type="Sprite2D" parent="CanvasLayer" unique_id=2012529993]
 visible = false
 texture_filter = 1
 position = Vector2(159.94, 91.94)
@@ -114,41 +114,41 @@ region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 script = ExtResource("25_gdis5")
 
-[node name="Exit" parent="CanvasLayer" instance=ExtResource("11_e46kr")]
+[node name="Exit" parent="CanvasLayer" unique_id=289256943 instance=ExtResource("11_e46kr")]
 
-[node name="Global_sounds" type="Node" parent="."]
+[node name="Global_sounds" type="Node" parent="." unique_id=545328266]
 
-[node name="get_item" type="AudioStreamPlayer" parent="Global_sounds"]
+[node name="get_item" type="AudioStreamPlayer" parent="Global_sounds" unique_id=1620457480]
 stream = ExtResource("22_ob4ap")
 volume_db = -5.0
 bus = &"SFX"
 script = ExtResource("23_l8p4v")
 
-[node name="hurt" type="AudioStreamPlayer" parent="Global_sounds"]
+[node name="hurt" type="AudioStreamPlayer" parent="Global_sounds" unique_id=2106538499]
 stream = ExtResource("25_exon3")
 volume_db = -5.0
 bus = &"SFX"
 script = ExtResource("26_smrkr")
 
-[node name="gun" type="AudioStreamPlayer" parent="Global_sounds"]
+[node name="gun" type="AudioStreamPlayer" parent="Global_sounds" unique_id=477926599]
 stream = ExtResource("35_2lfgf")
 volume_db = -10.0
 bus = &"SFX"
 script = ExtResource("35_83gpq")
 
-[node name="alarm" type="AudioStreamPlayer" parent="Global_sounds"]
+[node name="alarm" type="AudioStreamPlayer" parent="Global_sounds" unique_id=83681230]
 stream = ExtResource("38_sc3fx")
 volume_db = -15.0
 bus = &"SFX"
 script = ExtResource("39_f84wx")
 
-[node name="needle" type="AudioStreamPlayer" parent="Global_sounds"]
+[node name="needle" type="AudioStreamPlayer" parent="Global_sounds" unique_id=1395396030]
 stream = ExtResource("30_4n8os")
 volume_db = -15.0
 bus = &"SFX"
 script = ExtResource("31_6ap7f")
 
-[node name="card_identifier" type="AudioStreamPlayer" parent="Global_sounds"]
+[node name="card_identifier" type="AudioStreamPlayer" parent="Global_sounds" unique_id=1639119896]
 stream = ExtResource("22_ob4ap")
 volume_db = -5.0
 pitch_scale = 0.5

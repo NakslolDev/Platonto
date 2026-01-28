@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://doo5ykubp27fv"]
+[gd_scene format=4 uid="uid://doo5ykubp27fv"]
 
 [ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_w8p8k"]
 [ext_resource type="PackedScene" uid="uid://c18kyyf0q5b53" path="res://Escenas/RoomAsets/Door/door.tscn" id="2_64rkd"]
@@ -66,34 +66,40 @@ script = ExtResource("8_hxv2q")
 name = "cup"
 metadata/_custom_type_script = "uid://b5qsucinxeerc"
 
-[node name="Cafe" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxv2q"]
+size = Vector2(14, 33)
 
-[node name="ColitionRoom" type="TileMapLayer" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx14w"]
+size = Vector2(14, 81)
+
+[node name="Cafe" type="Node2D" unique_id=359173936]
+
+[node name="ColitionRoom" type="TileMapLayer" parent="." unique_id=186249982]
 visible = false
 tile_map_data = PackedByteArray("AAD+/wEAAQAAAAAAAAD+/wAAAQAAAAAAAAABAAEAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAIAP//AQAAAAAAAAAIAP7/AQAAAAAAAAAIAP3/AQAAAAAAAAAIAPz/AQAAAAAAAAAIAPv/AQAAAAAAAAAIAPr/AQAAAAAAAAAIAPn/AQAAAAAAAAAIAPj/AQAAAAAAAAAIAPf/AQAAAAAAAAAIAPb/AQAAAAAAAAAIAPX/AQAAAAAAAAAIAPT/AQAAAAAAAAAFAPT/AQAAAAAAAAAFAPX/AQAAAAAAAAAFAPb/AQAAAAAAAAAFAPf/AQAAAAAAAAAEAPf/AQAAAAAAAAADAPf/AQAAAAAAAAACAPf/AQAAAAAAAAABAPf/AQAAAAAAAAAAAPf/AQAAAAAAAAD///f/AQAAAAAAAAD+//f/AQAAAAAAAAD9//f/AQAAAAAAAAD8//f/AQAAAAAAAAD7//f/AQAAAAAAAAD6//f/AQAAAAAAAAD5//f/AQAAAAAAAAD4//f/AQAAAAAAAAD3//f/AQAAAAAAAAD2//f/AQAAAAAAAAD1//f/AQAAAAAAAAD0//f/AQAAAAAAAADz//f/AQAAAAAAAADy//f/AQAAAAAAAADy//j/AQAAAAAAAADy//n/AQAAAAAAAADy//r/AQAAAAAAAADy//v/AQAAAAAAAADy//z/AQAAAAAAAADy//3/AQAAAAAAAADy//7/AQAAAAAAAADy////AQAAAAAAAADy/wAAAQAAAAAAAADy/wEAAQAAAAAAAADy/wIAAQAAAAAAAAD2/wIAAQAAAAAAAAD2/wEAAQAAAAAAAAD2/wAAAQAAAAAAAAD3/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD5/wAAAQAAAAAAAAD6/wAAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_07vrh")
 
-[node name="Floor" type="Node2D" parent="."]
+[node name="Floor" type="Node2D" parent="." unique_id=1862929191]
 
-[node name="Door" parent="Floor" instance=ExtResource("2_64rkd")]
+[node name="Door" parent="Floor" unique_id=938052020 instance=ExtResource("2_64rkd")]
 position = Vector2(112, -160)
 auto_open = true
 
-[node name="FloorWalls" type="TileMapLayer" parent="Floor"]
+[node name="FloorWalls" type="TileMapLayer" parent="Floor" unique_id=705070332]
 tile_map_data = PackedByteArray("AAD2////AAAAAAQAAAD3////AAAAAAQAAAD4////AAAAAAQAAAD5////AAAAAAQAAAD6////AAAAAAQAAAD7////AAAAAAQAAAD8////AAAAAAQAAAD9////AAAAAAQAAAD+////AAAAAAQAAAABAP//AAAAAAQAAAACAP//AAAAAAQAAAADAP//AAAAAAQAAAAEAP//AAAAAAQAAAAFAP//AAAAAAQAAAAGAP//AAAAAAQAAAAHAP//AAAAAAcAAAD1////AAAAAAgAAAD1/wAAAAAAAAUAAAD1/wEAAAAAAAUAAADz/wEAAAAAAAYAAADz/wAAAAAAAAYAAADz////AAAAAAYAAADz//7/AAAAAAYAAADz//3/AAAAAAYAAADz//z/AAAAAAYAAADz//v/AAAAAAYAAADz//r/AAAAAAYAAADz//n/AAAAAAYAAADz//j/AAACAAcAAAAHAP7/AAAAAAUAAAAHAP3/AAAAAAUAAAAHAPz/AAAAAAUAAAAHAPv/AAAAAAUAAAAHAPr/AAAAAAUAAAAHAPn/AAAAAAUAAAAHAPj/AAAAAAUAAAAHAPf/AAAAAAUAAAAHAPb/AAAAAAUAAAAGAPb/AAAAAAYAAAAGAPf/AAAAAAYAAAD1//j/AAAAAAIAAAD2//j/AAAAAAIAAAD3//j/AAAAAAIAAAD4//j/AAAAAAIAAAD5//j/AAAAAAIAAAD6//j/AAAAAAIAAAD7//j/AAAAAAIAAAD8//j/AAAAAAIAAAD9//j/AAAAAAIAAAD+//j/AAAAAAIAAAD///j/AAAAAAIAAAAAAPj/AAAAAAIAAAABAPj/AAAAAAIAAAACAPj/AAAAAAIAAAADAPj/AAAAAAIAAAAEAPj/AAAAAAIAAAAFAPj/AAAAAAIAAAD0//j/AAAAAAIAAAAGAPj/AAACAAgAAAAAAP//AAAAAAgAAAD/////AAABAAgAAAAAAAAAAAAAAAUAAAAAAAEAAAAAAAUAAAD//wAAAAAAAAYAAAD//wEAAAAAAAYAAAD0//n/AAAAAAMAAAD0//r/AAAAAAMAAAD0//v/AAAAAAMAAAD0//z/AAAAAAMAAAD0//3/AAAAAAMAAAD0//7/AAAAAAMAAAD0////AAAAAAMAAAD0/wAAAAAAAAMAAAD0/wEAAAAAAAMAAAD1//n/AAAAAAMAAAD1//r/AAAAAAMAAAD1//v/AAAAAAMAAAD1//z/AAAAAAMAAAD1//3/AAAAAAMAAAD1//7/AAAAAAMAAAD2//n/AAAAAAMAAAD2//r/AAAAAAMAAAD2//v/AAAAAAMAAAD2//z/AAAAAAMAAAD2//3/AAAAAAMAAAD2//7/AAAAAAMAAAD3//n/AAAAAAMAAAD3//r/AAAAAAMAAAD3//v/AAAAAAMAAAD3//z/AAAAAAMAAAD3//3/AAAAAAMAAAD3//7/AAAAAAMAAAD4//n/AAAAAAMAAAD4//r/AAAAAAMAAAD4//v/AAAAAAMAAAD4//z/AAAAAAMAAAD4//3/AAAAAAMAAAD4//7/AAAAAAMAAAD5//n/AAAAAAMAAAD5//r/AAAAAAMAAAD5//v/AAAAAAMAAAD5//z/AAAAAAMAAAD5//3/AAAAAAMAAAD5//7/AAAAAAMAAAD6//n/AAAAAAMAAAD6//r/AAAAAAMAAAD6//v/AAAAAAMAAAD6//z/AAAAAAMAAAD6//3/AAAAAAMAAAD6//7/AAAAAAMAAAD7//n/AAAAAAMAAAD7//r/AAAAAAMAAAD7//v/AAAAAAMAAAD7//z/AAAAAAMAAAD7//3/AAAAAAMAAAD7//7/AAAAAAMAAAD8//n/AAAAAAMAAAD8//r/AAAAAAMAAAD8//v/AAAAAAMAAAD8//z/AAAAAAMAAAD8//3/AAAAAAMAAAD8//7/AAAAAAMAAAD9//n/AAAAAAMAAAD9//r/AAAAAAMAAAD9//v/AAAAAAMAAAD9//z/AAAAAAMAAAD9//3/AAAAAAMAAAD9//7/AAAAAAMAAAD+//n/AAAAAAMAAAD+//r/AAAAAAMAAAD+//v/AAAAAAMAAAD+//z/AAAAAAMAAAD+//3/AAAAAAMAAAD+//7/AAAAAAMAAAD///n/AAAAAAMAAAD///r/AAAAAAMAAAD///v/AAAAAAMAAAD///z/AAAAAAMAAAD///3/AAAAAAMAAAD///7/AAAAAAMAAAAAAPn/AAAAAAMAAAAAAPr/AAAAAAMAAAAAAPv/AAAAAAMAAAAAAPz/AAAAAAMAAAAAAP3/AAAAAAMAAAAAAP7/AAAAAAMAAAABAPn/AAAAAAMAAAABAPr/AAAAAAMAAAABAPv/AAAAAAMAAAABAPz/AAAAAAMAAAABAP3/AAAAAAMAAAABAP7/AAAAAAMAAAACAPn/AAAAAAMAAAACAPr/AAAAAAMAAAACAPv/AAAAAAMAAAACAPz/AAAAAAMAAAACAP3/AAAAAAMAAAACAP7/AAAAAAMAAAADAPn/AAAAAAMAAAADAPr/AAAAAAMAAAADAPv/AAAAAAMAAAADAPz/AAAAAAMAAAADAP3/AAAAAAMAAAADAP7/AAAAAAMAAAAEAPn/AAAAAAMAAAAEAPr/AAAAAAMAAAAEAPv/AAAAAAMAAAAEAPz/AAAAAAMAAAAEAP3/AAAAAAMAAAAEAP7/AAAAAAMAAAAFAPn/AAAAAAMAAAAFAPr/AAAAAAMAAAAFAPv/AAAAAAMAAAAFAPz/AAAAAAMAAAAFAP3/AAAAAAMAAAAFAP7/AAAAAAMAAAAGAPn/AAAAAAMAAAAGAPr/AAAAAAMAAAAGAPv/AAAAAAMAAAAGAPz/AAAAAAMAAAAGAP3/AAAAAAMAAAAGAP7/AAAAAAMAAADz//f/AAABAAYAAAD0//f/AAABAAYAAAD1//f/AAABAAYAAAD2//f/AAABAAYAAAD3//f/AAABAAYAAAD4//f/AAABAAYAAAD5//f/AAABAAYAAAD6//f/AAABAAYAAAD7//f/AAABAAYAAAD8//f/AAABAAYAAAD9//f/AAABAAYAAAD+//f/AAABAAYAAAD///f/AAABAAYAAAAAAPf/AAABAAYAAAABAPf/AAABAAYAAAACAPf/AAABAAYAAAADAPf/AAABAAYAAAAEAPf/AAABAAYAAAAFAPf/AAABAAYAAADz//T/AAACAAYAAADz//X/AAACAAYAAADz//b/AAACAAYAAAD0//T/AAACAAYAAAD0//X/AAACAAYAAAD0//b/AAACAAYAAAD1//T/AAACAAYAAAD1//X/AAACAAYAAAD1//b/AAACAAYAAAD2//T/AAACAAYAAAD2//X/AAACAAYAAAD2//b/AAACAAYAAAD3//T/AAACAAYAAAD3//X/AAACAAYAAAD3//b/AAACAAYAAAD4//T/AAACAAYAAAD4//X/AAACAAYAAAD4//b/AAACAAYAAAD5//T/AAACAAYAAAD5//X/AAACAAYAAAD5//b/AAACAAYAAAD6//T/AAACAAYAAAD6//X/AAACAAYAAAD6//b/AAACAAYAAAD7//T/AAACAAYAAAD7//X/AAACAAYAAAD7//b/AAACAAYAAAD8//T/AAACAAYAAAD8//X/AAACAAYAAAD8//b/AAACAAYAAAD9//T/AAACAAYAAAD9//X/AAACAAYAAAD9//b/AAACAAYAAAD+//T/AAACAAYAAAD+//X/AAACAAYAAAD+//b/AAACAAYAAAD///T/AAACAAYAAAD///X/AAACAAYAAAD///b/AAACAAYAAAAAAPT/AAACAAYAAAAAAPX/AAACAAYAAAAAAPb/AAACAAYAAAABAPT/AAACAAYAAAABAPX/AAACAAYAAAABAPb/AAACAAYAAAACAPT/AAACAAYAAAACAPX/AAACAAYAAAACAPb/AAACAAYAAAADAPT/AAACAAYAAAADAPX/AAACAAYAAAADAPb/AAACAAYAAAAEAPT/AAACAAYAAAAEAPX/AAACAAYAAAAEAPb/AAACAAYAAAAFAPT/AAACAAYAAAAFAPX/AAACAAYAAAAFAPb/AAACAAYAAADz//P/AAADAAkAAAD0//P/AAADAAkAAAD1//P/AAADAAkAAAD2//P/AAADAAkAAAD3//P/AAADAAkAAAD4//P/AAADAAkAAAD5//P/AAADAAkAAAD6//P/AAADAAkAAAD7//P/AAADAAkAAAD8//P/AAADAAkAAAD9//P/AAADAAkAAAD+//P/AAADAAkAAAD///P/AAADAAkAAAAAAPP/AAADAAkAAAABAPP/AAADAAkAAAACAPP/AAADAAkAAAADAPP/AAADAAkAAAAEAPP/AAADAAkAAAAFAPP/AAAGAAkAAAAFAPL/AAAFAAkAAAAIAPT/AAAAAAEAAAAGAPH/AAADAAkAAAAGAPL/AAACAAYAAAAGAPP/AAACAAYAAAAGAPT/AAADAAUAAAAGAPX/AAADAAYAAAAHAPH/AAADAAkAAAAHAPL/AAACAAYAAAAHAPP/AAACAAYAAAAHAPT/AAAEAAUAAAAHAPX/AAAEAAYAAAAFAPH/AAAIAAkAAAAIAPX/AAAAAAEAAAA=")
 tile_set = ExtResource("2_x1vql")
 
-[node name="MainHall" parent="Floor" instance=ExtResource("2_rfseg")]
+[node name="MainHall" parent="Floor" unique_id=1010258037 instance=ExtResource("2_rfseg")]
 position = Vector2(0, 36)
 scale = Vector2(2.4, 0.8)
 to_scene = "MainHall"
 
-[node name="Rooms" parent="Floor" instance=ExtResource("2_rfseg")]
+[node name="Rooms" parent="Floor" unique_id=571579209 instance=ExtResource("2_rfseg")]
 position = Vector2(112, -168)
 scale = Vector2(2.4, 0.8)
 to_scene = "Rooms"
 
-[node name="NoExit1" parent="Floor" instance=ExtResource("6_ubeo4")]
+[node name="NoExit1" parent="Floor" unique_id=909561399 instance=ExtResource("6_ubeo4")]
 position = Vector2(-184, 10)
 scale = Vector2(2.426733, 0.72230965)
 actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_adxj4"), SubResource("Resource_gyv8r")])
@@ -101,7 +107,7 @@ text_id = "cafenoexit"
 auto = true
 mision = 5
 
-[node name="NoExit2" parent="Floor" instance=ExtResource("6_ubeo4")]
+[node name="NoExit2" parent="Floor" unique_id=1367226138 instance=ExtResource("6_ubeo4")]
 position = Vector2(-184, 10)
 scale = Vector2(2.426733, 0.72230965)
 actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_adxj4"), SubResource("Resource_gyv8r")])
@@ -109,152 +115,269 @@ text_id = "cafenoexit"
 auto = true
 mision = 6
 
-[node name="Exit" parent="Floor" instance=ExtResource("2_rfseg")]
+[node name="Exit" parent="Floor" unique_id=1076371253 instance=ExtResource("2_rfseg")]
 position = Vector2(-184, 36)
 scale = Vector2(2.4, 0.8)
 to_scene = "Exit"
 
-[node name="YSort" type="Node2D" parent="."]
+[node name="YSort" type="Node2D" parent="." unique_id=870884082]
 y_sort_enabled = true
 
-[node name="table" type="Node2D" parent="YSort"]
+[node name="table" type="Node2D" parent="YSort" unique_id=1248728651]
 position = Vector2(-64, -128)
 
-[node name="1" type="StaticBody2D" parent="YSort/table"]
+[node name="1" type="StaticBody2D" parent="YSort/table" unique_id=1172568700]
 position = Vector2(-32, 0)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="YSort/table/1"]
+[node name="Sprite2D" type="Sprite2D" parent="YSort/table/1" unique_id=854437912]
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(64, 128, 32, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/1" unique_id=1576733598]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_x1vql")
 
-[node name="2" type="StaticBody2D" parent="YSort/table"]
+[node name="2" type="StaticBody2D" parent="YSort/table" unique_id=725996069]
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="YSort/table/2"]
+[node name="Sprite2D" type="Sprite2D" parent="YSort/table/2" unique_id=1755015799]
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(64, 128, 32, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/2" unique_id=961979024]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_x1vql")
 
-[node name="3" type="StaticBody2D" parent="YSort/table"]
+[node name="3" type="StaticBody2D" parent="YSort/table" unique_id=624702490]
 position = Vector2(32, 0)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="YSort/table/3"]
+[node name="Sprite2D" type="Sprite2D" parent="YSort/table/3" unique_id=2000608371]
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(64, 128, 32, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/3" unique_id=2058141393]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_x1vql")
 
-[node name="4" type="StaticBody2D" parent="YSort/table"]
+[node name="4" type="StaticBody2D" parent="YSort/table" unique_id=1807361274]
 position = Vector2(64, 0)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="YSort/table/4"]
+[node name="Sprite2D" type="Sprite2D" parent="YSort/table/4" unique_id=1561669367]
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(64, 128, 32, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/table/4" unique_id=1756224705]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_x1vql")
 
-[node name="CoffeeMaker" type="Node2D" parent="YSort" node_paths=PackedStringArray("texture_no_cup", "texture_cup", "texture_coming")]
+[node name="CoffeeMaker" type="Node2D" parent="YSort" unique_id=1567824897 node_paths=PackedStringArray("texture_no_cup", "texture_cup", "texture_coming")]
 position = Vector2(-8, -128)
 script = ExtResource("5_64rkd")
 texture_no_cup = NodePath("NoCup")
 texture_cup = NodePath("Cup")
 texture_coming = NodePath("Coming")
 
-[node name="NoCup" type="Sprite2D" parent="YSort/CoffeeMaker"]
+[node name="NoCup" type="Sprite2D" parent="YSort/CoffeeMaker" unique_id=1850697106]
 position = Vector2(2, -7)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(64, 112, 16, 16)
 
-[node name="Cup" type="Sprite2D" parent="YSort/CoffeeMaker"]
+[node name="Cup" type="Sprite2D" parent="YSort/CoffeeMaker" unique_id=1235437389]
 position = Vector2(2, -7)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(80, 112, 16, 16)
 
-[node name="Coming" type="Sprite2D" parent="YSort/CoffeeMaker"]
+[node name="Coming" type="Sprite2D" parent="YSort/CoffeeMaker" unique_id=1761949338]
 position = Vector2(2, -7)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(80, 96, 16, 16)
 
-[node name="Coffee" parent="YSort/CoffeeMaker" instance=ExtResource("6_ubeo4")]
+[node name="Coffee" parent="YSort/CoffeeMaker" unique_id=783526490 instance=ExtResource("6_ubeo4")]
 position = Vector2(2, 3)
 scale = Vector2(0.06276195, 0.5710179)
 actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_0ywax")])
 game_state = Array[ExtResource("8_hxv2q")]([SubResource("Resource_4dpbc")])
 
-[node name="Milk" type="Sprite2D" parent="YSort/CoffeeMaker"]
+[node name="Milk" type="Sprite2D" parent="YSort/CoffeeMaker" unique_id=1113672630]
 position = Vector2(-40, -8)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(96, 128, 16, 16)
 
-[node name="Milk" parent="YSort/CoffeeMaker/Milk" instance=ExtResource("6_ubeo4")]
+[node name="Milk" parent="YSort/CoffeeMaker/Milk" unique_id=979350282 instance=ExtResource("6_ubeo4")]
 position = Vector2(0, 11)
 scale = Vector2(0.064001605, 0.58208656)
 actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_gx14w")])
 game_state = Array[ExtResource("8_hxv2q")]([SubResource("Resource_hxv2q")])
 
-[node name="Sugar" type="Sprite2D" parent="YSort/CoffeeMaker"]
+[node name="Sugar" type="Sprite2D" parent="YSort/CoffeeMaker" unique_id=1795175525]
 position = Vector2(-80, -5)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(96, 112, 16, 16)
 
-[node name="Milk" parent="YSort/CoffeeMaker/Sugar" instance=ExtResource("6_ubeo4")]
+[node name="Milk" parent="YSort/CoffeeMaker/Sugar" unique_id=999958131 instance=ExtResource("6_ubeo4")]
 position = Vector2(0, 8)
 scale = Vector2(0.059484653, 0.589836)
 actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_itscp")])
 game_state = Array[ExtResource("8_hxv2q")]([SubResource("Resource_8pq7x")])
 
-[node name="ExitSign2" type="Sprite2D" parent="YSort"]
+[node name="ExitSign2" type="Sprite2D" parent="YSort" unique_id=1090198856]
 position = Vector2(64, -168)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(96, 80, 16, 16)
 
-[node name="ExitSign3" type="Sprite2D" parent="YSort"]
+[node name="ExitSign3" type="Sprite2D" parent="YSort" unique_id=183208550]
 position = Vector2(-152, -168)
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(96, 80, 16, 16)
 
-[node name="SpawnPoints" type="Node" parent="."]
+[node name="EatingTableShort" type="StaticBody2D" parent="YSort" unique_id=12456293]
+position = Vector2(-136, -88)
+metadata/_edit_group_ = true
 
-[node name="default" type="Node2D" parent="SpawnPoints"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort" unique_id=783299042]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_hxv2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort" unique_id=1486291570]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 48)
+
+[node name="EatingTableLong" type="StaticBody2D" parent="YSort" unique_id=1116833423]
+position = Vector2(-40, -56)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableLong" unique_id=172064984]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_gx14w")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="YSort/EatingTableLong" unique_id=302018219]
+position = Vector2(8, -8)
+tile_map_data = PackedByteArray("AAD///3/AAAJAAMAAAD///7/AAAJAAQAAAD/////AAAJAAQAAAD//wAAAAAJAAQAAAD//wEAAAAJAAQAAAD//wIAAAAJAAUAAAA=")
+tile_set = ExtResource("2_x1vql")
+
+[node name="EatingTableShort2" type="StaticBody2D" parent="YSort" unique_id=1823337780]
+position = Vector2(-136, -40)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort2" unique_id=1570509369]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_hxv2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort2" unique_id=1004309076]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 48)
+
+[node name="EatingTableShort3" type="StaticBody2D" parent="YSort" unique_id=1182697283]
+position = Vector2(-88, -88)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort3" unique_id=1201171403]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_hxv2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort3" unique_id=749006755]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 48)
+
+[node name="EatingTableShort4" type="StaticBody2D" parent="YSort" unique_id=899502527]
+position = Vector2(-88, -40)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort4" unique_id=1143595868]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_hxv2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort4" unique_id=677093674]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 48)
+
+[node name="EatingTableShort5" type="StaticBody2D" parent="YSort" unique_id=655819351]
+position = Vector2(48, -88)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort5" unique_id=670215401]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_hxv2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort5" unique_id=1514663432]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 48)
+
+[node name="EatingTableShort6" type="StaticBody2D" parent="YSort" unique_id=794372688]
+position = Vector2(48, -40)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort6" unique_id=813802165]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_hxv2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort6" unique_id=1435360429]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 48)
+
+[node name="EatingTableShort7" type="StaticBody2D" parent="YSort" unique_id=225519563]
+position = Vector2(96, -88)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort7" unique_id=1217343513]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_hxv2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort7" unique_id=1159455149]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 48)
+
+[node name="EatingTableShort8" type="StaticBody2D" parent="YSort" unique_id=1892490427]
+position = Vector2(96, -40)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort8" unique_id=586666647]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_hxv2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort8" unique_id=467375479]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 48)
+
+[node name="SpawnPoints" type="Node" parent="." unique_id=1422253190]
+
+[node name="default" type="Node2D" parent="SpawnPoints" unique_id=208766068]
 position = Vector2(0, -40)
 
-[node name="MainHall" type="Node2D" parent="SpawnPoints"]
+[node name="MainHall" type="Node2D" parent="SpawnPoints" unique_id=1987547846]
 position = Vector2(0, 24)
 
-[node name="Rooms" type="Node2D" parent="SpawnPoints"]
+[node name="Rooms" type="Node2D" parent="SpawnPoints" unique_id=1966852139]
 texture_filter = 1
 position = Vector2(112, -152)
 
-[node name="ScientistCafe" type="Node2D" parent="SpawnPoints"]
+[node name="ScientistCafe" type="Node2D" parent="SpawnPoints" unique_id=1381999684]
 position = Vector2(-115, -112)
 
-[node name="GuardExit" type="Node2D" parent="SpawnPoints"]
+[node name="GuardExit" type="Node2D" parent="SpawnPoints" unique_id=982964178]
 position = Vector2(-184, 10)
 
-[node name="Exit" type="Node2D" parent="SpawnPoints"]
+[node name="Exit" type="Node2D" parent="SpawnPoints" unique_id=1970099382]
 position = Vector2(-184, 24)

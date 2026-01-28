@@ -36,7 +36,7 @@ func resize_current_characters():
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	if Gamestate.start_in_middle: first_room = "BlackRoom"
+	if Gamestate.start_in_middle: first_room = "WaifuRoom"
 	Actions.load_character.connect(_on_load_char_requested)
 	Actions.unload_character.connect(_unload_char)
 	Actions.change_room.connect(_change_room_char)

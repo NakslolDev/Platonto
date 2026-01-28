@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://dan2vqemoiclq"]
+[gd_scene format=3 uid="uid://dan2vqemoiclq"]
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_knhau"]
 [ext_resource type="Texture2D" uid="uid://btstt7ee85lsw" path="res://Sprites/General/pixilart-sprite (4).png" id="2_knhau"]
-[ext_resource type="Script" uid="uid://jotucb7s0gd7" path="res://Escenas/characters/General/animations.gd" id="3_upxr1"]
+[ext_resource type="Script" uid="uid://0guhfmqa4ftf" path="res://Escenas/characters/animations.gd" id="3_knhau"]
+[ext_resource type="PackedScene" uid="uid://cct05qvivphrt" path="res://Escenas/characters/walksound/walksound.tscn" id="4_s1gbu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1gbu"]
 atlas = ExtResource("2_knhau")
@@ -195,20 +196,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knhau"]
 size = Vector2(14, 4)
 
-[node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+[node name="npc" type="CharacterBody2D" unique_id=1124837285 node_paths=PackedStringArray("animation")]
 texture_filter = 1
 collision_mask = 0
 script = ExtResource("1_knhau")
 identifier = 3
 animation = NodePath("AnimatedSprite2D")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("root")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1594226562 node_paths=PackedStringArray("root")]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_vuukh")
 animation = &"walk_left"
 frame_progress = 0.049463358
-script = ExtResource("3_upxr1")
+script = ExtResource("3_knhau")
 root = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=370950919]
 shape = SubResource("RectangleShape2D_knhau")
+
+[node name="walksound" parent="." unique_id=905400817 node_paths=PackedStringArray("character") instance=ExtResource("4_s1gbu")]
+character = NodePath("..")

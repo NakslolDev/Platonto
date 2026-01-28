@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ueoi3s0r0l47"]
+[gd_scene format=3 uid="uid://ueoi3s0r0l47"]
 
 [ext_resource type="Script" uid="uid://bkqgugaqouqgh" path="res://Escenas/TextBox/text_box.gd" id="1_kjw2d"]
 [ext_resource type="Theme" uid="uid://hnjog2hko8rb" path="res://resources/encripted.tres" id="1_q4qu7"]
@@ -108,7 +108,7 @@ min_alpha = 1.0
 bbcode = "skip1"
 metadata/_custom_type_script = "uid://didmeig0mvuse"
 
-[node name="TextBox" type="Control" node_paths=PackedStringArray("label")]
+[node name="TextBox" type="Control" unique_id=1916936645 node_paths=PackedStringArray("label")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -119,7 +119,7 @@ grow_vertical = 2
 script = ExtResource("1_kjw2d")
 label = NodePath("Panel/RichTextLabel")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=835990265]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 104.0
@@ -127,7 +127,7 @@ offset_right = 280.0
 offset_bottom = 168.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kjw2d")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel" node_paths=PackedStringArray("Audios", "extortion")]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1860300151 node_paths=PackedStringArray("Audios", "extortion")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,38 +136,39 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_q4qu7")
 bbcode_enabled = true
-text = "[_wave]buenasdasñÑ"
+text = "[_wave]buenasdas[/_wave] hola que tal saltamonoinononljknflefse"
 scroll_active = false
 custom_effects = [SubResource("RichTextEffect_14gqf"), SubResource("RichTextEffect_jxwy3"), SubResource("RichTextEffect_jvpkm"), SubResource("RichTextEffect_e4o4q"), SubResource("RichTextEffect_50chp"), SubResource("RichTextEffect_dtmu1"), SubResource("RichTextEffect_geo8f"), SubResource("RichTextEffect_j5qm7"), SubResource("RichTextEffect_3s3el"), SubResource("RichTextEffect_ued4t"), SubResource("RichTextEffect_mbw0t")]
+visible_characters_behavior = 1
 language = "es"
 script = ExtResource("3_62g67")
 Audios = [NodePath("../../Soudns/Neutral"), NodePath("../../Soudns/HighPitch"), NodePath("../../Soudns/HighPitch"), NodePath("../../Soudns/MediumPitch"), NodePath("../../Soudns/LowPitch"), NodePath("../../Soudns/HighPitch")]
 extortion = NodePath("../../Soudns/Distorted")
 
-[node name="Soudns" type="Node" parent="."]
+[node name="Soudns" type="Node" parent="." unique_id=1952660771]
 
-[node name="Neutral" type="AudioStreamPlayer" parent="Soudns"]
+[node name="Neutral" type="AudioStreamPlayer" parent="Soudns" unique_id=1557815854]
 stream = ExtResource("6_67sfh")
 volume_db = -5.0
 max_polyphony = 5
 bus = &"Dialog"
 
-[node name="HighPitch" type="AudioStreamPlayer" parent="Soudns"]
+[node name="HighPitch" type="AudioStreamPlayer" parent="Soudns" unique_id=1734655431]
 stream = ExtResource("7_geo8f")
 max_polyphony = 5
 bus = &"Dialog"
 
-[node name="Distorted" type="AudioStreamPlayer" parent="Soudns"]
+[node name="Distorted" type="AudioStreamPlayer" parent="Soudns" unique_id=572826486]
 stream = ExtResource("9_jvpkm")
 max_polyphony = 5
 bus = &"DistortedDialog"
 
-[node name="MediumPitch" type="AudioStreamPlayer" parent="Soudns"]
+[node name="MediumPitch" type="AudioStreamPlayer" parent="Soudns" unique_id=1476615937]
 stream = ExtResource("8_jvpkm")
 max_polyphony = 5
 bus = &"Dialog"
 
-[node name="LowPitch" type="AudioStreamPlayer" parent="Soudns"]
+[node name="LowPitch" type="AudioStreamPlayer" parent="Soudns" unique_id=1006450798]
 stream = ExtResource("9_50chp")
 volume_db = -5.0
 max_polyphony = 5

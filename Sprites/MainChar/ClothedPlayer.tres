@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=25 format=3 uid="uid://cb3a8lxkq3l8y"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://cb3a8lxkq3l8y"]
 
 [ext_resource type="Texture2D" uid="uid://dsyaroiya24jd" path="res://Sprites/MainChar/ClothedMainChar.png" id="1_ldrd6"]
 

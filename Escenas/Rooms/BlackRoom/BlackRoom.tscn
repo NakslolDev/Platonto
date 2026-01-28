@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dpa1o341hrdf7"]
+[gd_scene format=4 uid="uid://dpa1o341hrdf7"]
 
 [ext_resource type="Texture2D" uid="uid://c0k8gsja2coxv" path="res://Sprites/misc/RadialGradient.png" id="1_71kqh"]
 [ext_resource type="Texture2D" uid="uid://bjd76shkn53j3" path="res://Sprites/TextureAtlas/TextureAtlas.png" id="1_lakxl"]
@@ -59,53 +59,55 @@ method = &"start_blackroom_2_ff"
 method = &"start_blackroom_2_ff"
 metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
-[node name="BlackRoom" type="Node2D"]
+[node name="BlackRoom" type="Node2D" unique_id=1168824909]
 texture_filter = 1
 
-[node name="NodeReady" type="Node" parent="."]
+[node name="NodeReady" type="Node" parent="." unique_id=795072938 node_paths=PackedStringArray("door")]
 script = ExtResource("1_r2itm")
+second = false
+door = NodePath("../BottomDoor")
 
-[node name="ColitionRoom" type="TileMapLayer" parent="."]
+[node name="ColitionRoom" type="TileMapLayer" parent="." unique_id=1315226239]
 tile_map_data = PackedByteArray("AAD+/wEAAQAAAAEAAAD+/wAAAQAAAAEAAAABAAEAAQAAAAEAAAABAAAAAQAAAAEAAAACAAAAAQAAAAEAAAADAAAAAQAAAAEAAAAEAAAAAQAAAAEAAAAFAAAAAQAAAAEAAAAGAAAAAQAAAAEAAAAHAAAAAQAAAAEAAAAHAP//AQAAAAEAAAAHAP7/AQAAAAEAAAAHAP3/AQAAAAEAAAAHAPz/AQAAAAEAAAAHAPv/AQAAAAEAAAAHAPr/AQAAAAEAAAAHAPn/AQAAAAEAAAAHAPj/AQAAAAEAAAAHAPf/AQAAAAEAAAAHAPb/AQAAAAEAAAAHAPX/AQAAAAEAAAAHAPT/AQAAAAEAAAAGAPT/AQAAAAEAAAAFAPT/AQAAAAEAAAAEAPT/AQAAAAEAAAADAPT/AQAAAAEAAAACAPT/AQAAAAEAAAABAPT/AQAAAAEAAAAAAPT/AQAAAAEAAAD///T/AQAAAAEAAAD+//T/AQAAAAEAAAD9//T/AQAAAAEAAAD8//T/AQAAAAEAAAD7//T/AQAAAAEAAAD6//T/AQAAAAEAAAD5//T/AQAAAAEAAAD4//T/AQAAAAEAAAD4//X/AQAAAAEAAAD4//b/AQAAAAEAAAD4//f/AQAAAAEAAAD4//j/AQAAAAEAAAD4//n/AQAAAAEAAAD4//r/AQAAAAEAAAD4//v/AQAAAAEAAAD4//z/AQAAAAEAAAD4//3/AQAAAAEAAAD4//7/AQAAAAEAAAD4////AQAAAAEAAAD4/wAAAQAAAAEAAAD5/wAAAQAAAAEAAAD6/wAAAQAAAAEAAAD7/wAAAQAAAAEAAAD8/wAAAQAAAAEAAAD9/wAAAQAAAAEAAAA=")
 tile_set = SubResource("TileSet_7dxi0")
 
-[node name="BottomDoor" type="Node2D" parent="." node_paths=PackedStringArray("left", "right", "weird_wall")]
+[node name="BottomDoor" type="Node2D" parent="." unique_id=934094362 node_paths=PackedStringArray("left", "right", "weird_wall")]
 script = ExtResource("10_4v5vw")
 left = NodePath("Left")
 right = NodePath("OtherLeft")
 weird_wall = NodePath("../Gradiant/BlackGround/Sprite2D")
 
-[node name="Left" type="StaticBody2D" parent="BottomDoor"]
+[node name="Left" type="StaticBody2D" parent="BottomDoor" unique_id=247525689]
 
-[node name="Sprite2D" type="Sprite2D" parent="BottomDoor/Left"]
+[node name="Sprite2D" type="Sprite2D" parent="BottomDoor/Left" unique_id=1356795219]
 position = Vector2(-24, 32)
 scale = Vector2(1, 2)
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomDoor/Left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomDoor/Left" unique_id=646946222]
 position = Vector2(-24, 32)
 scale = Vector2(2.724779, -3.4211004)
 shape = SubResource("RectangleShape2D_4v5vw")
 
-[node name="OtherLeft" type="StaticBody2D" parent="BottomDoor"]
+[node name="OtherLeft" type="StaticBody2D" parent="BottomDoor" unique_id=431031876]
 
-[node name="Sprite2D" type="Sprite2D" parent="BottomDoor/OtherLeft"]
+[node name="Sprite2D" type="Sprite2D" parent="BottomDoor/OtherLeft" unique_id=1549480132]
 position = Vector2(24, 32)
 scale = Vector2(1, 2)
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomDoor/OtherLeft"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomDoor/OtherLeft" unique_id=398341327]
 position = Vector2(24, 32)
 scale = Vector2(2.724779, -3.4211004)
 shape = SubResource("RectangleShape2D_ysfon")
 
-[node name="Gradiant" type="Node2D" parent="."]
+[node name="Gradiant" type="Node2D" parent="." unique_id=90633079]
 
-[node name="GradiantSprite" type="Sprite2D" parent="Gradiant" node_paths=PackedStringArray("ground")]
+[node name="GradiantSprite" type="Sprite2D" parent="Gradiant" unique_id=190687162 node_paths=PackedStringArray("ground")]
 modulate = Color(1, 1, 1, 0.11764706)
 position = Vector2(-1.0000038, 0)
 scale = Vector2(0.3, 0.3)
@@ -113,465 +115,465 @@ texture = ExtResource("1_71kqh")
 script = ExtResource("2_pf4us")
 ground = NodePath("../BlackGround")
 
-[node name="BlackGround" type="TileMapLayer" parent="Gradiant"]
+[node name="BlackGround" type="TileMapLayer" parent="Gradiant" unique_id=845873071]
 visible = false
 tile_map_data = PackedByteArray("AAD5//X/AAAAAAEAAAD5//b/AAAAAAEAAAD5//f/AAAAAAEAAAD5//j/AAAAAAEAAAD5//n/AAAAAAEAAAD5//r/AAAAAAEAAAD5//v/AAAAAAEAAAD5//z/AAAAAAEAAAD5//3/AAAAAAEAAAD5//7/AAAAAAEAAAD5////AAAAAAEAAAD6//X/AAAAAAEAAAD6//b/AAAAAAEAAAD6//f/AAAAAAEAAAD6//j/AAAAAAEAAAD6//n/AAAAAAEAAAD6//r/AAAAAAEAAAD6//v/AAAAAAEAAAD6//z/AAAAAAEAAAD6//3/AAAAAAEAAAD6//7/AAAAAAEAAAD6////AAAAAAEAAAD7//X/AAAAAAEAAAD7//b/AAAAAAEAAAD7//f/AAAAAAEAAAD7//j/AAAAAAEAAAD7//n/AAAAAAEAAAD7//r/AAAAAAEAAAD7//v/AAAAAAEAAAD7//z/AAAAAAEAAAD7//3/AAAAAAEAAAD7//7/AAAAAAEAAAD7////AAAAAAEAAAD8//X/AAAAAAEAAAD8//b/AAAAAAEAAAD8//f/AAAAAAEAAAD8//j/AAAAAAEAAAD8//n/AAAAAAEAAAD8//r/AAAAAAEAAAD8//v/AAAAAAEAAAD8//z/AAAAAAEAAAD8//3/AAAAAAEAAAD8//7/AAAAAAEAAAD8////AAAAAAEAAAD9//X/AAAAAAEAAAD9//b/AAAAAAEAAAD9//f/AAAAAAEAAAD9//j/AAAAAAEAAAD9//n/AAAAAAEAAAD9//r/AAAAAAEAAAD9//v/AAAAAAEAAAD9//z/AAAAAAEAAAD9//3/AAAAAAEAAAD9//7/AAAAAAEAAAD9////AAAAAAEAAAD+//X/AAAAAAEAAAD+//b/AAAAAAEAAAD+//f/AAAAAAEAAAD+//j/AAAAAAEAAAD+//n/AAAAAAEAAAD+//r/AAAAAAEAAAD+//v/AAAAAAEAAAD+//z/AAAAAAEAAAD+//3/AAAAAAEAAAD+//7/AAAAAAEAAAD+////AAAAAAEAAAD///X/AAAAAAEAAAD///b/AAAAAAEAAAD///f/AAAAAAEAAAD///j/AAAAAAEAAAD///n/AAAAAAEAAAD///r/AAAAAAEAAAD///v/AAAAAAEAAAD///z/AAAAAAEAAAD///3/AAAAAAEAAAD///7/AAAAAAEAAAD/////AAAAAAEAAAAAAPX/AAAAAAEAAAAAAPb/AAAAAAEAAAAAAPf/AAAAAAEAAAAAAPj/AAAAAAEAAAAAAPn/AAAAAAEAAAAAAPr/AAAAAAEAAAAAAPv/AAAAAAEAAAAAAPz/AAAAAAEAAAAAAP3/AAAAAAEAAAAAAP7/AAAAAAEAAAAAAP//AAAAAAEAAAABAPX/AAAAAAEAAAABAPb/AAAAAAEAAAABAPf/AAAAAAEAAAABAPj/AAAAAAEAAAABAPn/AAAAAAEAAAABAPr/AAAAAAEAAAABAPv/AAAAAAEAAAABAPz/AAAAAAEAAAABAP3/AAAAAAEAAAABAP7/AAAAAAEAAAABAP//AAAAAAEAAAACAPX/AAAAAAEAAAACAPb/AAAAAAEAAAACAPf/AAAAAAEAAAACAPj/AAAAAAEAAAACAPn/AAAAAAEAAAACAPr/AAAAAAEAAAACAPv/AAAAAAEAAAACAPz/AAAAAAEAAAACAP3/AAAAAAEAAAACAP7/AAAAAAEAAAACAP//AAAAAAEAAAADAPX/AAAAAAEAAAADAPb/AAAAAAEAAAADAPf/AAAAAAEAAAADAPj/AAAAAAEAAAADAPn/AAAAAAEAAAADAPr/AAAAAAEAAAADAPv/AAAAAAEAAAADAPz/AAAAAAEAAAADAP3/AAAAAAEAAAADAP7/AAAAAAEAAAADAP//AAAAAAEAAAAEAPX/AAAAAAEAAAAEAPb/AAAAAAEAAAAEAPf/AAAAAAEAAAAEAPj/AAAAAAEAAAAEAPn/AAAAAAEAAAAEAPr/AAAAAAEAAAAEAPv/AAAAAAEAAAAEAPz/AAAAAAEAAAAEAP3/AAAAAAEAAAAEAP7/AAAAAAEAAAAEAP//AAAAAAEAAAAFAPX/AAAAAAEAAAAFAPb/AAAAAAEAAAAFAPf/AAAAAAEAAAAFAPj/AAAAAAEAAAAFAPn/AAAAAAEAAAAFAPr/AAAAAAEAAAAFAPv/AAAAAAEAAAAFAPz/AAAAAAEAAAAFAP3/AAAAAAEAAAAFAP7/AAAAAAEAAAAFAP//AAAAAAEAAAAGAPX/AAAAAAEAAAAGAPb/AAAAAAEAAAAGAPf/AAAAAAEAAAAGAPj/AAAAAAEAAAAGAPn/AAAAAAEAAAAGAPr/AAAAAAEAAAAGAPv/AAAAAAEAAAAGAPz/AAAAAAEAAAAGAP3/AAAAAAEAAAAGAP7/AAAAAAEAAAAGAP//AAAAAAEAAAD//wAAAAAAAAEAAAAAAAAAAAAAAAEAAAA=")
 tile_set = ExtResource("4_pf4us")
 
-[node name="Sprite2D" type="Sprite2D" parent="Gradiant/BlackGround"]
+[node name="Sprite2D" type="Sprite2D" parent="Gradiant/BlackGround" unique_id=1821023494]
 position = Vector2(-4.7683716e-07, 32)
 scale = Vector2(2, 2)
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 
-[node name="Lights1" type="Node2D" parent="." node_paths=PackedStringArray("sound_high", "sound_low", "door")]
+[node name="Lights1" type="Node2D" parent="." unique_id=1361761016 node_paths=PackedStringArray("sound_high", "sound_low", "door")]
 script = ExtResource("9_cwplk")
 sound_high = NodePath("High")
 sound_low = NodePath("Low")
 door = NodePath("../BottomDoor")
 
-[node name="High" type="AudioStreamPlayer" parent="Lights1"]
+[node name="High" type="AudioStreamPlayer" parent="Lights1" unique_id=875569836]
 stream = ExtResource("8_sw2d5")
 volume_db = -5.0
 bus = &"SFX"
 
-[node name="Low" type="AudioStreamPlayer" parent="Lights1"]
+[node name="Low" type="AudioStreamPlayer" parent="Lights1" unique_id=1100435741]
 stream = ExtResource("9_qs1v0")
 volume_db = -5.0
 bus = &"SFX"
 
-[node name="1" type="Area2D" parent="Lights1"]
+[node name="1" type="Area2D" parent="Lights1" unique_id=592643320]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(-24, -160)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/1" unique_id=611586338]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/1"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/1" unique_id=796511190]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="2" type="Area2D" parent="Lights1"]
+[node name="2" type="Area2D" parent="Lights1" unique_id=367147165]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(72, -144)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/2" unique_id=1181635935]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/2"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/2" unique_id=918921827]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="3" type="Area2D" parent="Lights1"]
+[node name="3" type="Area2D" parent="Lights1" unique_id=2138245678]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(16, -88)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/3" unique_id=1438480345]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/3"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/3" unique_id=887803596]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="4" type="Area2D" parent="Lights1"]
+[node name="4" type="Area2D" parent="Lights1" unique_id=1457849985]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-48, -128)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/4" unique_id=1892344875]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/4"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/4" unique_id=986649929]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="5" type="Area2D" parent="Lights1"]
+[node name="5" type="Area2D" parent="Lights1" unique_id=1624220296]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(40, -128)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/5" unique_id=2038422680]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/5"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/5" unique_id=706661500]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="6" type="Area2D" parent="Lights1"]
+[node name="6" type="Area2D" parent="Lights1" unique_id=1730265931]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(40, -128)
 script = ExtResource("10_qs1v0")
 only_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/6" unique_id=103175488]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/6"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/6" unique_id=2085972393]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="7" type="Area2D" parent="Lights1"]
+[node name="7" type="Area2D" parent="Lights1" unique_id=905294537]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(32, -160)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/7" unique_id=1089612058]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/7"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/7" unique_id=1827344115]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="8" type="Area2D" parent="Lights1"]
+[node name="8" type="Area2D" parent="Lights1" unique_id=1432478178]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(-72, -96)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/8" unique_id=385405257]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/8"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/8" unique_id=99994042]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="9" type="Area2D" parent="Lights1"]
+[node name="9" type="Area2D" parent="Lights1" unique_id=2070349442]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(64, -104)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/9"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/9" unique_id=119818000]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/9"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/9" unique_id=2141388370]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="10" type="Area2D" parent="Lights1"]
+[node name="10" type="Area2D" parent="Lights1" unique_id=54521898]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -128)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/10"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/10" unique_id=1328508026]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/10"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/10" unique_id=985765198]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="11" type="Area2D" parent="Lights1"]
+[node name="11" type="Area2D" parent="Lights1" unique_id=2030714604]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, -128)
 script = ExtResource("10_qs1v0")
 only_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/11"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/11" unique_id=203299051]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/11"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/11" unique_id=1359015133]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="12" type="Area2D" parent="Lights1"]
+[node name="12" type="Area2D" parent="Lights1" unique_id=1772563533]
 modulate = Color(0, 0, 1, 1)
 position = Vector2(-24, -88)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/12"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights1/12" unique_id=1707108785]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights1/12"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights1/12" unique_id=565998132]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="Lights2" type="Node2D" parent="." node_paths=PackedStringArray("sound_high", "sound_low", "door")]
+[node name="Lights2" type="Node2D" parent="." unique_id=1417332063 node_paths=PackedStringArray("sound_high", "sound_low", "door")]
 script = ExtResource("11_8c1p3")
 sound_high = NodePath("../Lights1/High")
 sound_low = NodePath("../Lights1/Low")
 door = NodePath("../BottomDoor")
 
-[node name="1" type="Area2D" parent="Lights2"]
+[node name="1" type="Area2D" parent="Lights2" unique_id=250003636]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(0, -120)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/1" unique_id=1798808130]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/1"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/1" unique_id=1327197239]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="2" type="Area2D" parent="Lights2"]
+[node name="2" type="Area2D" parent="Lights2" unique_id=2092619101]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(48, -96)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/2" unique_id=87087127]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/2"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/2" unique_id=474261314]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="3" type="Area2D" parent="Lights2"]
+[node name="3" type="Area2D" parent="Lights2" unique_id=1574345897]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-56, -80)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/3" unique_id=599349154]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/3"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/3" unique_id=1116967143]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="4" type="Area2D" parent="Lights2"]
+[node name="4" type="Area2D" parent="Lights2" unique_id=1823096892]
 visible = false
 modulate = Color(1, 0, 0, 1)
 position = Vector2(88, -80)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/4" unique_id=628040816]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/4"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/4" unique_id=1626337651]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="5" type="Area2D" parent="Lights2"]
+[node name="5" type="Area2D" parent="Lights2" unique_id=226978445]
 visible = false
 modulate = Color(0, 1, 0, 1)
 position = Vector2(0, -120)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/5" unique_id=2129689572]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/5"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/5" unique_id=1367618593]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="6" type="Area2D" parent="Lights2"]
+[node name="6" type="Area2D" parent="Lights2" unique_id=652182526]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-88, -160)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/6" unique_id=158336840]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/6"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/6" unique_id=994496775]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="7" type="Area2D" parent="Lights2"]
+[node name="7" type="Area2D" parent="Lights2" unique_id=197976827]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(80, -160)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/7"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/7" unique_id=1218003574]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/7"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/7" unique_id=971598626]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="8" type="Area2D" parent="Lights2"]
+[node name="8" type="Area2D" parent="Lights2" unique_id=1150809991]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(24, -104)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/8"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/8" unique_id=1672704304]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/8"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/8" unique_id=1161200944]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="9" type="Area2D" parent="Lights2"]
+[node name="9" type="Area2D" parent="Lights2" unique_id=1462023015]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, -144)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/9"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/9" unique_id=1358256850]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/9"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/9" unique_id=4226830]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="10" type="Area2D" parent="Lights2"]
+[node name="10" type="Area2D" parent="Lights2" unique_id=1394982404]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-24, -104)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/10"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/10" unique_id=1389651149]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/10"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/10" unique_id=394077033]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="11" type="Area2D" parent="Lights2"]
+[node name="11" type="Area2D" parent="Lights2" unique_id=1116272681]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-64, -144)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/11"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/11" unique_id=2077000926]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/11"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/11" unique_id=1057711757]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="12" type="Area2D" parent="Lights2"]
+[node name="12" type="Area2D" parent="Lights2" unique_id=577166408]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(88, -120)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/12"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/12" unique_id=190193711]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/12"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/12" unique_id=1879844055]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="13" type="Area2D" parent="Lights2"]
+[node name="13" type="Area2D" parent="Lights2" unique_id=543706196]
 visible = false
 modulate = Color(1, 0, 0, 1)
 position = Vector2(0, -80)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/13"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/13" unique_id=172978032]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/13"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/13" unique_id=1708303632]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="14" type="Area2D" parent="Lights2"]
+[node name="14" type="Area2D" parent="Lights2" unique_id=736229673]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-64, -24)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/14"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/14" unique_id=815247931]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/14"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/14" unique_id=891845780]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="15" type="Area2D" parent="Lights2"]
+[node name="15" type="Area2D" parent="Lights2" unique_id=461409924]
 visible = false
 modulate = Color(0, 1, 0, 1)
 position = Vector2(48, -152)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/15"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/15" unique_id=674358651]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/15"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/15" unique_id=958438425]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="16" type="Area2D" parent="Lights2"]
+[node name="16" type="Area2D" parent="Lights2" unique_id=1827497778]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-56, -88)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/16"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/16" unique_id=1709263839]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/16"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/16" unique_id=134353820]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="17" type="Area2D" parent="Lights2"]
+[node name="17" type="Area2D" parent="Lights2" unique_id=1131119550]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(64, -128)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/17"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/17" unique_id=1330252798]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/17"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/17" unique_id=1141007025]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="18" type="Area2D" parent="Lights2"]
+[node name="18" type="Area2D" parent="Lights2" unique_id=1019493307]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-32, -152)
@@ -580,15 +582,15 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/18"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/18" unique_id=364967356]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/18"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/18" unique_id=182062979]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="19" type="Area2D" parent="Lights2"]
+[node name="19" type="Area2D" parent="Lights2" unique_id=243497863]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-40, -120.000015)
@@ -597,15 +599,15 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/19"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/19" unique_id=1963056938]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/19"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/19" unique_id=321548128]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="20" type="Area2D" parent="Lights2"]
+[node name="20" type="Area2D" parent="Lights2" unique_id=1631375236]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(3.8146973e-06, -80)
@@ -614,15 +616,15 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/20"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/20" unique_id=708814292]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/20"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/20" unique_id=1769009945]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="21" type="Area2D" parent="Lights2"]
+[node name="21" type="Area2D" parent="Lights2" unique_id=1760504617]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(40, -120)
@@ -631,15 +633,15 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/21"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/21" unique_id=209944160]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/21"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/21" unique_id=1324590104]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="22" type="Area2D" parent="Lights2"]
+[node name="22" type="Area2D" parent="Lights2" unique_id=490898094]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(3.8146973e-06, -160.00002)
@@ -648,30 +650,30 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/22"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/22" unique_id=705271305]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/22"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/22" unique_id=1674041115]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="23" type="Area2D" parent="Lights2"]
+[node name="23" type="Area2D" parent="Lights2" unique_id=1429860248]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(0, -120)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/23"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/23" unique_id=1249260743]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/23"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/23" unique_id=1284214283]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="24" type="Area2D" parent="Lights2"]
+[node name="24" type="Area2D" parent="Lights2" unique_id=948716499]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-80.00001, -80.00001)
@@ -681,15 +683,15 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/24"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/24" unique_id=503410840]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/24"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/24" unique_id=1784805022]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="25" type="Area2D" parent="Lights2"]
+[node name="25" type="Area2D" parent="Lights2" unique_id=80467048]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-40, -160)
@@ -699,15 +701,15 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/25"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/25" unique_id=349402156]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/25"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/25" unique_id=499898208]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="26" type="Area2D" parent="Lights2"]
+[node name="26" type="Area2D" parent="Lights2" unique_id=304639330]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(40, -80)
@@ -717,15 +719,15 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/26"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/26" unique_id=842739277]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/26"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/26" unique_id=1783049685]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="27" type="Area2D" parent="Lights2"]
+[node name="27" type="Area2D" parent="Lights2" unique_id=387773865]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(80, -160)
@@ -735,15 +737,15 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/27"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/27" unique_id=666874075]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/27"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/27" unique_id=1997363170]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="28" type="Area2D" parent="Lights2"]
+[node name="28" type="Area2D" parent="Lights2" unique_id=1267046244]
 visible = false
 modulate = Color(1, 1, 0, 1)
 position = Vector2(7.6293945e-06, -120)
@@ -751,15 +753,15 @@ scale = Vector2(0.99999994, 0.99999994)
 script = ExtResource("10_qs1v0")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/28"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/28" unique_id=1925803202]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/28"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/28" unique_id=728106161]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="29" type="Area2D" parent="Lights2"]
+[node name="29" type="Area2D" parent="Lights2" unique_id=1975882935]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-40.000004, -120.00001)
 rotation = 0.7853982
@@ -768,15 +770,15 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/29"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/29" unique_id=785526976]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/29"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/29" unique_id=1128581628]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="30" type="Area2D" parent="Lights2"]
+[node name="30" type="Area2D" parent="Lights2" unique_id=303606046]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(39.999996, -120)
 rotation = 0.7853982
@@ -785,23 +787,23 @@ script = ExtResource("10_qs1v0")
 change_color = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/30"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights2/30" unique_id=136596806]
 shape = SubResource("RectangleShape2D_8c1p3")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lights2/30"]
+[node name="Sprite2D" type="Sprite2D" parent="Lights2/30" unique_id=1773589266]
 texture = ExtResource("1_lakxl")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="Floor" type="Node2D" parent="."]
+[node name="Floor" type="Node2D" parent="." unique_id=1655416692]
 visible = false
 
-[node name="MainHall" parent="Floor" instance=ExtResource("2_sdvou")]
+[node name="MainHall" parent="Floor" unique_id=1530027589 instance=ExtResource("2_sdvou")]
 position = Vector2(0, 32)
 scale = Vector2(2.4, 0.8)
 to_scene = "MainHall"
 
-[node name="CamControll" parent="Floor" instance=ExtResource("7_81oj1")]
+[node name="CamControll" parent="Floor" unique_id=97645325 instance=ExtResource("7_81oj1")]
 position = Vector2(-9.536743e-07, -120.00001)
 scale = Vector2(11.520812, 7.1546936)
 actions = Array[ExtResource("8_ujop6")]([SubResource("Resource_ujop6")])
@@ -809,7 +811,7 @@ actions_on_exit = Array[ExtResource("8_ujop6")]([SubResource("Resource_cwplk")])
 ingnore_on_text = false
 auto = true
 
-[node name="Lights1" parent="Floor" instance=ExtResource("7_81oj1")]
+[node name="Lights1" parent="Floor" unique_id=493061711 instance=ExtResource("7_81oj1")]
 position = Vector2(0, -119.99999)
 scale = Vector2(4.7988315, 1.5997318)
 actions = Array[ExtResource("8_ujop6")]([SubResource("Resource_qs1v0")])
@@ -818,7 +820,7 @@ auto = true
 one_use = true
 mision = 4
 
-[node name="Lights2" parent="Floor" instance=ExtResource("7_81oj1")]
+[node name="Lights2" parent="Floor" unique_id=989545942 instance=ExtResource("7_81oj1")]
 position = Vector2(0, -119.99999)
 scale = Vector2(4.7988315, 1.5997318)
 actions = Array[ExtResource("8_ujop6")]([SubResource("Resource_8c1p3")])
@@ -827,13 +829,13 @@ auto = true
 one_use = true
 mision = 7
 
-[node name="YSort" type="Node2D" parent="."]
+[node name="YSort" type="Node2D" parent="." unique_id=954782640]
 y_sort_enabled = true
 
-[node name="SpawnPoints" type="Node" parent="."]
+[node name="SpawnPoints" type="Node" parent="." unique_id=1108645043]
 
-[node name="default" type="Node2D" parent="SpawnPoints"]
+[node name="default" type="Node2D" parent="SpawnPoints" unique_id=34624960]
 position = Vector2(0, 8)
 
-[node name="MainHall" type="Node2D" parent="SpawnPoints"]
+[node name="MainHall" type="Node2D" parent="SpawnPoints" unique_id=988142669]
 position = Vector2(0, 8)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://px7jg51e3um8"]
+[gd_scene format=3 uid="uid://px7jg51e3um8"]
 
 [ext_resource type="Script" uid="uid://bxe0ac4dosalm" path="res://Escenas/characters/NPCmovement.gd" id="1_vuukh"]
 [ext_resource type="Texture2D" uid="uid://duvd77bt2xi7q" path="res://Sprites/Waifu/pixilart-sprite (2).png" id="2_igtmp"]
-[ext_resource type="Script" uid="uid://0guhfmqa4ftf" path="res://Escenas/characters/Waifu/animations.gd" id="3_vuukh"]
+[ext_resource type="Script" uid="uid://0guhfmqa4ftf" path="res://Escenas/characters/animations.gd" id="3_vuukh"]
+[ext_resource type="PackedScene" uid="uid://cct05qvivphrt" path="res://Escenas/characters/walksound/walksound.tscn" id="4_0awsg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uexbv"]
 atlas = ExtResource("2_igtmp")
@@ -274,14 +275,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igtmp"]
 size = Vector2(14, 4)
 
-[node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("animation")]
+[node name="npc" type="CharacterBody2D" unique_id=1466344479 node_paths=PackedStringArray("animation")]
 texture_filter = 1
 collision_mask = 0
 script = ExtResource("1_vuukh")
 identifier = 1
 animation = NodePath("AnimatedSprite2D")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("root")]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1837364014 node_paths=PackedStringArray("root")]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_vuukh")
 animation = &"notes"
@@ -289,5 +290,8 @@ frame_progress = 0.7709704
 script = ExtResource("3_vuukh")
 root = NodePath("..")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602421174]
 shape = SubResource("RectangleShape2D_igtmp")
+
+[node name="walksound" parent="." unique_id=905400817 node_paths=PackedStringArray("character") instance=ExtResource("4_0awsg")]
+character = NodePath("..")
