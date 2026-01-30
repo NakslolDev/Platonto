@@ -9,6 +9,7 @@ func func_ready() -> void:
 		if second:
 			Gamestate.current_mision = Gamestate.mision.BLACKROOM_2
 			Actions.change_outfit.emit("b")
+			Gamestate.normal_ropes = true
 		else:
 			Gamestate.current_mision = Gamestate.mision.BLACKROOM_1
 		sync_all()

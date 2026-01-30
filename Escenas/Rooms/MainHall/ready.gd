@@ -7,6 +7,7 @@ func func_ready() -> void:
 		Gamestate.current_mision = Gamestate.mision.FREE
 		Gamestate.card = true
 		Actions.change_outfit.emit("b")
+		Gamestate.normal_ropes = true
 	
 	if Gamestate.current_mision == Gamestate.mision.FOLLOW_SCIENTIST:
 		Actions.enter_black_room_first_ff()

@@ -33,3 +33,5 @@ var waifu_in_center_of_lab := false
 var start_in_middle := false
 
 var entered_black_room_second_time := false
+
+var normal_ropes := false

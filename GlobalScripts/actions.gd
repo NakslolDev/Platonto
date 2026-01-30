@@ -54,6 +54,40 @@ func text_freeze_player_ff():
 func player_push_back_ff():
 	player_push_back.emit()
 
+signal get_animation(chara: char)
+var animation_holder
+
+func face_player_ff(chara: char):
+	
+	var npc_identif := chara
+	
+	var player_pos := await find_char_position(char.Player)
+	
+	var chara_pos := await find_char_position(npc_identif)
+	
+	animated_characters.append(npc_identif)
+	
+	get_animation.emit(npc_identif)
+	
+	var dir := player_pos - chara_pos
+	
+	if abs(dir.x) > 2 * abs(dir.y):
+		
+		if dir.x > 0:
+			play_animation.emit(npc_identif, "idle_right")
+		else:
+			play_animation.emit(npc_identif, "idle_left")
+	
+	else:
+		
+		if dir.y > 0:
+			play_animation.emit(npc_identif, "idle_front")
+		else:
+			play_animation.emit(npc_identif, "idle_back")
+	
+	await text_finished
+	
+	play_animation.emit(npc_identif, animation_holder)
 
 func npc_conected(id: char) -> bool:
 	for characters in move_char.get_connections():
@@ -1460,6 +1494,7 @@ func open_blackroom_door_2():
 	play_animation.emit(char.Player, "idle_right")
 	await get_tree().create_timer(0.5).timeout
 	change_outfit.emit("b")
+	Gamestate.normal_ropes = true
 	get_item.emit()
 	await get_tree().create_timer(0.5).timeout
 	

@@ -5,6 +5,13 @@ extends AnimatedSprite2D
 enum dir { FRONT, BACK, LEFT, RIGHT }
 var direction: dir = dir.FRONT
 
+func _ready():
+	Actions.get_animation.connect(_actions_needs_animation)
+
+func _actions_needs_animation(chara: Actions.char):
+	if chara == root.identifier:
+		Actions.animation_holder = animation
+
 func _process(_delta: float) -> void:
 	if root.animation_running:
 		speed_scale = 1.0

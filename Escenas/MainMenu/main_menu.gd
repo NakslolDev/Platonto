@@ -17,6 +17,7 @@ func restart():
 	Gamestate.in_cup = []
 	Gamestate.waifu_in_center_of_lab = false
 	Gamestate.entered_black_room_second_time = false
+	Gamestate.normal_ropes = false
 	
 	Actions.animated_characters = []
 	Actions.lock_cam = false

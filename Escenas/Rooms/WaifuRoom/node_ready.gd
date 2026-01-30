@@ -28,6 +28,10 @@ func sync_all():
 	Actions.load_character.emit(Actions.char.Waifu, "Waifu", "idle_front")
 	
 	Actions.change_outfit.emit("b")
+	Gamestate.normal_ropes = true
+	
+	Gamestate.open_doors = ["prison_door"]
+	Gamestate.open_cells = [2,3]
 	
 	var main = get_tree().current_scene
 	
@@ -50,9 +54,6 @@ func sync_all():
 	main.off_scene_characters[5]["scene"] = "Exit"
 	main.off_scene_characters[5]["position"] = "GuardControl"
 	main.off_scene_characters[5]["animation"] = &"idle_left"
-	
-	Gamestate.open_doors = ["prison_door", "door_black_room"]
-	Gamestate.open_cells = [2,3]
 	
 	if not main.off_scene_characters.has(6):
 		main.off_scene_characters[6] = {}

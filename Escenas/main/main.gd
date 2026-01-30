@@ -68,7 +68,7 @@ func change_room(room: String):
 
 func load_room(index: int) -> void:
 	
-	#print(current_room, " <- ", last_room)
+	print(current_room, " <- ", last_room)
 	
 	if current_room_instance:
 		current_room_instance.queue_free()

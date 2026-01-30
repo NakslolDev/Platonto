@@ -183,3 +183,7 @@ drugs_ending_04;Solamente para unos pocos segundos[high]
 drugs_ending_05;De haberlo querido realmente, podrias haber aprendido[high]
 drugs_ending_06;A hablar, a comunicarte.[high]..
 drugs_ending_07;Ya lo hiciste una vez, que te impide hacerlo otra vez?[high]
+;
+scientist_confused_01;de donde has sacado esa ropa?[high2]
+;
+exit_guard_friend_01;la salida es por ahi[medium]

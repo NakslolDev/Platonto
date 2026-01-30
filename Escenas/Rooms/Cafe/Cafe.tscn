@@ -30,6 +30,31 @@ method = &"player_push_back_ff"
 method = &"player_push_back_ff"
 metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
 
+[sub_resource type="Resource" id="Resource_pe6sf"]
+script = ExtResource("7_hxv2q")
+method = &"face_player_ff"
+args = [2]
+method = &"face_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_nrtnt"]
+script = ExtResource("7_hxv2q")
+method = &"text_freeze_player_ff"
+method = &"text_freeze_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
+[sub_resource type="Resource" id="Resource_ixf5i"]
+script = ExtResource("8_hxv2q")
+name = "normal_ropes"
+metadata/_custom_type_script = "uid://b5qsucinxeerc"
+
+[sub_resource type="Resource" id="Resource_v0yx5"]
+script = ExtResource("7_hxv2q")
+method = &"face_player_ff"
+args = [4]
+method = &"face_player_ff"
+metadata/_custom_type_script = "uid://dyy6wjgl3kpu"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1vql"]
 size = Vector2(32, 8)
 
@@ -66,11 +91,14 @@ script = ExtResource("8_hxv2q")
 name = "cup"
 metadata/_custom_type_script = "uid://b5qsucinxeerc"
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxv2q"]
-size = Vector2(14, 33)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gx14w"]
 size = Vector2(14, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ywax"]
+size = Vector2(12, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxv2q"]
+size = Vector2(14, 33)
 
 [node name="Cafe" type="Node2D" unique_id=359173936]
 
@@ -119,6 +147,18 @@ mision = 6
 position = Vector2(-184, 36)
 scale = Vector2(2.4, 0.8)
 to_scene = "Exit"
+
+[node name="Scientist" parent="Floor" unique_id=1239773548 instance=ExtResource("6_ubeo4")]
+position = Vector2(-115, -112)
+actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_pe6sf"), SubResource("Resource_nrtnt")])
+text_id = "scientist_confused"
+game_state = Array[ExtResource("8_hxv2q")]([SubResource("Resource_ixf5i")])
+
+[node name="FriendlyMilitar" parent="Floor" unique_id=1258429002 instance=ExtResource("6_ubeo4")]
+position = Vector2(-184, 10)
+actions = Array[ExtResource("7_hxv2q")]([SubResource("Resource_v0yx5"), SubResource("Resource_nrtnt")])
+text_id = "exit_guard_friend"
+game_state = Array[ExtResource("8_hxv2q")]([SubResource("Resource_ixf5i")])
 
 [node name="YSort" type="Node2D" parent="." unique_id=870884082]
 y_sort_enabled = true
@@ -244,19 +284,6 @@ texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(96, 80, 16, 16)
 
-[node name="EatingTableShort" type="StaticBody2D" parent="YSort" unique_id=12456293]
-position = Vector2(-136, -88)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort" unique_id=783299042]
-position = Vector2(0, 6.5)
-shape = SubResource("RectangleShape2D_hxv2q")
-
-[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort" unique_id=1486291570]
-texture = ExtResource("1_w8p8k")
-region_enabled = true
-region_rect = Rect2(144, 48, 16, 48)
-
 [node name="EatingTableLong" type="StaticBody2D" parent="YSort" unique_id=1116833423]
 position = Vector2(-40, -56)
 metadata/_edit_group_ = true
@@ -270,9 +297,59 @@ position = Vector2(8, -8)
 tile_map_data = PackedByteArray("AAD///3/AAAJAAMAAAD///7/AAAJAAQAAAD/////AAAJAAQAAAD//wAAAAAJAAQAAAD//wEAAAAJAAQAAAD//wIAAAAJAAUAAAA=")
 tile_set = ExtResource("2_x1vql")
 
+[node name="EatingTableShort" type="StaticBody2D" parent="YSort" unique_id=12456293]
+position = Vector2(-136, -88)
+
+[node name="Chair" type="StaticBody2D" parent="YSort/EatingTableShort" unique_id=1319308733]
+position = Vector2(8, 4)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort/Chair" unique_id=1560354487]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort/Chair" unique_id=1729604378]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort" unique_id=783299042]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_hxv2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort" unique_id=1486291570]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 48)
+
 [node name="EatingTableShort2" type="StaticBody2D" parent="YSort" unique_id=1823337780]
 position = Vector2(-136, -40)
+
+[node name="Chair" type="StaticBody2D" parent="YSort/EatingTableShort2" unique_id=649068197]
+position = Vector2(-9, -2)
 metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort2/Chair" unique_id=469326881]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort2/Chair" unique_id=1611971537]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair2" type="StaticBody2D" parent="YSort/EatingTableShort2" unique_id=1061061093]
+position = Vector2(7, 9)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort2/Chair2" unique_id=991287876]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort2/Chair2" unique_id=384514611]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort2" unique_id=1570509369]
 position = Vector2(0, 6.5)
@@ -285,7 +362,32 @@ region_rect = Rect2(144, 48, 16, 48)
 
 [node name="EatingTableShort3" type="StaticBody2D" parent="YSort" unique_id=1182697283]
 position = Vector2(-88, -88)
+
+[node name="Chair" type="StaticBody2D" parent="YSort/EatingTableShort3" unique_id=1478419785]
+position = Vector2(7, -1)
 metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort3/Chair" unique_id=186357974]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort3/Chair" unique_id=441440871]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair2" type="StaticBody2D" parent="YSort/EatingTableShort3" unique_id=747657586]
+position = Vector2(-6, 7)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort3/Chair2" unique_id=1418677337]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort3/Chair2" unique_id=1514988640]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort3" unique_id=1201171403]
 position = Vector2(0, 6.5)
@@ -298,7 +400,45 @@ region_rect = Rect2(144, 48, 16, 48)
 
 [node name="EatingTableShort4" type="StaticBody2D" parent="YSort" unique_id=899502527]
 position = Vector2(-88, -40)
+
+[node name="Chair" type="StaticBody2D" parent="YSort/EatingTableShort4" unique_id=440367484]
+position = Vector2(7, -2)
 metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort4/Chair" unique_id=1457797809]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort4/Chair" unique_id=234657624]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair2" type="StaticBody2D" parent="YSort/EatingTableShort4" unique_id=1999620780]
+position = Vector2(7, 9)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort4/Chair2" unique_id=1155979775]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort4/Chair2" unique_id=2001678199]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair4" type="StaticBody2D" parent="YSort/EatingTableShort4" unique_id=1204964270]
+position = Vector2(-6, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort4/Chair4" unique_id=1007861167]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort4/Chair4" unique_id=1850470039]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort4" unique_id=1143595868]
 position = Vector2(0, 6.5)
@@ -311,7 +451,19 @@ region_rect = Rect2(144, 48, 16, 48)
 
 [node name="EatingTableShort5" type="StaticBody2D" parent="YSort" unique_id=655819351]
 position = Vector2(48, -88)
+
+[node name="Chair" type="StaticBody2D" parent="YSort/EatingTableShort5" unique_id=1630780144]
+position = Vector2(8, 1)
 metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort5/Chair" unique_id=489148414]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort5/Chair" unique_id=1570923663]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort5" unique_id=670215401]
 position = Vector2(0, 6.5)
@@ -324,7 +476,19 @@ region_rect = Rect2(144, 48, 16, 48)
 
 [node name="EatingTableShort6" type="StaticBody2D" parent="YSort" unique_id=794372688]
 position = Vector2(48, -40)
+
+[node name="Chair" type="StaticBody2D" parent="YSort/EatingTableShort6" unique_id=1290100602]
+position = Vector2(15, -9)
 metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/EatingTableShort6/Chair" unique_id=1082604550]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort6/Chair" unique_id=1165179453]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/EatingTableShort6" unique_id=813802165]
 position = Vector2(0, 6.5)
@@ -360,6 +524,162 @@ shape = SubResource("RectangleShape2D_hxv2q")
 texture = ExtResource("1_w8p8k")
 region_enabled = true
 region_rect = Rect2(144, 48, 16, 48)
+
+[node name="Chair" type="StaticBody2D" parent="YSort" unique_id=589357914]
+position = Vector2(-151, -92)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair" unique_id=1459613984]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair" unique_id=61393696]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair2" type="StaticBody2D" parent="YSort" unique_id=1137527275]
+position = Vector2(-120, -46)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair2" unique_id=664310953]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair2" unique_id=2031648965]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair3" type="StaticBody2D" parent="YSort" unique_id=2134049357]
+position = Vector2(-74, -75)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair3" unique_id=562281640]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair3" unique_id=464020354]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair4" type="StaticBody2D" parent="YSort" unique_id=664394687]
+position = Vector2(66, -30)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair4" unique_id=1979658140]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair4" unique_id=162705755]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair5" type="StaticBody2D" parent="YSort" unique_id=667622125]
+position = Vector2(87, -91)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair5" unique_id=1063310096]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair5" unique_id=1308315534]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair6" type="StaticBody2D" parent="YSort" unique_id=2067044292]
+position = Vector2(82, -36)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair6" unique_id=1398035590]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair6" unique_id=1719489917]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair12" type="StaticBody2D" parent="YSort" unique_id=1569194669]
+position = Vector2(104, -45)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair12" unique_id=360511297]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair12" unique_id=1235708191]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair7" type="StaticBody2D" parent="YSort" unique_id=2094420042]
+position = Vector2(-32, -70)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair7" unique_id=67614211]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair7" unique_id=385194637]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair8" type="StaticBody2D" parent="YSort" unique_id=425754271]
+position = Vector2(-31, -90)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair8" unique_id=755399931]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair8" unique_id=919992404]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair9" type="StaticBody2D" parent="YSort" unique_id=326515299]
+position = Vector2(-47, -78)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair9" unique_id=1532388507]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair9" unique_id=860900626]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair10" type="StaticBody2D" parent="YSort" unique_id=1609559219]
+position = Vector2(-55, -49)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair10" unique_id=917067367]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair10" unique_id=1692593851]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
+
+[node name="Chair11" type="StaticBody2D" parent="YSort" unique_id=1780015861]
+position = Vector2(-21, -37)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Chair11" unique_id=1211356735]
+texture = ExtResource("1_w8p8k")
+region_enabled = true
+region_rect = Rect2(128, 80, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Chair11" unique_id=46865659]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_0ywax")
 
 [node name="SpawnPoints" type="Node" parent="." unique_id=1422253190]
 

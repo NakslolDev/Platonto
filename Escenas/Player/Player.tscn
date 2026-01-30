@@ -22,7 +22,7 @@ shape = SubResource("RectangleShape2D_4pr6r")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1567605552 node_paths=PackedStringArray("root")]
 position = Vector2(0, -6)
 sprite_frames = ExtResource("2_4pr6r")
-animation = &"idle_front"
+animation = &"walk_left"
 script = ExtResource("3_ek8r7")
 root = NodePath("..")
 
@@ -41,5 +41,3 @@ shape = SubResource("RectangleShape2D_4pr6r")
 [node name="walksound" parent="." unique_id=905400817 node_paths=PackedStringArray("character") instance=ExtResource("5_cnmht")]
 volume_db = -10.0
 character = NodePath("..")
-walking_time = 0.4
-running_time = 0.3

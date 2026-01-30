@@ -56,6 +56,9 @@ texture = ExtResource("1_oks8a")
 9:4/0 = 0
 9:3/0 = 0
 9:5/0 = 0
+5:1/0 = 0
+5:0/0 = 0
+6:0/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1
